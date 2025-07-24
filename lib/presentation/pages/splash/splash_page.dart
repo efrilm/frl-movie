@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../common/constant/app_constant.dart';
 import '../../../common/resource/resource.dart';
 import '../../components/assets/assets.gen.dart';
+import '../../routes/app_router.gr.dart';
 
 @RoutePage()
 class SplashPage extends StatefulWidget {
@@ -28,7 +29,9 @@ class _SplashPageState extends State<SplashPage> {
     Future.delayed(const Duration(seconds: 3), onNext());
   }
 
-  onNext() {}
+  onNext() {
+    context.router.replaceAll([MainRoute()]);
+  }
 
   @override
   void initState() {
