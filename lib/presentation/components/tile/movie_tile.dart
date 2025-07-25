@@ -14,18 +14,19 @@ class MovieTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(right: 12),
+    return SizedBox(
       width: 120,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
               AppNetworkImage(
                 url: getPosterUrl(movie.posterPath),
-                height: 160,
-                width: 120,
+                height: 200,
+                width: double.infinity,
                 borderRadius: 12,
+                fit: BoxFit.fill,
               ),
             ],
           ),

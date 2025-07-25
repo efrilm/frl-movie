@@ -15,6 +15,9 @@ class MovieState with _$MovieState {
     required List<Movie> upcomings,
     required Option<MovieFailure> failureOptionUpcoming,
     @Default(false) bool isFetchingUpcoming,
+    required List<Movie> searchResults,
+    required Option<MovieFailure> failureOptionSearch,
+    @Default(false) bool isSearching,
   }) = _MovieState;
 
   factory MovieState.initial() => MovieState(
@@ -26,5 +29,7 @@ class MovieState with _$MovieState {
     failureOptionTopRated: none(),
     upcomings: [],
     failureOptionUpcoming: none(),
+    searchResults: [],
+    failureOptionSearch: none(),
   );
 }

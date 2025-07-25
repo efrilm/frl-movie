@@ -6,4 +6,5 @@ class MovieEvent with _$MovieEvent {
   const factory MovieEvent.fetchedNowPlaying(int page) = _FetchedNowPlaying;
   const factory MovieEvent.fetchedTopRated(int page) = _FetchedTopRated;
   const factory MovieEvent.fetchedUpcoming(int page) = _FetchedUpcoming;
+  const factory MovieEvent.searched(String query) = _Searched;
 }

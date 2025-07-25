@@ -142,9 +142,32 @@ class MovieRemoteDataSource {
     } on ApiFailure catch (e) {
       log('fetchCertification', name: _logName, error: e);
       return DC.error(MovieFailure.serverError(e));
-    } catch (e, s) {
-      log('fetchCertification', name: _logName, error: e, stackTrace: s);
-      return DC.error(const MovieFailure.unexpectedError());
+    }
+  }
+
+  Future<DC<MovieFailure, List<MovieDto>>> search({
+    required String query,
+    int page = 1,
+  }) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.movieSearch,
+        params: {'query': query, 'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => MovieDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const MovieFailure.movieEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchSearchMovie', name: _logName, error: e);
+
+      return DC.error(MovieFailure.serverError(e));
     }
   }
 }

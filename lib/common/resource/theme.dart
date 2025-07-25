@@ -27,6 +27,7 @@ ThemeData getApplicationTheme() => ThemeData(
     showUnselectedLabels: false,
     type: BottomNavigationBarType.fixed,
   ),
+  appBarTheme: AppBarTheme(backgroundColor: AppColor.dark.shade600),
   inputDecorationTheme: InputDecorationTheme(
     filled: true,
     fillColor: AppColor.dark.shade600,

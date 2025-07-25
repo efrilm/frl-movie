@@ -40,7 +40,12 @@ class MoviePopular extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 16, left: 20),
                     child: Row(
                       children: state.populars
-                          .map((movie) => MovieTile(movie: movie))
+                          .map(
+                            (movie) => Padding(
+                              padding: const EdgeInsets.only(right: 12),
+                              child: MovieTile(movie: movie),
+                            ),
+                          )
                           .toList(),
                     ),
                   ),

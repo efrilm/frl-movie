@@ -1,9 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
+import '../../../../../../common/resource/resource.dart';
 import '../../../../../components/button/button.dart';
 import '../../../../../components/field/field.dart';
 import '../../../../../components/spacer/spacer.dart';
+import '../../../../../routes/app_router.gr.dart';
 
 class MovieAppbar extends StatelessWidget implements PreferredSizeWidget {
   const MovieAppbar({super.key});
@@ -20,7 +24,13 @@ class MovieAppbar extends StatelessWidget implements PreferredSizeWidget {
                 height: 44,
                 child: AppTextFormField(
                   hintText: 'Search movie...',
-                  prefixIcon: Icons.search,
+                  prefixIcon: LineIcon(
+                    Icons.search,
+                    color: AppColor.grey.shade600,
+                    size: 20,
+                  ),
+                  readOnly: true,
+                  onTap: () => context.router.push(MovieSearchRoute()),
                 ),
               ),
             ),

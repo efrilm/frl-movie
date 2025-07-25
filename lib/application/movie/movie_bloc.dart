@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -94,6 +96,23 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
         );
 
         emit(data.copyWith(isFetchingUpcoming: false));
+      },
+      searched: (e) async {
+        if (e.query.trim().isEmpty) {
+          emit(state.copyWith(searchResults: [], isSearching: false));
+          return;
+        }
+
+        emit(state.copyWith(isSearching: true, failureOptionSearch: none()));
+
+        final result = await _movieRepository.search(query: e.query, page: 1);
+
+        final newState = result.fold(
+          (f) => state.copyWith(failureOptionSearch: some(f)),
+          (movies) => state.copyWith(searchResults: movies),
+        );
+
+        emit(newState.copyWith(isSearching: false));
       },
     );
   }
