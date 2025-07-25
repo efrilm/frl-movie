@@ -15,11 +15,10 @@ import 'package:frl_movie/presentation/pages/main/pages/explore/explore_page.dar
     as _i1;
 import 'package:frl_movie/presentation/pages/main/pages/home/home_page.dart'
     as _i2;
-import 'package:frl_movie/presentation/pages/main/pages/notification/notification_page.dart'
-    as _i4;
 import 'package:frl_movie/presentation/pages/main/pages/profile/profile_page.dart'
-    as _i5;
-import 'package:frl_movie/presentation/pages/splash/splash_page.dart' as _i6;
+    as _i4;
+import 'package:frl_movie/presentation/pages/main/pages/tv/tv_page.dart' as _i6;
+import 'package:frl_movie/presentation/pages/splash/splash_page.dart' as _i5;
 
 /// generated route for
 /// [_i1.ExplorePage]
@@ -70,23 +69,7 @@ class MainRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.NotificationPage]
-class NotificationRoute extends _i7.PageRouteInfo<void> {
-  const NotificationRoute({List<_i7.PageRouteInfo>? children})
-    : super(NotificationRoute.name, initialChildren: children);
-
-  static const String name = 'NotificationRoute';
-
-  static _i7.PageInfo page = _i7.PageInfo(
-    name,
-    builder: (data) {
-      return const _i4.NotificationPage();
-    },
-  );
-}
-
-/// generated route for
-/// [_i5.ProfilePage]
+/// [_i4.ProfilePage]
 class ProfileRoute extends _i7.PageRouteInfo<void> {
   const ProfileRoute({List<_i7.PageRouteInfo>? children})
     : super(ProfileRoute.name, initialChildren: children);
@@ -96,13 +79,13 @@ class ProfileRoute extends _i7.PageRouteInfo<void> {
   static _i7.PageInfo page = _i7.PageInfo(
     name,
     builder: (data) {
-      return const _i5.ProfilePage();
+      return const _i4.ProfilePage();
     },
   );
 }
 
 /// generated route for
-/// [_i6.SplashPage]
+/// [_i5.SplashPage]
 class SplashRoute extends _i7.PageRouteInfo<void> {
   const SplashRoute({List<_i7.PageRouteInfo>? children})
     : super(SplashRoute.name, initialChildren: children);
@@ -112,7 +95,23 @@ class SplashRoute extends _i7.PageRouteInfo<void> {
   static _i7.PageInfo page = _i7.PageInfo(
     name,
     builder: (data) {
-      return const _i6.SplashPage();
+      return const _i5.SplashPage();
+    },
+  );
+}
+
+/// generated route for
+/// [_i6.TvPage]
+class TvRoute extends _i7.PageRouteInfo<void> {
+  const TvRoute({List<_i7.PageRouteInfo>? children})
+    : super(TvRoute.name, initialChildren: children);
+
+  static const String name = 'TvRoute';
+
+  static _i7.PageInfo page = _i7.PageInfo(
+    name,
+    builder: (data) {
+      return const _i6.TvPage();
     },
   );
 }

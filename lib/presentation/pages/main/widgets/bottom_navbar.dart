@@ -29,14 +29,14 @@ class _MainBottomNavbarState extends State<MainBottomNavbar> {
           label: 'Home',
         ),
         BottomNavigationBarItem(
+          icon: LineIcon(LineIcons.television),
+          tooltip: 'Television',
+          label: 'Television',
+        ),
+        BottomNavigationBarItem(
           icon: LineIcon(LineIcons.cubes),
           tooltip: 'Explore',
           label: 'Explore',
-        ),
-        BottomNavigationBarItem(
-          icon: LineIcon(LineIcons.bell),
-          tooltip: 'Notification',
-          label: 'Notification',
         ),
         BottomNavigationBarItem(
           icon: LineIcon(LineIcons.userAlt),

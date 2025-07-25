@@ -11,12 +11,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter.tabBar(
-      routes: [
-        HomeRoute(),
-        ExploreRoute(),
-        NotificationRoute(),
-        ProfileRoute(),
-      ],
+      routes: [HomeRoute(), TvRoute(), ExploreRoute(), ProfileRoute()],
       physics: const NeverScrollableScrollPhysics(),
       builder: (context, child, pageController) {
         final tabsRouter = AutoTabsRouter.of(context);

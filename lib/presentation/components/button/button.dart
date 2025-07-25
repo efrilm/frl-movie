@@ -5,3 +5,4 @@ import '../../../common/resource/resource.dart';
 import '../spacer/spacer.dart';
 
 part 'elevated_button.dart';
+part 'outlined_button.dart';

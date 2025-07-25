@@ -1,7 +1,7 @@
 part of 'button.dart';
 
-class AppElevatedButton extends StatelessWidget {
-  const AppElevatedButton({
+class AppOutlinedButton extends StatelessWidget {
+  const AppOutlinedButton({
     super.key,
     required this.text,
     this.icon,
@@ -16,20 +16,23 @@ class AppElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
+      child: OutlinedButton(
+        style: OutlinedButton.styleFrom(
           padding: EdgeInsets.symmetric(horizontal: 10),
         ),
         onPressed: onPressed,
         child: Row(
           children: [
             if (icon != null) ...[
-              LineIcon(icon!, color: AppColor.white),
+              LineIcon(icon!, color: AppColor.primary),
               SpacerWidth(8),
             ],
             Text(
               text,
-              style: AppStyle.md.copyWith(fontWeight: FontWeight.w600),
+              style: AppStyle.md.copyWith(
+                color: AppColor.primary,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ],
         ),
