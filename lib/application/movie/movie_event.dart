@@ -10,5 +10,8 @@ class MovieEvent with _$MovieEvent {
       _FetchedTopRated;
   const factory MovieEvent.fetchedUpcoming({@Default(false) bool isRefresh}) =
       _FetchedUpcoming;
-  const factory MovieEvent.searched(String query) = _Searched;
+  const factory MovieEvent.searched(
+    String query, {
+    @Default(false) bool isRefresh,
+  }) = _Searched;
 }

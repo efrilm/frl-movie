@@ -24,6 +24,8 @@ class MovieState with _$MovieState {
     @Default(false) bool hasReachedMaxPopular,
     @Default(1) int pageUpcoming,
     @Default(false) bool hasReachedMaxUpcoming,
+    @Default(1) int pageSearch,
+    @Default(false) bool hasReachedMaxSearch,
   }) = _MovieState;
 
   factory MovieState.initial() => MovieState(

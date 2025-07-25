@@ -107,16 +107,21 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
           return;
         }
 
-        emit(state.copyWith(isSearching: true, failureOptionSearch: none()));
+        var newState = state;
 
-        final result = await _movieRepository.search(query: e.query, page: 1);
+        if (e.isRefresh) {
+          newState = state.copyWith(isSearching: true);
 
-        final newState = result.fold(
-          (f) => state.copyWith(failureOptionSearch: some(f)),
-          (movies) => state.copyWith(searchResults: movies),
+          emit(newState);
+        }
+
+        newState = await _mapFetchedToState(
+          state,
+          e.query,
+          isRefresh: e.isRefresh,
         );
 
-        emit(newState.copyWith(isSearching: false));
+        emit(newState);
       },
     );
   }
@@ -237,5 +242,53 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
         }
       },
     );
+  }
+
+  Future<MovieState> _mapFetchedToState(
+    MovieState state,
+    String query, {
+    bool isRefresh = false,
+  }) async {
+    state = state.copyWith(isSearching: false);
+
+    if (state.hasReachedMaxSearch &&
+        state.searchResults.isNotEmpty &&
+        !isRefresh) {
+      return state;
+    }
+
+    if (isRefresh) {
+      state = state.copyWith(
+        pageSearch: 1,
+        failureOptionSearch: none(),
+        hasReachedMaxSearch: false,
+        searchResults: [],
+      );
+    }
+
+    final failureOrMessages = await _movieRepository.search(
+      query: query,
+      page: state.pageSearch,
+    );
+
+    state = failureOrMessages.fold(
+      (f) {
+        if (f == const MovieFailure.movieEmpty() &&
+            state.searchResults.isNotEmpty) {
+          return state.copyWith(hasReachedMaxSearch: true);
+        }
+        return state.copyWith(failureOptionSearch: optionOf(f));
+      },
+      (movies) {
+        return state.copyWith(
+          searchResults: List.from(state.searchResults)..addAll(movies),
+          failureOptionSearch: none(),
+          pageSearch: state.pageSearch + 1,
+          hasReachedMaxSearch: movies.length < 20,
+        );
+      },
+    );
+
+    return state;
   }
 }

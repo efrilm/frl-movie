@@ -23,6 +23,7 @@ class MovieSearchPage extends StatefulWidget implements AutoRouteWrapper {
 
 class _MovieSearchPageState extends State<MovieSearchPage> {
   final TextEditingController controller = TextEditingController();
+  final ScrollController scrollController = ScrollController();
   final FocusNode focusNode = FocusNode();
   Timer? debounce;
 
@@ -30,7 +31,9 @@ class _MovieSearchPageState extends State<MovieSearchPage> {
     if (debounce?.isActive ?? false) debounce!.cancel();
 
     debounce = Timer(const Duration(milliseconds: 500), () {
-      context.read<MovieBloc>().add(MovieEvent.searched(query));
+      context.read<MovieBloc>().add(
+        MovieEvent.searched(query, isRefresh: true),
+      );
     });
   }
 
@@ -57,19 +60,33 @@ class _MovieSearchPageState extends State<MovieSearchPage> {
           }
           return state.failureOptionSearch.fold(
             () {
-              return GridView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                itemCount: state.searchResults.length,
-                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 200,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 8,
-                  childAspectRatio: 0.6,
-                ),
-                itemBuilder: (context, index) {
-                  final movie = state.searchResults[index];
-                  return MovieTile(movie: movie);
+              return NotificationListener<ScrollNotification>(
+                onNotification: (notification) {
+                  if (notification is ScrollEndNotification &&
+                      scrollController.position.extentAfter == 0) {
+                    context.read<MovieBloc>().add(
+                      MovieEvent.searched(controller.text),
+                    );
+                    return true;
+                  }
+
+                  return true;
                 },
+                child: GridView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  itemCount: state.searchResults.length,
+                  controller: scrollController,
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 200,
+                    mainAxisSpacing: 8,
+                    crossAxisSpacing: 8,
+                    childAspectRatio: 0.6,
+                  ),
+                  itemBuilder: (context, index) {
+                    final movie = state.searchResults[index];
+                    return MovieTile(movie: movie);
+                  },
+                ),
               );
             },
             (f) => Center(
