@@ -37,5 +37,6 @@ class MovieDto with _$MovieDto {
     adult: adult ?? false,
     genreIds: genreIds ?? const [],
     popularity: popularity ?? 0,
+    certification: 'NR',
   );
 }

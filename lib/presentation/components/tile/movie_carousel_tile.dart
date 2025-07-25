@@ -51,7 +51,10 @@ class MovieCarouselTile extends StatelessWidget {
             alignment: WrapAlignment.center,
             spacing: 8,
             runSpacing: 8,
-            children: [tag('NR'), tag('${roundRating(movie.voteAverage)} ⭐')],
+            children: [
+              tag(movie.certification ?? "NR"),
+              tag('${roundRating(movie.voteAverage)} ⭐'),
+            ],
           ),
         ],
       ],

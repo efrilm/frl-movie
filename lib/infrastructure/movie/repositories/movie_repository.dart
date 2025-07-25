@@ -39,13 +39,26 @@ class MovieRepository implements IMovieRepository {
   }) async {
     try {
       final result = await _remoteDataSource.fetchNowPlaying(page: page);
+
       if (result.hasError) {
         return left(result.error!);
       }
 
-      final movie = result.data!.map((item) => item.toDomain()).toList();
+      final dtos = result.data!;
 
-      return right(movie);
+      final moviesWithCert = await Future.wait(
+        dtos.map((dto) async {
+          final certResult = await _remoteDataSource.fetchCertification(
+            movieId: dto.id ?? 0,
+          );
+
+          final certification = certResult.hasData ? certResult.data! : 'NR';
+
+          return dto.toDomain().copyWith(certification: certification);
+        }),
+      );
+
+      return right(moviesWithCert);
     } catch (e, s) {
       log('getNowPlayingMovie', name: _logName, error: e, stackTrace: s);
 

@@ -30,6 +30,7 @@ mixin _$Movie {
   String get title => throw _privateConstructorUsedError;
   double get voteAverage => throw _privateConstructorUsedError;
   int get voteCount => throw _privateConstructorUsedError;
+  String? get certification => throw _privateConstructorUsedError;
 
   /// Create a copy of Movie
   /// with the given fields replaced by the non-null parameter values.
@@ -56,6 +57,7 @@ abstract class $MovieCopyWith<$Res> {
     String title,
     double voteAverage,
     int voteCount,
+    String? certification,
   });
 }
 
@@ -87,6 +89,7 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
     Object? title = null,
     Object? voteAverage = null,
     Object? voteCount = null,
+    Object? certification = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -142,6 +145,10 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
                 ? _value.voteCount
                 : voteCount // ignore: cast_nullable_to_non_nullable
                       as int,
+            certification: freezed == certification
+                ? _value.certification
+                : certification // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -170,6 +177,7 @@ abstract class _$$MovieImplCopyWith<$Res> implements $MovieCopyWith<$Res> {
     String title,
     double voteAverage,
     int voteCount,
+    String? certification,
   });
 }
 
@@ -200,6 +208,7 @@ class __$$MovieImplCopyWithImpl<$Res>
     Object? title = null,
     Object? voteAverage = null,
     Object? voteCount = null,
+    Object? certification = freezed,
   }) {
     return _then(
       _$MovieImpl(
@@ -255,6 +264,10 @@ class __$$MovieImplCopyWithImpl<$Res>
             ? _value.voteCount
             : voteCount // ignore: cast_nullable_to_non_nullable
                   as int,
+        certification: freezed == certification
+            ? _value.certification
+            : certification // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -277,6 +290,7 @@ class _$MovieImpl extends _Movie {
     required this.title,
     required this.voteAverage,
     required this.voteCount,
+    this.certification,
   }) : _genreIds = genreIds,
        super._();
 
@@ -312,10 +326,12 @@ class _$MovieImpl extends _Movie {
   final double voteAverage;
   @override
   final int voteCount;
+  @override
+  final String? certification;
 
   @override
   String toString() {
-    return 'Movie(id: $id, adult: $adult, backdropPath: $backdropPath, genreIds: $genreIds, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, title: $title, voteAverage: $voteAverage, voteCount: $voteCount)';
+    return 'Movie(id: $id, adult: $adult, backdropPath: $backdropPath, genreIds: $genreIds, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, title: $title, voteAverage: $voteAverage, voteCount: $voteCount, certification: $certification)';
   }
 
   @override
@@ -344,7 +360,9 @@ class _$MovieImpl extends _Movie {
             (identical(other.voteAverage, voteAverage) ||
                 other.voteAverage == voteAverage) &&
             (identical(other.voteCount, voteCount) ||
-                other.voteCount == voteCount));
+                other.voteCount == voteCount) &&
+            (identical(other.certification, certification) ||
+                other.certification == certification));
   }
 
   @override
@@ -363,6 +381,7 @@ class _$MovieImpl extends _Movie {
     title,
     voteAverage,
     voteCount,
+    certification,
   );
 
   /// Create a copy of Movie
@@ -389,6 +408,7 @@ abstract class _Movie extends Movie {
     required final String title,
     required final double voteAverage,
     required final int voteCount,
+    final String? certification,
   }) = _$MovieImpl;
   const _Movie._() : super._();
 
@@ -418,6 +438,8 @@ abstract class _Movie extends Movie {
   double get voteAverage;
   @override
   int get voteCount;
+  @override
+  String? get certification;
 
   /// Create a copy of Movie
   /// with the given fields replaced by the non-null parameter values.

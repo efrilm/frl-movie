@@ -109,4 +109,42 @@ class MovieRemoteDataSource {
       return DC.error(MovieFailure.serverError(e));
     }
   }
+
+  Future<DC<MovieFailure, String>> fetchCertification({
+    required int movieId,
+  }) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath().movieReleaseDate(movieId),
+      );
+
+      final results = response.data['results'] as List?;
+
+      if (results == null || results.isEmpty) {
+        return DC.data('NR');
+      }
+
+      final usRelease = results.firstWhere(
+        (e) => e['iso_3166_1'] == 'ID',
+        orElse: () => null,
+      );
+
+      final releaseDates = usRelease?['release_dates'] as List?;
+
+      final cert =
+          releaseDates?.firstWhere(
+                (e) => (e['certification'] as String?)?.isNotEmpty == true,
+                orElse: () => null,
+              )?['certification']
+              as String?;
+
+      return DC.data(cert ?? 'NR');
+    } on ApiFailure catch (e) {
+      log('fetchCertification', name: _logName, error: e);
+      return DC.error(MovieFailure.serverError(e));
+    } catch (e, s) {
+      log('fetchCertification', name: _logName, error: e, stackTrace: s);
+      return DC.error(const MovieFailure.unexpectedError());
+    }
+  }
 }

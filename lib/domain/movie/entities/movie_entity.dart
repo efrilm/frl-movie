@@ -18,5 +18,6 @@ class Movie with _$Movie {
     required String title,
     required double voteAverage,
     required int voteCount,
+    String? certification,
   }) = _Movie;
 }
