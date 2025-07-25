@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../components/section/section.dart';
-import '../../../../../components/tile/tv_card.dart';
+import '../../../../../components/tile/tv_tile.dart';
 
 class TvPopular extends StatelessWidget {
   const TvPopular({super.key});

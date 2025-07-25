@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
+part of 'shimmer.dart';
 
 class ShimmerWidget extends StatelessWidget {
   final double width;
@@ -9,7 +8,7 @@ class ShimmerWidget extends StatelessWidget {
     super.key,
     this.width = 40,
     this.height = 40,
-    this.radius = 10,
+    this.radius = 12,
   });
 
   @override

@@ -25,6 +25,8 @@ class ApiClient {
 
   ApiClient(this._dio, this._env) {
     _dio.options.baseUrl = _env.baseUrl;
+    _dio.options.headers = {'Content-Type': 'application/json'};
+    _dio.options.queryParameters = {"api_key": _env.apiKey};
     _dio.options.connectTimeout = const Duration(seconds: 20);
     _dio.interceptors.add(BadNetworkErrorInterceptor());
     _dio.interceptors.add(BadRequestErrorInterceptor());

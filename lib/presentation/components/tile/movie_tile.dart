@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
+import '../../../common/function/app_function.dart';
 import '../../../common/resource/resource.dart';
+import '../../../domain/movie/movie.dart';
 import '../image/image.dart';
 import '../spacer/spacer.dart';
 
 class MovieTile extends StatelessWidget {
-  const MovieTile({super.key});
+  final Movie movie;
+  const MovieTile({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +19,15 @@ class MovieTile extends StatelessWidget {
       width: 120,
       child: Column(
         children: [
-          AppNetworkImage(
-            url: "https://i.imgur.com/EHyR2nP.png",
-            height: 160,
-            width: 120,
-            borderRadius: 12,
+          Stack(
+            children: [
+              AppNetworkImage(
+                url: getPosterUrl(movie.posterPath),
+                height: 160,
+                width: 120,
+                borderRadius: 12,
+              ),
+            ],
           ),
           SpacerHeight(10),
           Row(
@@ -29,7 +36,7 @@ class MovieTile extends StatelessWidget {
               SpacerWidth(4),
               Expanded(
                 child: Text(
-                  'Demon Slyer',
+                  movie.title,
                   style: AppStyle.sm.copyWith(
                     fontWeight: FontWeight.w500,
                     overflow: TextOverflow.ellipsis,
@@ -41,10 +48,9 @@ class MovieTile extends StatelessWidget {
           ),
           SpacerHeight(6),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text('9.2 ⭐', style: AppStyle.xs),
-              Text('2h 30m', style: AppStyle.xs),
+              Text('${roundRating(movie.voteAverage)} ⭐', style: AppStyle.xs),
             ],
           ),
         ],

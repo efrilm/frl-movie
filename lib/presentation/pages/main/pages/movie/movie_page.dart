@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../application/movie/movie_bloc.dart';
+import '../../../../../injection.dart';
 import '../../../../components/spacer/spacer.dart';
 import 'widgets/appbar.dart';
 import 'widgets/now_playing.dart';
@@ -9,7 +12,7 @@ import 'widgets/top_rated_movie.dart';
 import 'widgets/upcoming_movie.dart';
 
 @RoutePage()
-class MoviePage extends StatelessWidget {
+class MoviePage extends StatelessWidget implements AutoRouteWrapper {
   const MoviePage({super.key});
 
   @override
@@ -29,4 +32,10 @@ class MoviePage extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Widget wrappedRoute(BuildContext context) => BlocProvider(
+    create: (_) => getIt<MovieBloc>()..add(MovieEvent.fetchedPopular(1)),
+    child: this,
+  );
 }
