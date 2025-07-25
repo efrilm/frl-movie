@@ -22,11 +22,11 @@ class MoviePage extends StatelessWidget implements AutoRouteWrapper {
       body: ListView(
         children: [
           MovieNowPlaying(),
+          MoviePopular(),
+          SpacerHeight(20),
           MovieTopRated(),
           SpacerHeight(20),
           MovieUpcoming(),
-          SpacerHeight(20),
-          MoviePopular(),
           SpacerHeight(60),
         ],
       ),
@@ -37,7 +37,8 @@ class MoviePage extends StatelessWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) => BlocProvider(
     create: (_) => getIt<MovieBloc>()
       ..add(MovieEvent.fetchedNowPlaying(1))
-      ..add(MovieEvent.fetchedPopular(1)),
+      ..add(MovieEvent.fetchedPopular(1))
+      ..add(MovieEvent.fetchedTopRated(1)),
     child: this,
   );
 }

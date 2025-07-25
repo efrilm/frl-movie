@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../application/movie/movie_bloc.dart';
 import '../../../../../components/section/section.dart';
+import '../../../../../components/shimmer/shimmer.dart';
+import '../../../../../components/tile/movie_tile.dart';
 
 class MovieTopRated extends StatelessWidget {
   const MovieTopRated({super.key});
@@ -13,12 +17,45 @@ class MovieTopRated extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SectionTitle(title: 'Top Rated Movie'),
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 16, left: 20),
-            child: Row(children: []),
-          ),
+        BlocBuilder<MovieBloc, MovieState>(
+          builder: (context, state) {
+            return state.failureOptionTopRated.fold(
+              () {
+                if (state.isFetchingTopRated) {
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const NeverScrollableScrollPhysics(),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 16, left: 20),
+                      child: Row(
+                        children: List.generate(3, (index) => MovieShimmer()),
+                      ),
+                    ),
+                  );
+                }
+                return SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 16, left: 20),
+                    child: Row(
+                      children: state.topRateds
+                          .map((movie) => MovieTile(movie: movie))
+                          .toList(),
+                    ),
+                  ),
+                );
+              },
+              (f) => Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Center(
+                  child: f.maybeMap(
+                    orElse: () => Text("Error has occurred"),
+                    movieEmpty: (_) => Text('No Data'),
+                  ),
+                ),
+              ),
+            );
+          },
         ),
       ],
     );

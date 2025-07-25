@@ -55,6 +55,26 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
         emit(data.copyWith(isFetchingNowPlaying: false));
       },
+      fetchedTopRated: (e) async {
+        emit(
+          state.copyWith(
+            isFetchingTopRated: true,
+            failureOptionTopRated: none(),
+          ),
+        );
+
+        final failureOrMovie = await _movieRepository.getTopRated(page: e.page);
+
+        var data = failureOrMovie.fold(
+          (f) => state.copyWith(failureOptionTopRated: optionOf(f)),
+          (topRated) => state.copyWith(
+            topRateds: topRated,
+            failureOptionTopRated: none(),
+          ),
+        );
+
+        emit(data.copyWith(isFetchingTopRated: false));
+      },
     );
   }
 }
