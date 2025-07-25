@@ -7,7 +7,9 @@ import '../../../../../injection.dart';
 import '../../../../components/spacer/spacer.dart';
 import 'widgets/appbar.dart';
 import 'widgets/header.dart';
+import 'widgets/new_episode_tv.dart';
 import 'widgets/popular_tv.dart';
+import 'widgets/top_rated_tv.dart';
 
 @RoutePage()
 class TvPage extends StatefulWidget implements AutoRouteWrapper {
@@ -17,10 +19,25 @@ class TvPage extends StatefulWidget implements AutoRouteWrapper {
   State<TvPage> createState() => _TvPageState();
 
   @override
-  Widget wrappedRoute(BuildContext context) => BlocProvider(
-    create: (context) => getIt<TvBloc>()..add(TvEvent.fetchedOnTheAIr()),
-    child: this,
-  );
+  Widget wrappedRoute(BuildContext context) {
+    final bloc = getIt<TvBloc>();
+
+    Future(() async {
+      bloc.add(TvEvent.fetchedOnTheAIr());
+      await bloc.stream.firstWhere((s) => !s.isFetchingOnTheAir);
+
+      bloc.add(TvEvent.fetchedPopular(isRefresh: true));
+      await bloc.stream.firstWhere((s) => !s.isFetchingPopular);
+
+      bloc.add(TvEvent.fetchedTopRated(isRefresh: true));
+      await bloc.stream.firstWhere((s) => !s.isFetchingTopRated);
+
+      bloc.add(TvEvent.fetchedAiringToday(isRefresh: true));
+      await bloc.stream.firstWhere((s) => !s.isFetchingAiringToday);
+    });
+
+    return BlocProvider.value(value: bloc, child: this);
+  }
 }
 
 class _TvPageState extends State<TvPage> {
@@ -51,7 +68,15 @@ class _TvPageState extends State<TvPage> {
       children: [
         ListView(
           controller: _scrollController,
-          children: [TvHeader(), SpacerHeight(20), TvPopular()],
+          children: [
+            TvHeader(),
+            SpacerHeight(20),
+            TvNewEpisode(),
+            SpacerHeight(20),
+            TvPopular(),
+            SpacerHeight(20),
+            TvTopRated(),
+          ],
         ),
         TvAppBar(opacity: appBarOpacity),
       ],

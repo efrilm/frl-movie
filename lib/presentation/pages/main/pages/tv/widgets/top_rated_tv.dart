@@ -6,8 +6,8 @@ import '../../../../../components/section/section.dart';
 import '../../../../../components/shimmer/shimmer.dart';
 import '../../../../../components/tile/tv_tile.dart';
 
-class TvPopular extends StatelessWidget {
-  const TvPopular({super.key});
+class TvTopRated extends StatelessWidget {
+  const TvTopRated({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +15,14 @@ class TvPopular extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SectionTitle(title: 'Populars TV'),
+          child: SectionTitle(title: 'Top Rateds TV'),
         ),
 
         BlocBuilder<TvBloc, TvState>(
           builder: (context, state) {
-            return state.failureOptionPopular.fold(
+            return state.failureOptionTopRated.fold(
               () {
-                if (state.isFetchingPopular) {
+                if (state.isFetchingTopRated) {
                   return SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     physics: const NeverScrollableScrollPhysics(),
@@ -45,7 +45,7 @@ class TvPopular extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 16, left: 20),
                     child: Row(
-                      children: state.populars
+                      children: state.topRateds
                           .map(
                             (movie) => Padding(
                               padding: const EdgeInsets.only(right: 12),

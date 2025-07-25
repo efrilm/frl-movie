@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
@@ -27,9 +29,9 @@ class TvBloc extends Bloc<TvEvent, TvState> {
           ),
         );
 
-        final failureOrMovie = await _tvRepository.getOnTheAir(page: 1);
+        final failureOrTv = await _tvRepository.getOnTheAir(page: 1);
 
-        var data = failureOrMovie.fold(
+        var data = failureOrTv.fold(
           (f) => state.copyWith(failureOptionOnTheAir: optionOf(f)),
           (onTheAir) => state.copyWith(
             onTheAirs: onTheAir,
@@ -38,6 +40,176 @@ class TvBloc extends Bloc<TvEvent, TvState> {
         );
 
         emit(data.copyWith(isFetchingOnTheAir: false));
+      },
+      fetchedAiringToday: (e) async {
+        var newState = state;
+
+        if (e.isRefresh) {
+          newState = state.copyWith(isFetchingAiringToday: true);
+
+          emit(newState);
+        }
+
+        newState = await _mapFetchedCategoryToState(
+          newState,
+          category: TvCategoryType.airingToday,
+          isRefresh: e.isRefresh,
+          fetch: _tvRepository.getAiringToday,
+        );
+
+        emit(newState);
+      },
+      fetchedPopular: (e) async {
+        var newState = state;
+
+        if (e.isRefresh) {
+          newState = state.copyWith(isFetchingPopular: true);
+
+          emit(newState);
+        }
+
+        newState = await _mapFetchedCategoryToState(
+          newState,
+          category: TvCategoryType.popular,
+          isRefresh: e.isRefresh,
+          fetch: _tvRepository.getPopular,
+        );
+
+        emit(newState);
+      },
+      fetchedTopRated: (e) async {
+        var newState = state;
+
+        if (e.isRefresh) {
+          newState = state.copyWith(isFetchingTopRated: true);
+
+          emit(newState);
+        }
+
+        newState = await _mapFetchedCategoryToState(
+          newState,
+          category: TvCategoryType.topRated,
+          isRefresh: e.isRefresh,
+          fetch: _tvRepository.getTopRated,
+        );
+
+        emit(newState);
+      },
+    );
+  }
+
+  Future<TvState> _mapFetchedCategoryToState(
+    TvState currentState, {
+    required TvCategoryType category,
+    required bool isRefresh,
+    required Future<Either<TvFailure, List<Tv>>> Function({required int page})
+    fetch,
+  }) async {
+    log('Fetching category: ${category.name}', name: 'TvBloc');
+
+    int currentPage = switch (category) {
+      TvCategoryType.popular => currentState.pagePopular,
+      TvCategoryType.topRated => currentState.pageTopRated,
+      TvCategoryType.airingToday => currentState.pageAiringToday,
+    };
+
+    bool hasReachedMax = switch (category) {
+      TvCategoryType.popular => currentState.hasReachedMaxPopular,
+      TvCategoryType.topRated => currentState.hasReachedMaxTopRated,
+      TvCategoryType.airingToday => currentState.hasReachedMaxAiringToday,
+    };
+    late List<Tv> currentList;
+
+    // Extract current state by category
+    switch (category) {
+      case TvCategoryType.popular:
+        currentPage = currentState.pagePopular;
+        hasReachedMax = currentState.hasReachedMaxPopular;
+        currentList = currentState.populars;
+        break;
+      case TvCategoryType.topRated:
+        currentPage = currentState.pageTopRated;
+        hasReachedMax = currentState.hasReachedMaxTopRated;
+        currentList = currentState.topRateds;
+        break;
+      case TvCategoryType.airingToday:
+        currentPage = currentState.pageAiringToday;
+        hasReachedMax = currentState.hasReachedMaxAiringToday;
+        currentList = currentState.airingTodays;
+        break;
+    }
+
+    if (hasReachedMax && currentList.isNotEmpty && !isRefresh) {
+      return currentState;
+    }
+
+    if (isRefresh) {
+      log(
+        'Fetching category: ${category.name}, isRefresh: $isRefresh',
+        name: 'TvBloc',
+      );
+      currentPage = 1;
+      currentList = [];
+      hasReachedMax = false;
+    }
+
+    final failureOrResult = await fetch(page: currentPage);
+
+    return failureOrResult.fold(
+      (f) {
+        if (f == const TvFailure.tvEmpty() && currentList.isNotEmpty) {
+          hasReachedMax = true;
+        }
+
+        switch (category) {
+          case TvCategoryType.popular:
+            return currentState.copyWith(
+              failureOptionPopular: some(f),
+              hasReachedMaxPopular: hasReachedMax,
+            );
+          case TvCategoryType.topRated:
+            return currentState.copyWith(
+              failureOptionTopRated: some(f),
+              hasReachedMaxTopRated: hasReachedMax,
+            );
+          case TvCategoryType.airingToday:
+            return currentState.copyWith(
+              failureOptionAiringToday: some(f),
+              hasReachedMaxAiringToday: hasReachedMax,
+            );
+        }
+      },
+      (tvs) {
+        final newList = List<Tv>.from(currentList)..addAll(tvs);
+        final newPage = currentPage + 1;
+        final reachedMax = tvs.length < 20;
+
+        switch (category) {
+          case TvCategoryType.popular:
+            return currentState.copyWith(
+              populars: newList,
+              failureOptionPopular: none(),
+              pagePopular: newPage,
+              hasReachedMaxPopular: reachedMax,
+              isFetchingPopular: false,
+            );
+          case TvCategoryType.topRated:
+            return currentState.copyWith(
+              topRateds: newList,
+              failureOptionTopRated: none(),
+              pageTopRated: newPage,
+              hasReachedMaxTopRated: reachedMax,
+              isFetchingTopRated: false,
+            );
+          case TvCategoryType.airingToday:
+            return currentState.copyWith(
+              airingTodays: newList,
+              failureOptionAiringToday: none(),
+              pageAiringToday: newPage,
+              hasReachedMaxAiringToday: reachedMax,
+              isFetchingAiringToday: false,
+            );
+        }
       },
     );
   }

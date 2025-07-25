@@ -182,7 +182,7 @@ class TvRoute extends _i9.PageRouteInfo<void> {
   static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
-      return const _i8.TvPage();
+      return _i9.WrappedRoute(child: const _i8.TvPage());
     },
   );
 }

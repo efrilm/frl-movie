@@ -7,3 +7,5 @@ part 'tv.freezed.dart';
 part 'entities/tv_entities.dart';
 part 'failures/tv_failures.dart';
 part 'repositories/i_tv_repository.dart';
+
+enum TvCategoryType { popular, topRated, airingToday }

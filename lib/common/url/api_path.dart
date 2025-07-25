@@ -9,6 +9,9 @@ class ApiPath {
   static final String movieSearch = '/$_version/search/movie';
   static final String tv = '/$_version/tv';
   static final String tvOnTheAir = '/$_version/tv/on_the_air';
+  static final String tvPopular = '/$_version/tv/popular';
+  static final String tvAiringToday = '/$_version/tv/airing_today';
+  static final String tvTopRated = '/$_version/tv/top_rated';
 
   String movieReleaseDate(int id) => '/$_version/movie/$id/release_dates';
 }

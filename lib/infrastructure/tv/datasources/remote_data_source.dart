@@ -38,4 +38,73 @@ class TvRemoteDataSource {
       return DC.error(TvFailure.serverError(e));
     }
   }
+
+  Future<DC<TvFailure, List<TvDto>>> fetchAiringToday({int page = 1}) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.tvAiringToday,
+        params: {'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => TvDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const TvFailure.tvEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchAiringTodayTv', name: _logName, error: e);
+
+      return DC.error(TvFailure.serverError(e));
+    }
+  }
+
+  Future<DC<TvFailure, List<TvDto>>> fetchPopular({int page = 1}) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.tvPopular,
+        params: {'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => TvDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const TvFailure.tvEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchPopularTv', name: _logName, error: e);
+
+      return DC.error(TvFailure.serverError(e));
+    }
+  }
+
+  Future<DC<TvFailure, List<TvDto>>> fetchTopRated({int page = 1}) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.tvTopRated,
+        params: {'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => TvDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const TvFailure.tvEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchTopRatedTv', name: _logName, error: e);
+
+      return DC.error(TvFailure.serverError(e));
+    }
+  }
 }
