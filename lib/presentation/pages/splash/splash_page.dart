@@ -26,10 +26,10 @@ class _SplashPageState extends State<SplashPage> {
       });
     });
 
-    Future.delayed(const Duration(seconds: 3), onNext());
+    Future.delayed(const Duration(seconds: 2), _onNext);
   }
 
-  onNext() {
+  _onNext() {
     context.router.replaceAll([MainRoute()]);
   }
 
