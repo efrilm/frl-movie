@@ -26,14 +26,14 @@ class TvPage extends StatefulWidget implements AutoRouteWrapper {
       bloc.add(TvEvent.fetchedOnTheAIr());
       await bloc.stream.firstWhere((s) => !s.isFetchingOnTheAir);
 
+      bloc.add(TvEvent.fetchedAiringToday(isRefresh: true));
+      await bloc.stream.firstWhere((s) => !s.isFetchingAiringToday);
+
       bloc.add(TvEvent.fetchedPopular(isRefresh: true));
       await bloc.stream.firstWhere((s) => !s.isFetchingPopular);
 
       bloc.add(TvEvent.fetchedTopRated(isRefresh: true));
       await bloc.stream.firstWhere((s) => !s.isFetchingTopRated);
-
-      bloc.add(TvEvent.fetchedAiringToday(isRefresh: true));
-      await bloc.stream.firstWhere((s) => !s.isFetchingAiringToday);
     });
 
     return BlocProvider.value(value: bloc, child: this);

@@ -1,10 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../application/tv/tv_bloc.dart';
+import '../../../../../../domain/tv/tv.dart';
 import '../../../../../components/section/section.dart';
 import '../../../../../components/shimmer/shimmer.dart';
 import '../../../../../components/tile/tv_tile.dart';
+import '../../../../../routes/app_router.gr.dart';
 
 class TvTopRated extends StatelessWidget {
   const TvTopRated({super.key});
@@ -15,7 +18,15 @@ class TvTopRated extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SectionTitle(title: 'Top Rateds TV'),
+          child: SectionTitle(
+            title: 'Top Rateds TV',
+            onTapSeeAll: () => context.router.push(
+              TvSeeAllRoute(
+                title: "Top Rateds Tv",
+                type: TvCategoryType.topRated,
+              ),
+            ),
+          ),
         ),
 
         BlocBuilder<TvBloc, TvState>(

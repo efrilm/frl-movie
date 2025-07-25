@@ -15,12 +15,13 @@ class TvTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 12),
       child: Stack(
+        alignment: Alignment.center,
         children: [
           AppNetworkImage(
             url: getPosterUrl(tv.posterPath),
             height: 180,
-            width: 120,
             borderRadius: 12,
+            fit: BoxFit.cover,
           ),
           Positioned(
             top: 8,
