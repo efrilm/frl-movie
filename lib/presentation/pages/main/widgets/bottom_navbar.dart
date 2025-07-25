@@ -24,9 +24,9 @@ class _MainBottomNavbarState extends State<MainBottomNavbar> {
       },
       items: [
         BottomNavigationBarItem(
-          icon: LineIcon(LineIcons.home),
-          tooltip: 'Home',
-          label: 'Home',
+          icon: LineIcon(LineIcons.play),
+          tooltip: 'Movie',
+          label: 'Movie',
         ),
         BottomNavigationBarItem(
           icon: LineIcon(LineIcons.television),

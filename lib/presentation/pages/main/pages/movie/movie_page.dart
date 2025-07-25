@@ -9,21 +9,21 @@ import 'widgets/top_rated_movie.dart';
 import 'widgets/upcoming_movie.dart';
 
 @RoutePage()
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MoviePage extends StatelessWidget {
+  const MoviePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HomeAppbar(),
+      appBar: MovieAppbar(),
       body: ListView(
         children: [
-          HomeTopRatedMovie(),
-          HomeNowPlayingMovie(),
+          MovieTopRated(),
+          MovieNowPlaying(),
           SpacerHeight(20),
-          HomeUpcomingMovie(),
+          MovieUpcoming(),
           SpacerHeight(20),
-          HomePopularMovie(),
+          MoviePopular(),
           SpacerHeight(60),
         ],
       ),

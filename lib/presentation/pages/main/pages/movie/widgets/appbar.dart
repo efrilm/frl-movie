@@ -5,8 +5,8 @@ import '../../../../../components/button/button.dart';
 import '../../../../../components/field/field.dart';
 import '../../../../../components/spacer/spacer.dart';
 
-class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppbar({super.key});
+class MovieAppbar extends StatelessWidget implements PreferredSizeWidget {
+  const MovieAppbar({super.key});
 
   @override
   Widget build(BuildContext context) {

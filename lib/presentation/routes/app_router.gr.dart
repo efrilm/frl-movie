@@ -10,11 +10,11 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i7;
-import 'package:frl_movie/presentation/pages/main/main_page.dart' as _i3;
+import 'package:frl_movie/presentation/pages/main/main_page.dart' as _i2;
 import 'package:frl_movie/presentation/pages/main/pages/explore/explore_page.dart'
     as _i1;
-import 'package:frl_movie/presentation/pages/main/pages/home/home_page.dart'
-    as _i2;
+import 'package:frl_movie/presentation/pages/main/pages/movie/movie_page.dart'
+    as _i3;
 import 'package:frl_movie/presentation/pages/main/pages/profile/profile_page.dart'
     as _i4;
 import 'package:frl_movie/presentation/pages/main/pages/tv/tv_page.dart' as _i6;
@@ -37,23 +37,7 @@ class ExploreRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.HomePage]
-class HomeRoute extends _i7.PageRouteInfo<void> {
-  const HomeRoute({List<_i7.PageRouteInfo>? children})
-    : super(HomeRoute.name, initialChildren: children);
-
-  static const String name = 'HomeRoute';
-
-  static _i7.PageInfo page = _i7.PageInfo(
-    name,
-    builder: (data) {
-      return const _i2.HomePage();
-    },
-  );
-}
-
-/// generated route for
-/// [_i3.MainPage]
+/// [_i2.MainPage]
 class MainRoute extends _i7.PageRouteInfo<void> {
   const MainRoute({List<_i7.PageRouteInfo>? children})
     : super(MainRoute.name, initialChildren: children);
@@ -63,7 +47,23 @@ class MainRoute extends _i7.PageRouteInfo<void> {
   static _i7.PageInfo page = _i7.PageInfo(
     name,
     builder: (data) {
-      return const _i3.MainPage();
+      return const _i2.MainPage();
+    },
+  );
+}
+
+/// generated route for
+/// [_i3.MoviePage]
+class MovieRoute extends _i7.PageRouteInfo<void> {
+  const MovieRoute({List<_i7.PageRouteInfo>? children})
+    : super(MovieRoute.name, initialChildren: children);
+
+  static const String name = 'MovieRoute';
+
+  static _i7.PageInfo page = _i7.PageInfo(
+    name,
+    builder: (data) {
+      return const _i3.MoviePage();
     },
   );
 }

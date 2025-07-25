@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../components/section/section.dart';
 import '../../../../../components/tile/movie_tile.dart';
 
-class HomeNowPlayingMovie extends StatelessWidget {
-  const HomeNowPlayingMovie({super.key});
+class MovieNowPlaying extends StatelessWidget {
+  const MovieNowPlaying({super.key});
 
   @override
   Widget build(BuildContext context) {

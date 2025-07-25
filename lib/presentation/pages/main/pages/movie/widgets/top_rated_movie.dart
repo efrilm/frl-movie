@@ -4,14 +4,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-class HomeTopRatedMovie extends StatefulWidget {
-  const HomeTopRatedMovie({super.key});
+class MovieTopRated extends StatefulWidget {
+  const MovieTopRated({super.key});
 
   @override
-  State<HomeTopRatedMovie> createState() => _HomeTopRatedMovieState();
+  State<MovieTopRated> createState() => _MovieTopRatedState();
 }
 
-class _HomeTopRatedMovieState extends State<HomeTopRatedMovie> {
+class _MovieTopRatedState extends State<MovieTopRated> {
   final CarouselSliderController _controller = CarouselSliderController();
   double currentPage = 0;
 
