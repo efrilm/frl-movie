@@ -63,7 +63,7 @@ class _TvHeaderState extends State<TvHeader> {
             CarouselSlider.builder(
               itemCount: state.onTheAirs.length,
               options: CarouselOptions(
-                height: 400,
+                height: 500,
                 viewportFraction: 1.0,
                 autoPlay: true,
                 autoPlayInterval: const Duration(seconds: 4),
