@@ -107,4 +107,30 @@ class TvRemoteDataSource {
       return DC.error(TvFailure.serverError(e));
     }
   }
+
+  Future<DC<TvFailure, List<TvDto>>> search({
+    required String query,
+    int page = 1,
+  }) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.tvSearch,
+        params: {'query': query, 'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => TvDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const TvFailure.tvEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchTopRatedTv', name: _logName, error: e);
+
+      return DC.error(TvFailure.serverError(e));
+    }
+  }
 }

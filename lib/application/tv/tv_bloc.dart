@@ -95,6 +95,28 @@ class TvBloc extends Bloc<TvEvent, TvState> {
 
         emit(newState);
       },
+      searched: (e) async {
+        if (e.query.trim().isEmpty) {
+          emit(state.copyWith(searchResults: [], isSearching: false));
+          return;
+        }
+
+        var newState = state;
+
+        if (e.isRefresh) {
+          newState = state.copyWith(isSearching: true);
+
+          emit(newState);
+        }
+
+        newState = await _mapSearchToState(
+          state,
+          e.query,
+          isRefresh: e.isRefresh,
+        );
+
+        emit(newState);
+      },
     );
   }
 
@@ -212,5 +234,52 @@ class TvBloc extends Bloc<TvEvent, TvState> {
         }
       },
     );
+  }
+
+  Future<TvState> _mapSearchToState(
+    TvState state,
+    String query, {
+    bool isRefresh = false,
+  }) async {
+    state = state.copyWith(isSearching: false);
+
+    if (state.hasReachedMaxSearch &&
+        state.searchResults.isNotEmpty &&
+        !isRefresh) {
+      return state;
+    }
+
+    if (isRefresh) {
+      state = state.copyWith(
+        pageSearch: 1,
+        failureOptionSearch: none(),
+        hasReachedMaxSearch: false,
+        searchResults: [],
+      );
+    }
+
+    final failureOrTv = await _tvRepository.search(
+      query: query,
+      page: state.pageSearch,
+    );
+
+    state = failureOrTv.fold(
+      (f) {
+        if (f == const TvFailure.tvEmpty() && state.searchResults.isNotEmpty) {
+          return state.copyWith(hasReachedMaxSearch: true);
+        }
+        return state.copyWith(failureOptionSearch: optionOf(f));
+      },
+      (movies) {
+        return state.copyWith(
+          searchResults: List.from(state.searchResults)..addAll(movies),
+          failureOptionSearch: none(),
+          pageSearch: state.pageSearch + 1,
+          hasReachedMaxSearch: movies.length < 20,
+        );
+      },
+    );
+
+    return state;
   }
 }

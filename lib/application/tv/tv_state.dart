@@ -14,6 +14,9 @@ class TvState with _$TvState {
     @Default(false) bool isFetchingPopular,
     required List<Tv> topRateds,
     required Option<TvFailure> failureOptionTopRated,
+    required List<Tv> searchResults,
+    required Option<TvFailure> failureOptionSearch,
+    @Default(false) bool isSearching,
     @Default(false) bool isFetchingTopRated,
     @Default(1) int pagePopular,
     @Default(false) bool hasReachedMaxPopular,
@@ -21,6 +24,8 @@ class TvState with _$TvState {
     @Default(false) bool hasReachedMaxAiringToday,
     @Default(1) int pageTopRated,
     @Default(false) bool hasReachedMaxTopRated,
+    @Default(1) int pageSearch,
+    @Default(false) bool hasReachedMaxSearch,
   }) = _TvState;
 
   factory TvState.initial() => TvState(
@@ -32,5 +37,7 @@ class TvState with _$TvState {
     failureOptionPopular: none(),
     topRateds: [],
     failureOptionTopRated: none(),
+    searchResults: [],
+    failureOptionSearch: none(),
   );
 }

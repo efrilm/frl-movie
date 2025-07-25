@@ -10,4 +10,8 @@ class TvEvent with _$TvEvent {
       _FetchedPopular;
   const factory TvEvent.fetchedTopRated({@Default(false) bool isRefresh}) =
       _FetchedTopRated;
+  const factory TvEvent.searched(
+    String query, {
+    @Default(false) bool isRefresh,
+  }) = _Searched;
 }

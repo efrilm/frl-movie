@@ -266,12 +266,12 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
       );
     }
 
-    final failureOrMessages = await _movieRepository.search(
+    final failureOrMovie = await _movieRepository.search(
       query: query,
       page: state.pageSearch,
     );
 
-    state = failureOrMessages.fold(
+    state = failureOrMovie.fold(
       (f) {
         if (f == const MovieFailure.movieEmpty() &&
             state.searchResults.isNotEmpty) {

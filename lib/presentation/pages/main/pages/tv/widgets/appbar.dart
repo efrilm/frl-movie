@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
 import '../../../../../../common/resource/resource.dart';
 import '../../../../../components/assets/assets.gen.dart';
+import '../../../../../routes/app_router.gr.dart';
 
 class TvAppBar extends StatelessWidget {
   final double opacity;
@@ -29,7 +31,7 @@ class TvAppBar extends StatelessWidget {
                 icon: const LineIcon(LineIcons.bell, color: Colors.white),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () => context.router.push(TvSearchRoute()),
                 icon: const LineIcon(LineIcons.search, color: Colors.white),
               ),
             ],

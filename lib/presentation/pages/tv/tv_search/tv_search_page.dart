@@ -4,24 +4,24 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../application/movie/movie_bloc.dart';
+import '../../../../application/tv/tv_bloc.dart';
 import '../../../../injection.dart';
 import '../../../components/appbar/search_appbar.dart';
-import '../../../components/tile/movie_tile.dart';
+import '../../../components/tile/tv_tile.dart';
 
 @RoutePage()
-class MovieSearchPage extends StatefulWidget implements AutoRouteWrapper {
-  const MovieSearchPage({super.key});
+class TvSearchPage extends StatefulWidget implements AutoRouteWrapper {
+  const TvSearchPage({super.key});
 
   @override
-  State<MovieSearchPage> createState() => _MovieSearchPageState();
+  State<TvSearchPage> createState() => _TvSearchPageState();
 
   @override
   Widget wrappedRoute(BuildContext context) =>
-      BlocProvider(create: (context) => getIt<MovieBloc>(), child: this);
+      BlocProvider(create: (context) => getIt<TvBloc>(), child: this);
 }
 
-class _MovieSearchPageState extends State<MovieSearchPage> {
+class _TvSearchPageState extends State<TvSearchPage> {
   final TextEditingController controller = TextEditingController();
   final ScrollController scrollController = ScrollController();
   final FocusNode focusNode = FocusNode();
@@ -31,9 +31,7 @@ class _MovieSearchPageState extends State<MovieSearchPage> {
     if (debounce?.isActive ?? false) debounce!.cancel();
 
     debounce = Timer(const Duration(milliseconds: 500), () {
-      context.read<MovieBloc>().add(
-        MovieEvent.searched(query, isRefresh: true),
-      );
+      context.read<TvBloc>().add(TvEvent.searched(query, isRefresh: true));
     });
   }
 
@@ -52,9 +50,9 @@ class _MovieSearchPageState extends State<MovieSearchPage> {
         controller: controller,
         onSearchChanged: onSearchChanged,
         focusNode: focusNode,
-        hint: 'Search movie...',
+        hint: 'Search tv...',
       ),
-      body: BlocBuilder<MovieBloc, MovieState>(
+      body: BlocBuilder<TvBloc, TvState>(
         builder: (context, state) {
           if (state.isSearching) {
             return Center(child: CircularProgressIndicator());
@@ -65,8 +63,8 @@ class _MovieSearchPageState extends State<MovieSearchPage> {
                 onNotification: (notification) {
                   if (notification is ScrollEndNotification &&
                       scrollController.position.extentAfter == 0) {
-                    context.read<MovieBloc>().add(
-                      MovieEvent.searched(controller.text),
+                    context.read<TvBloc>().add(
+                      TvEvent.searched(controller.text),
                     );
                     return true;
                   }
@@ -78,14 +76,14 @@ class _MovieSearchPageState extends State<MovieSearchPage> {
                   itemCount: state.searchResults.length,
                   controller: scrollController,
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
+                    maxCrossAxisExtent: 120,
                     mainAxisSpacing: 8,
                     crossAxisSpacing: 8,
-                    childAspectRatio: 0.6,
+                    childAspectRatio: 0.8,
                   ),
                   itemBuilder: (context, index) {
-                    final movie = state.searchResults[index];
-                    return MovieTile(movie: movie);
+                    final tv = state.searchResults[index];
+                    return TvTile(tv: tv);
                   },
                 ),
               );
@@ -93,7 +91,7 @@ class _MovieSearchPageState extends State<MovieSearchPage> {
             (f) => Center(
               child: f.maybeWhen(
                 orElse: () => Text("Error has occured"),
-                movieEmpty: () => Text("Movie not found"),
+                tvEmpty: () => Text("Tv not found"),
               ),
             ),
           );

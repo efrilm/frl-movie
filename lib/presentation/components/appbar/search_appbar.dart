@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
-import '../../../../../../common/resource/resource.dart';
-import '../../../../components/field/field.dart';
+import '../../../common/resource/resource.dart';
+import '../field/field.dart';
 
-class MovieSearchAppbar extends StatelessWidget implements PreferredSizeWidget {
+class SearchAppbar extends StatelessWidget implements PreferredSizeWidget {
   final TextEditingController controller;
   final Function(String)? onSearchChanged;
   final FocusNode? focusNode;
+  final String hint;
 
-  const MovieSearchAppbar({
+  const SearchAppbar({
     super.key,
     required this.controller,
     this.onSearchChanged,
     this.focusNode,
+    required this.hint,
   });
 
   @override
@@ -28,7 +30,7 @@ class MovieSearchAppbar extends StatelessWidget implements PreferredSizeWidget {
               child: SizedBox(
                 height: 44,
                 child: AppTextFormField(
-                  hintText: 'Search movie...',
+                  hintText: hint,
                   controller: controller,
                   onChanged: onSearchChanged,
                   focusNode: focusNode,

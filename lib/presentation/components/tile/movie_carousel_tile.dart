@@ -24,7 +24,7 @@ class MovieCarouselTile extends StatelessWidget {
           children: [
             AppNetworkImage(
               url: getPosterUrl(movie.posterPath),
-              height: 400,
+              height: 300,
               width: 200,
               fit: BoxFit.cover,
               borderRadius: 12,
