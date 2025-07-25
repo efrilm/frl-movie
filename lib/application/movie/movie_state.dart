@@ -18,6 +18,12 @@ class MovieState with _$MovieState {
     required List<Movie> searchResults,
     required Option<MovieFailure> failureOptionSearch,
     @Default(false) bool isSearching,
+    @Default(1) int pageTopRated,
+    @Default(false) bool hasReachedMaxTopRated,
+    @Default(1) int pagePopular,
+    @Default(false) bool hasReachedMaxPopular,
+    @Default(1) int pageUpcoming,
+    @Default(false) bool hasReachedMaxUpcoming,
   }) = _MovieState;
 
   factory MovieState.initial() => MovieState(

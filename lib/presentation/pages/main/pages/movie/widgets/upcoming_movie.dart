@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -5,6 +6,7 @@ import '../../../../../../application/movie/movie_bloc.dart';
 import '../../../../../components/section/section.dart';
 import '../../../../../components/shimmer/shimmer.dart';
 import '../../../../../components/tile/movie_tile.dart';
+import '../../../../../routes/app_router.gr.dart';
 
 class MovieUpcoming extends StatelessWidget {
   const MovieUpcoming({super.key});
@@ -15,9 +17,15 @@ class MovieUpcoming extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SectionTitle(title: 'Upcoming Movie'),
+          child: SectionTitle(
+            title: 'Upcoming Movie',
+            onTapSeeAll: () => context.router.push(
+              MovieSeeAllRoute(title: "Upcoming Movie", type: "upcoming"),
+            ),
+          ),
         ),
         BlocBuilder<MovieBloc, MovieState>(
+          buildWhen: (p, c) => p.upcomings != c.upcomings,
           builder: (context, state) {
             return state.failureOptionUpcoming.fold(
               () {

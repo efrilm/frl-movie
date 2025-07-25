@@ -7,3 +7,5 @@ part 'movie.freezed.dart';
 part 'entities/movie_entity.dart';
 part 'failures/movie_failure.dart';
 part 'repositories/i_movie_repository.dart';
+
+enum MovieCategoryType { popular, topRated, upcoming }

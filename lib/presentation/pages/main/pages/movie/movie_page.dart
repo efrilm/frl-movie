@@ -34,12 +34,22 @@ class MoviePage extends StatelessWidget implements AutoRouteWrapper {
   }
 
   @override
-  Widget wrappedRoute(BuildContext context) => BlocProvider(
-    create: (_) => getIt<MovieBloc>()
-      ..add(MovieEvent.fetchedNowPlaying(1))
-      ..add(MovieEvent.fetchedPopular(1))
-      ..add(MovieEvent.fetchedTopRated(1))
-      ..add(MovieEvent.fetchedUpcoming(1)),
-    child: this,
-  );
+  Widget wrappedRoute(BuildContext context) {
+    final bloc = getIt<MovieBloc>();
+
+    bloc.add(MovieEvent.fetchedNowPlaying());
+
+    Future(() async {
+      bloc.add(MovieEvent.fetchedPopular(isRefresh: true));
+      await bloc.stream.firstWhere((s) => !s.isFetchingPopular);
+
+      bloc.add(MovieEvent.fetchedTopRated(isRefresh: true));
+      await bloc.stream.firstWhere((s) => !s.isFetchingTopRated);
+
+      bloc.add(MovieEvent.fetchedUpcoming(isRefresh: true));
+      await bloc.stream.firstWhere((s) => !s.isFetchingUpcoming);
+    });
+
+    return BlocProvider.value(value: bloc, child: this);
+  }
 }

@@ -19,26 +19,26 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MovieEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int page) fetchedPopular,
-    required TResult Function(int page) fetchedNowPlaying,
-    required TResult Function(int page) fetchedTopRated,
-    required TResult Function(int page) fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopular,
+    required TResult Function(bool isRefresh) fetchedNowPlaying,
+    required TResult Function(bool isRefresh) fetchedTopRated,
+    required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query) searched,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int page)? fetchedPopular,
-    TResult? Function(int page)? fetchedNowPlaying,
-    TResult? Function(int page)? fetchedTopRated,
-    TResult? Function(int page)? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopular,
+    TResult? Function(bool isRefresh)? fetchedNowPlaying,
+    TResult? Function(bool isRefresh)? fetchedTopRated,
+    TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query)? searched,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int page)? fetchedPopular,
-    TResult Function(int page)? fetchedNowPlaying,
-    TResult Function(int page)? fetchedTopRated,
-    TResult Function(int page)? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopular,
+    TResult Function(bool isRefresh)? fetchedNowPlaying,
+    TResult Function(bool isRefresh)? fetchedTopRated,
+    TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query)? searched,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -98,7 +98,7 @@ abstract class _$$FetchedPopularImplCopyWith<$Res> {
     $Res Function(_$FetchedPopularImpl) then,
   ) = __$$FetchedPopularImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int page});
+  $Res call({bool isRefresh});
 }
 
 /// @nodoc
@@ -114,13 +114,13 @@ class __$$FetchedPopularImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? page = null}) {
+  $Res call({Object? isRefresh = null}) {
     return _then(
       _$FetchedPopularImpl(
-        null == page
-            ? _value.page
-            : page // ignore: cast_nullable_to_non_nullable
-                  as int,
+        isRefresh: null == isRefresh
+            ? _value.isRefresh
+            : isRefresh // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -129,14 +129,15 @@ class __$$FetchedPopularImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FetchedPopularImpl implements _FetchedPopular {
-  const _$FetchedPopularImpl(this.page);
+  const _$FetchedPopularImpl({this.isRefresh = false});
 
   @override
-  final int page;
+  @JsonKey()
+  final bool isRefresh;
 
   @override
   String toString() {
-    return 'MovieEvent.fetchedPopular(page: $page)';
+    return 'MovieEvent.fetchedPopular(isRefresh: $isRefresh)';
   }
 
   @override
@@ -144,11 +145,12 @@ class _$FetchedPopularImpl implements _FetchedPopular {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchedPopularImpl &&
-            (identical(other.page, page) || other.page == page));
+            (identical(other.isRefresh, isRefresh) ||
+                other.isRefresh == isRefresh));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, page);
+  int get hashCode => Object.hash(runtimeType, isRefresh);
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -164,39 +166,39 @@ class _$FetchedPopularImpl implements _FetchedPopular {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int page) fetchedPopular,
-    required TResult Function(int page) fetchedNowPlaying,
-    required TResult Function(int page) fetchedTopRated,
-    required TResult Function(int page) fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopular,
+    required TResult Function(bool isRefresh) fetchedNowPlaying,
+    required TResult Function(bool isRefresh) fetchedTopRated,
+    required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query) searched,
   }) {
-    return fetchedPopular(page);
+    return fetchedPopular(isRefresh);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int page)? fetchedPopular,
-    TResult? Function(int page)? fetchedNowPlaying,
-    TResult? Function(int page)? fetchedTopRated,
-    TResult? Function(int page)? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopular,
+    TResult? Function(bool isRefresh)? fetchedNowPlaying,
+    TResult? Function(bool isRefresh)? fetchedTopRated,
+    TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query)? searched,
   }) {
-    return fetchedPopular?.call(page);
+    return fetchedPopular?.call(isRefresh);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int page)? fetchedPopular,
-    TResult Function(int page)? fetchedNowPlaying,
-    TResult Function(int page)? fetchedTopRated,
-    TResult Function(int page)? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopular,
+    TResult Function(bool isRefresh)? fetchedNowPlaying,
+    TResult Function(bool isRefresh)? fetchedTopRated,
+    TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query)? searched,
     required TResult orElse(),
   }) {
     if (fetchedPopular != null) {
-      return fetchedPopular(page);
+      return fetchedPopular(isRefresh);
     }
     return orElse();
   }
@@ -243,9 +245,9 @@ class _$FetchedPopularImpl implements _FetchedPopular {
 }
 
 abstract class _FetchedPopular implements MovieEvent {
-  const factory _FetchedPopular(final int page) = _$FetchedPopularImpl;
+  const factory _FetchedPopular({final bool isRefresh}) = _$FetchedPopularImpl;
 
-  int get page;
+  bool get isRefresh;
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -261,7 +263,7 @@ abstract class _$$FetchedNowPlayingImplCopyWith<$Res> {
     $Res Function(_$FetchedNowPlayingImpl) then,
   ) = __$$FetchedNowPlayingImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int page});
+  $Res call({bool isRefresh});
 }
 
 /// @nodoc
@@ -277,13 +279,13 @@ class __$$FetchedNowPlayingImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? page = null}) {
+  $Res call({Object? isRefresh = null}) {
     return _then(
       _$FetchedNowPlayingImpl(
-        null == page
-            ? _value.page
-            : page // ignore: cast_nullable_to_non_nullable
-                  as int,
+        isRefresh: null == isRefresh
+            ? _value.isRefresh
+            : isRefresh // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -292,14 +294,15 @@ class __$$FetchedNowPlayingImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
-  const _$FetchedNowPlayingImpl(this.page);
+  const _$FetchedNowPlayingImpl({this.isRefresh = false});
 
   @override
-  final int page;
+  @JsonKey()
+  final bool isRefresh;
 
   @override
   String toString() {
-    return 'MovieEvent.fetchedNowPlaying(page: $page)';
+    return 'MovieEvent.fetchedNowPlaying(isRefresh: $isRefresh)';
   }
 
   @override
@@ -307,11 +310,12 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchedNowPlayingImpl &&
-            (identical(other.page, page) || other.page == page));
+            (identical(other.isRefresh, isRefresh) ||
+                other.isRefresh == isRefresh));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, page);
+  int get hashCode => Object.hash(runtimeType, isRefresh);
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -327,39 +331,39 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int page) fetchedPopular,
-    required TResult Function(int page) fetchedNowPlaying,
-    required TResult Function(int page) fetchedTopRated,
-    required TResult Function(int page) fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopular,
+    required TResult Function(bool isRefresh) fetchedNowPlaying,
+    required TResult Function(bool isRefresh) fetchedTopRated,
+    required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query) searched,
   }) {
-    return fetchedNowPlaying(page);
+    return fetchedNowPlaying(isRefresh);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int page)? fetchedPopular,
-    TResult? Function(int page)? fetchedNowPlaying,
-    TResult? Function(int page)? fetchedTopRated,
-    TResult? Function(int page)? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopular,
+    TResult? Function(bool isRefresh)? fetchedNowPlaying,
+    TResult? Function(bool isRefresh)? fetchedTopRated,
+    TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query)? searched,
   }) {
-    return fetchedNowPlaying?.call(page);
+    return fetchedNowPlaying?.call(isRefresh);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int page)? fetchedPopular,
-    TResult Function(int page)? fetchedNowPlaying,
-    TResult Function(int page)? fetchedTopRated,
-    TResult Function(int page)? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopular,
+    TResult Function(bool isRefresh)? fetchedNowPlaying,
+    TResult Function(bool isRefresh)? fetchedTopRated,
+    TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query)? searched,
     required TResult orElse(),
   }) {
     if (fetchedNowPlaying != null) {
-      return fetchedNowPlaying(page);
+      return fetchedNowPlaying(isRefresh);
     }
     return orElse();
   }
@@ -406,9 +410,10 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
 }
 
 abstract class _FetchedNowPlaying implements MovieEvent {
-  const factory _FetchedNowPlaying(final int page) = _$FetchedNowPlayingImpl;
+  const factory _FetchedNowPlaying({final bool isRefresh}) =
+      _$FetchedNowPlayingImpl;
 
-  int get page;
+  bool get isRefresh;
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -424,7 +429,7 @@ abstract class _$$FetchedTopRatedImplCopyWith<$Res> {
     $Res Function(_$FetchedTopRatedImpl) then,
   ) = __$$FetchedTopRatedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int page});
+  $Res call({bool isRefresh});
 }
 
 /// @nodoc
@@ -440,13 +445,13 @@ class __$$FetchedTopRatedImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? page = null}) {
+  $Res call({Object? isRefresh = null}) {
     return _then(
       _$FetchedTopRatedImpl(
-        null == page
-            ? _value.page
-            : page // ignore: cast_nullable_to_non_nullable
-                  as int,
+        isRefresh: null == isRefresh
+            ? _value.isRefresh
+            : isRefresh // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -455,14 +460,15 @@ class __$$FetchedTopRatedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FetchedTopRatedImpl implements _FetchedTopRated {
-  const _$FetchedTopRatedImpl(this.page);
+  const _$FetchedTopRatedImpl({this.isRefresh = false});
 
   @override
-  final int page;
+  @JsonKey()
+  final bool isRefresh;
 
   @override
   String toString() {
-    return 'MovieEvent.fetchedTopRated(page: $page)';
+    return 'MovieEvent.fetchedTopRated(isRefresh: $isRefresh)';
   }
 
   @override
@@ -470,11 +476,12 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchedTopRatedImpl &&
-            (identical(other.page, page) || other.page == page));
+            (identical(other.isRefresh, isRefresh) ||
+                other.isRefresh == isRefresh));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, page);
+  int get hashCode => Object.hash(runtimeType, isRefresh);
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -490,39 +497,39 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int page) fetchedPopular,
-    required TResult Function(int page) fetchedNowPlaying,
-    required TResult Function(int page) fetchedTopRated,
-    required TResult Function(int page) fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopular,
+    required TResult Function(bool isRefresh) fetchedNowPlaying,
+    required TResult Function(bool isRefresh) fetchedTopRated,
+    required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query) searched,
   }) {
-    return fetchedTopRated(page);
+    return fetchedTopRated(isRefresh);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int page)? fetchedPopular,
-    TResult? Function(int page)? fetchedNowPlaying,
-    TResult? Function(int page)? fetchedTopRated,
-    TResult? Function(int page)? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopular,
+    TResult? Function(bool isRefresh)? fetchedNowPlaying,
+    TResult? Function(bool isRefresh)? fetchedTopRated,
+    TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query)? searched,
   }) {
-    return fetchedTopRated?.call(page);
+    return fetchedTopRated?.call(isRefresh);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int page)? fetchedPopular,
-    TResult Function(int page)? fetchedNowPlaying,
-    TResult Function(int page)? fetchedTopRated,
-    TResult Function(int page)? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopular,
+    TResult Function(bool isRefresh)? fetchedNowPlaying,
+    TResult Function(bool isRefresh)? fetchedTopRated,
+    TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query)? searched,
     required TResult orElse(),
   }) {
     if (fetchedTopRated != null) {
-      return fetchedTopRated(page);
+      return fetchedTopRated(isRefresh);
     }
     return orElse();
   }
@@ -569,9 +576,10 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
 }
 
 abstract class _FetchedTopRated implements MovieEvent {
-  const factory _FetchedTopRated(final int page) = _$FetchedTopRatedImpl;
+  const factory _FetchedTopRated({final bool isRefresh}) =
+      _$FetchedTopRatedImpl;
 
-  int get page;
+  bool get isRefresh;
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -587,7 +595,7 @@ abstract class _$$FetchedUpcomingImplCopyWith<$Res> {
     $Res Function(_$FetchedUpcomingImpl) then,
   ) = __$$FetchedUpcomingImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int page});
+  $Res call({bool isRefresh});
 }
 
 /// @nodoc
@@ -603,13 +611,13 @@ class __$$FetchedUpcomingImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? page = null}) {
+  $Res call({Object? isRefresh = null}) {
     return _then(
       _$FetchedUpcomingImpl(
-        null == page
-            ? _value.page
-            : page // ignore: cast_nullable_to_non_nullable
-                  as int,
+        isRefresh: null == isRefresh
+            ? _value.isRefresh
+            : isRefresh // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -618,14 +626,15 @@ class __$$FetchedUpcomingImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FetchedUpcomingImpl implements _FetchedUpcoming {
-  const _$FetchedUpcomingImpl(this.page);
+  const _$FetchedUpcomingImpl({this.isRefresh = false});
 
   @override
-  final int page;
+  @JsonKey()
+  final bool isRefresh;
 
   @override
   String toString() {
-    return 'MovieEvent.fetchedUpcoming(page: $page)';
+    return 'MovieEvent.fetchedUpcoming(isRefresh: $isRefresh)';
   }
 
   @override
@@ -633,11 +642,12 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchedUpcomingImpl &&
-            (identical(other.page, page) || other.page == page));
+            (identical(other.isRefresh, isRefresh) ||
+                other.isRefresh == isRefresh));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, page);
+  int get hashCode => Object.hash(runtimeType, isRefresh);
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -653,39 +663,39 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int page) fetchedPopular,
-    required TResult Function(int page) fetchedNowPlaying,
-    required TResult Function(int page) fetchedTopRated,
-    required TResult Function(int page) fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopular,
+    required TResult Function(bool isRefresh) fetchedNowPlaying,
+    required TResult Function(bool isRefresh) fetchedTopRated,
+    required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query) searched,
   }) {
-    return fetchedUpcoming(page);
+    return fetchedUpcoming(isRefresh);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int page)? fetchedPopular,
-    TResult? Function(int page)? fetchedNowPlaying,
-    TResult? Function(int page)? fetchedTopRated,
-    TResult? Function(int page)? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopular,
+    TResult? Function(bool isRefresh)? fetchedNowPlaying,
+    TResult? Function(bool isRefresh)? fetchedTopRated,
+    TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query)? searched,
   }) {
-    return fetchedUpcoming?.call(page);
+    return fetchedUpcoming?.call(isRefresh);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int page)? fetchedPopular,
-    TResult Function(int page)? fetchedNowPlaying,
-    TResult Function(int page)? fetchedTopRated,
-    TResult Function(int page)? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopular,
+    TResult Function(bool isRefresh)? fetchedNowPlaying,
+    TResult Function(bool isRefresh)? fetchedTopRated,
+    TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query)? searched,
     required TResult orElse(),
   }) {
     if (fetchedUpcoming != null) {
-      return fetchedUpcoming(page);
+      return fetchedUpcoming(isRefresh);
     }
     return orElse();
   }
@@ -732,9 +742,10 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
 }
 
 abstract class _FetchedUpcoming implements MovieEvent {
-  const factory _FetchedUpcoming(final int page) = _$FetchedUpcomingImpl;
+  const factory _FetchedUpcoming({final bool isRefresh}) =
+      _$FetchedUpcomingImpl;
 
-  int get page;
+  bool get isRefresh;
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -813,10 +824,10 @@ class _$SearchedImpl implements _Searched {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int page) fetchedPopular,
-    required TResult Function(int page) fetchedNowPlaying,
-    required TResult Function(int page) fetchedTopRated,
-    required TResult Function(int page) fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopular,
+    required TResult Function(bool isRefresh) fetchedNowPlaying,
+    required TResult Function(bool isRefresh) fetchedTopRated,
+    required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query) searched,
   }) {
     return searched(query);
@@ -825,10 +836,10 @@ class _$SearchedImpl implements _Searched {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int page)? fetchedPopular,
-    TResult? Function(int page)? fetchedNowPlaying,
-    TResult? Function(int page)? fetchedTopRated,
-    TResult? Function(int page)? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopular,
+    TResult? Function(bool isRefresh)? fetchedNowPlaying,
+    TResult? Function(bool isRefresh)? fetchedTopRated,
+    TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query)? searched,
   }) {
     return searched?.call(query);
@@ -837,10 +848,10 @@ class _$SearchedImpl implements _Searched {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int page)? fetchedPopular,
-    TResult Function(int page)? fetchedNowPlaying,
-    TResult Function(int page)? fetchedTopRated,
-    TResult Function(int page)? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopular,
+    TResult Function(bool isRefresh)? fetchedNowPlaying,
+    TResult Function(bool isRefresh)? fetchedTopRated,
+    TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query)? searched,
     required TResult orElse(),
   }) {
@@ -925,6 +936,12 @@ mixin _$MovieState {
   Option<MovieFailure> get failureOptionSearch =>
       throw _privateConstructorUsedError;
   bool get isSearching => throw _privateConstructorUsedError;
+  int get pageTopRated => throw _privateConstructorUsedError;
+  bool get hasReachedMaxTopRated => throw _privateConstructorUsedError;
+  int get pagePopular => throw _privateConstructorUsedError;
+  bool get hasReachedMaxPopular => throw _privateConstructorUsedError;
+  int get pageUpcoming => throw _privateConstructorUsedError;
+  bool get hasReachedMaxUpcoming => throw _privateConstructorUsedError;
 
   /// Create a copy of MovieState
   /// with the given fields replaced by the non-null parameter values.
@@ -956,6 +973,12 @@ abstract class $MovieStateCopyWith<$Res> {
     List<Movie> searchResults,
     Option<MovieFailure> failureOptionSearch,
     bool isSearching,
+    int pageTopRated,
+    bool hasReachedMaxTopRated,
+    int pagePopular,
+    bool hasReachedMaxPopular,
+    int pageUpcoming,
+    bool hasReachedMaxUpcoming,
   });
 }
 
@@ -989,6 +1012,12 @@ class _$MovieStateCopyWithImpl<$Res, $Val extends MovieState>
     Object? searchResults = null,
     Object? failureOptionSearch = null,
     Object? isSearching = null,
+    Object? pageTopRated = null,
+    Object? hasReachedMaxTopRated = null,
+    Object? pagePopular = null,
+    Object? hasReachedMaxPopular = null,
+    Object? pageUpcoming = null,
+    Object? hasReachedMaxUpcoming = null,
   }) {
     return _then(
       _value.copyWith(
@@ -1052,6 +1081,30 @@ class _$MovieStateCopyWithImpl<$Res, $Val extends MovieState>
                 ? _value.isSearching
                 : isSearching // ignore: cast_nullable_to_non_nullable
                       as bool,
+            pageTopRated: null == pageTopRated
+                ? _value.pageTopRated
+                : pageTopRated // ignore: cast_nullable_to_non_nullable
+                      as int,
+            hasReachedMaxTopRated: null == hasReachedMaxTopRated
+                ? _value.hasReachedMaxTopRated
+                : hasReachedMaxTopRated // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            pagePopular: null == pagePopular
+                ? _value.pagePopular
+                : pagePopular // ignore: cast_nullable_to_non_nullable
+                      as int,
+            hasReachedMaxPopular: null == hasReachedMaxPopular
+                ? _value.hasReachedMaxPopular
+                : hasReachedMaxPopular // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            pageUpcoming: null == pageUpcoming
+                ? _value.pageUpcoming
+                : pageUpcoming // ignore: cast_nullable_to_non_nullable
+                      as int,
+            hasReachedMaxUpcoming: null == hasReachedMaxUpcoming
+                ? _value.hasReachedMaxUpcoming
+                : hasReachedMaxUpcoming // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -1083,6 +1136,12 @@ abstract class _$$MovieStateImplCopyWith<$Res>
     List<Movie> searchResults,
     Option<MovieFailure> failureOptionSearch,
     bool isSearching,
+    int pageTopRated,
+    bool hasReachedMaxTopRated,
+    int pagePopular,
+    bool hasReachedMaxPopular,
+    int pageUpcoming,
+    bool hasReachedMaxUpcoming,
   });
 }
 
@@ -1115,6 +1174,12 @@ class __$$MovieStateImplCopyWithImpl<$Res>
     Object? searchResults = null,
     Object? failureOptionSearch = null,
     Object? isSearching = null,
+    Object? pageTopRated = null,
+    Object? hasReachedMaxTopRated = null,
+    Object? pagePopular = null,
+    Object? hasReachedMaxPopular = null,
+    Object? pageUpcoming = null,
+    Object? hasReachedMaxUpcoming = null,
   }) {
     return _then(
       _$MovieStateImpl(
@@ -1178,6 +1243,30 @@ class __$$MovieStateImplCopyWithImpl<$Res>
             ? _value.isSearching
             : isSearching // ignore: cast_nullable_to_non_nullable
                   as bool,
+        pageTopRated: null == pageTopRated
+            ? _value.pageTopRated
+            : pageTopRated // ignore: cast_nullable_to_non_nullable
+                  as int,
+        hasReachedMaxTopRated: null == hasReachedMaxTopRated
+            ? _value.hasReachedMaxTopRated
+            : hasReachedMaxTopRated // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        pagePopular: null == pagePopular
+            ? _value.pagePopular
+            : pagePopular // ignore: cast_nullable_to_non_nullable
+                  as int,
+        hasReachedMaxPopular: null == hasReachedMaxPopular
+            ? _value.hasReachedMaxPopular
+            : hasReachedMaxPopular // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        pageUpcoming: null == pageUpcoming
+            ? _value.pageUpcoming
+            : pageUpcoming // ignore: cast_nullable_to_non_nullable
+                  as int,
+        hasReachedMaxUpcoming: null == hasReachedMaxUpcoming
+            ? _value.hasReachedMaxUpcoming
+            : hasReachedMaxUpcoming // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -1202,6 +1291,12 @@ class _$MovieStateImpl implements _MovieState {
     required final List<Movie> searchResults,
     required this.failureOptionSearch,
     this.isSearching = false,
+    this.pageTopRated = 1,
+    this.hasReachedMaxTopRated = false,
+    this.pagePopular = 1,
+    this.hasReachedMaxPopular = false,
+    this.pageUpcoming = 1,
+    this.hasReachedMaxUpcoming = false,
   }) : _populars = populars,
        _nowPlayings = nowPlayings,
        _topRateds = topRateds,
@@ -1273,10 +1368,28 @@ class _$MovieStateImpl implements _MovieState {
   @override
   @JsonKey()
   final bool isSearching;
+  @override
+  @JsonKey()
+  final int pageTopRated;
+  @override
+  @JsonKey()
+  final bool hasReachedMaxTopRated;
+  @override
+  @JsonKey()
+  final int pagePopular;
+  @override
+  @JsonKey()
+  final bool hasReachedMaxPopular;
+  @override
+  @JsonKey()
+  final int pageUpcoming;
+  @override
+  @JsonKey()
+  final bool hasReachedMaxUpcoming;
 
   @override
   String toString() {
-    return 'MovieState(populars: $populars, failureOptionPopular: $failureOptionPopular, isFetchingPopular: $isFetchingPopular, nowPlayings: $nowPlayings, failureOptionNowPlaying: $failureOptionNowPlaying, isFetchingNowPlaying: $isFetchingNowPlaying, topRateds: $topRateds, failureOptionTopRated: $failureOptionTopRated, isFetchingTopRated: $isFetchingTopRated, upcomings: $upcomings, failureOptionUpcoming: $failureOptionUpcoming, isFetchingUpcoming: $isFetchingUpcoming, searchResults: $searchResults, failureOptionSearch: $failureOptionSearch, isSearching: $isSearching)';
+    return 'MovieState(populars: $populars, failureOptionPopular: $failureOptionPopular, isFetchingPopular: $isFetchingPopular, nowPlayings: $nowPlayings, failureOptionNowPlaying: $failureOptionNowPlaying, isFetchingNowPlaying: $isFetchingNowPlaying, topRateds: $topRateds, failureOptionTopRated: $failureOptionTopRated, isFetchingTopRated: $isFetchingTopRated, upcomings: $upcomings, failureOptionUpcoming: $failureOptionUpcoming, isFetchingUpcoming: $isFetchingUpcoming, searchResults: $searchResults, failureOptionSearch: $failureOptionSearch, isSearching: $isSearching, pageTopRated: $pageTopRated, hasReachedMaxTopRated: $hasReachedMaxTopRated, pagePopular: $pagePopular, hasReachedMaxPopular: $hasReachedMaxPopular, pageUpcoming: $pageUpcoming, hasReachedMaxUpcoming: $hasReachedMaxUpcoming)';
   }
 
   @override
@@ -1323,11 +1436,23 @@ class _$MovieStateImpl implements _MovieState {
             (identical(other.failureOptionSearch, failureOptionSearch) ||
                 other.failureOptionSearch == failureOptionSearch) &&
             (identical(other.isSearching, isSearching) ||
-                other.isSearching == isSearching));
+                other.isSearching == isSearching) &&
+            (identical(other.pageTopRated, pageTopRated) ||
+                other.pageTopRated == pageTopRated) &&
+            (identical(other.hasReachedMaxTopRated, hasReachedMaxTopRated) ||
+                other.hasReachedMaxTopRated == hasReachedMaxTopRated) &&
+            (identical(other.pagePopular, pagePopular) ||
+                other.pagePopular == pagePopular) &&
+            (identical(other.hasReachedMaxPopular, hasReachedMaxPopular) ||
+                other.hasReachedMaxPopular == hasReachedMaxPopular) &&
+            (identical(other.pageUpcoming, pageUpcoming) ||
+                other.pageUpcoming == pageUpcoming) &&
+            (identical(other.hasReachedMaxUpcoming, hasReachedMaxUpcoming) ||
+                other.hasReachedMaxUpcoming == hasReachedMaxUpcoming));
   }
 
   @override
-  int get hashCode => Object.hash(
+  int get hashCode => Object.hashAll([
     runtimeType,
     const DeepCollectionEquality().hash(_populars),
     failureOptionPopular,
@@ -1344,7 +1469,13 @@ class _$MovieStateImpl implements _MovieState {
     const DeepCollectionEquality().hash(_searchResults),
     failureOptionSearch,
     isSearching,
-  );
+    pageTopRated,
+    hasReachedMaxTopRated,
+    pagePopular,
+    hasReachedMaxPopular,
+    pageUpcoming,
+    hasReachedMaxUpcoming,
+  ]);
 
   /// Create a copy of MovieState
   /// with the given fields replaced by the non-null parameter values.
@@ -1372,6 +1503,12 @@ abstract class _MovieState implements MovieState {
     required final List<Movie> searchResults,
     required final Option<MovieFailure> failureOptionSearch,
     final bool isSearching,
+    final int pageTopRated,
+    final bool hasReachedMaxTopRated,
+    final int pagePopular,
+    final bool hasReachedMaxPopular,
+    final int pageUpcoming,
+    final bool hasReachedMaxUpcoming,
   }) = _$MovieStateImpl;
 
   @override
@@ -1404,6 +1541,18 @@ abstract class _MovieState implements MovieState {
   Option<MovieFailure> get failureOptionSearch;
   @override
   bool get isSearching;
+  @override
+  int get pageTopRated;
+  @override
+  bool get hasReachedMaxTopRated;
+  @override
+  int get pagePopular;
+  @override
+  bool get hasReachedMaxPopular;
+  @override
+  int get pageUpcoming;
+  @override
+  bool get hasReachedMaxUpcoming;
 
   /// Create a copy of MovieState
   /// with the given fields replaced by the non-null parameter values.

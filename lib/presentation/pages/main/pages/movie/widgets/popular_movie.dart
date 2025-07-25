@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -5,6 +6,7 @@ import '../../../../../../application/movie/movie_bloc.dart';
 import '../../../../../components/section/section.dart';
 import '../../../../../components/shimmer/shimmer.dart';
 import '../../../../../components/tile/movie_tile.dart';
+import '../../../../../routes/app_router.gr.dart';
 
 class MoviePopular extends StatelessWidget {
   const MoviePopular({super.key});
@@ -15,7 +17,12 @@ class MoviePopular extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SectionTitle(title: 'Popular Movie'),
+          child: SectionTitle(
+            title: 'Popular Movie',
+            onTapSeeAll: () => context.router.push(
+              MovieSeeAllRoute(title: "Popular Movie", type: "popular"),
+            ),
+          ),
         ),
 
         BlocBuilder<MovieBloc, MovieState>(

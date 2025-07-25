@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -21,19 +22,22 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
   Future<void> _onMovieEvent(MovieEvent event, Emitter<MovieState> emit) {
     return event.map(
       fetchedPopular: (e) async {
-        emit(
-          state.copyWith(isFetchingPopular: true, failureOptionPopular: none()),
+        var newState = state;
+
+        if (e.isRefresh) {
+          newState = state.copyWith(isFetchingPopular: true);
+
+          emit(newState);
+        }
+
+        newState = await _mapFetchedCategoryToState(
+          newState,
+          category: MovieCategoryType.popular,
+          isRefresh: e.isRefresh,
+          fetch: _movieRepository.getPopular,
         );
 
-        final failureOrMovie = await _movieRepository.getPopular(page: e.page);
-
-        var data = failureOrMovie.fold(
-          (f) => state.copyWith(failureOptionPopular: optionOf(f)),
-          (popular) =>
-              state.copyWith(populars: popular, failureOptionPopular: none()),
-        );
-
-        emit(data.copyWith(isFetchingPopular: false));
+        emit(newState);
       },
       fetchedNowPlaying: (e) async {
         emit(
@@ -43,9 +47,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
           ),
         );
 
-        final failureOrMovie = await _movieRepository.getNowPlaying(
-          page: e.page,
-        );
+        final failureOrMovie = await _movieRepository.getNowPlaying(page: 1);
 
         var data = failureOrMovie.fold(
           (f) => state.copyWith(failureOptionNowPlaying: optionOf(f)),
@@ -58,44 +60,46 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
         emit(data.copyWith(isFetchingNowPlaying: false));
       },
       fetchedTopRated: (e) async {
-        emit(
-          state.copyWith(
+        var newState = state;
+
+        if (e.isRefresh) {
+          newState = state.copyWith(
             isFetchingTopRated: true,
+            topRateds: [],
+            pageTopRated: 1,
+            hasReachedMaxTopRated: false,
             failureOptionTopRated: none(),
-          ),
+          );
+
+          emit(newState);
+        }
+
+        newState = await _mapFetchedCategoryToState(
+          newState,
+          category: MovieCategoryType.topRated,
+          isRefresh: e.isRefresh,
+          fetch: _movieRepository.getTopRated,
         );
 
-        final failureOrMovie = await _movieRepository.getTopRated(page: e.page);
-
-        var data = failureOrMovie.fold(
-          (f) => state.copyWith(failureOptionTopRated: optionOf(f)),
-          (topRated) => state.copyWith(
-            topRateds: topRated,
-            failureOptionTopRated: none(),
-          ),
-        );
-
-        emit(data.copyWith(isFetchingTopRated: false));
+        emit(newState);
       },
       fetchedUpcoming: (e) async {
-        emit(
-          state.copyWith(
-            isFetchingUpcoming: true,
-            failureOptionUpcoming: none(),
-          ),
+        var newState = state;
+
+        if (e.isRefresh) {
+          newState = state.copyWith(isFetchingUpcoming: true);
+
+          emit(newState);
+        }
+
+        newState = await _mapFetchedCategoryToState(
+          newState,
+          category: MovieCategoryType.upcoming,
+          isRefresh: e.isRefresh,
+          fetch: _movieRepository.getUpcoming,
         );
 
-        final failureOrMovie = await _movieRepository.getUpcoming(page: e.page);
-
-        var data = failureOrMovie.fold(
-          (f) => state.copyWith(failureOptionUpcoming: optionOf(f)),
-          (upcoming) => state.copyWith(
-            upcomings: upcoming,
-            failureOptionUpcoming: none(),
-          ),
-        );
-
-        emit(data.copyWith(isFetchingUpcoming: false));
+        emit(newState);
       },
       searched: (e) async {
         if (e.query.trim().isEmpty) {
@@ -113,6 +117,124 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
         );
 
         emit(newState.copyWith(isSearching: false));
+      },
+    );
+  }
+
+  Future<MovieState> _mapFetchedCategoryToState(
+    MovieState currentState, {
+    required MovieCategoryType category,
+    required bool isRefresh,
+    required Future<Either<MovieFailure, List<Movie>>> Function({
+      required int page,
+    })
+    fetch,
+  }) async {
+    log('Fetching category: ${category.name}', name: 'MovieBloc');
+
+    int currentPage = switch (category) {
+      MovieCategoryType.popular => currentState.pagePopular,
+      MovieCategoryType.topRated => currentState.pageTopRated,
+      MovieCategoryType.upcoming => currentState.pageUpcoming,
+    };
+
+    bool hasReachedMax = switch (category) {
+      MovieCategoryType.popular => currentState.hasReachedMaxPopular,
+      MovieCategoryType.topRated => currentState.hasReachedMaxTopRated,
+      MovieCategoryType.upcoming => currentState.hasReachedMaxUpcoming,
+    };
+    late List<Movie> currentList;
+
+    // Extract current state by category
+    switch (category) {
+      case MovieCategoryType.popular:
+        currentPage = currentState.pagePopular;
+        hasReachedMax = currentState.hasReachedMaxPopular;
+        currentList = currentState.populars;
+        break;
+      case MovieCategoryType.topRated:
+        currentPage = currentState.pageTopRated;
+        hasReachedMax = currentState.hasReachedMaxTopRated;
+        currentList = currentState.topRateds;
+        break;
+      case MovieCategoryType.upcoming:
+        currentPage = currentState.pageUpcoming;
+        hasReachedMax = currentState.hasReachedMaxUpcoming;
+        currentList = currentState.upcomings;
+        break;
+    }
+
+    if (hasReachedMax && currentList.isNotEmpty && !isRefresh) {
+      return currentState;
+    }
+
+    if (isRefresh) {
+      log(
+        'Fetching category: ${category.name}, isRefresh: $isRefresh',
+        name: 'MovieBloc',
+      );
+      currentPage = 1;
+      currentList = [];
+      hasReachedMax = false;
+    }
+
+    final failureOrResult = await fetch(page: currentPage);
+
+    return failureOrResult.fold(
+      (f) {
+        if (f == const MovieFailure.movieEmpty() && currentList.isNotEmpty) {
+          hasReachedMax = true;
+        }
+
+        switch (category) {
+          case MovieCategoryType.popular:
+            return currentState.copyWith(
+              failureOptionPopular: some(f),
+              hasReachedMaxPopular: hasReachedMax,
+            );
+          case MovieCategoryType.topRated:
+            return currentState.copyWith(
+              failureOptionTopRated: some(f),
+              hasReachedMaxTopRated: hasReachedMax,
+            );
+          case MovieCategoryType.upcoming:
+            return currentState.copyWith(
+              failureOptionUpcoming: some(f),
+              hasReachedMaxUpcoming: hasReachedMax,
+            );
+        }
+      },
+      (movies) {
+        final newList = List<Movie>.from(currentList)..addAll(movies);
+        final newPage = currentPage + 1;
+        final reachedMax = movies.length < 20;
+
+        switch (category) {
+          case MovieCategoryType.popular:
+            return currentState.copyWith(
+              populars: newList,
+              failureOptionPopular: none(),
+              pagePopular: newPage,
+              hasReachedMaxPopular: reachedMax,
+              isFetchingPopular: false,
+            );
+          case MovieCategoryType.topRated:
+            return currentState.copyWith(
+              topRateds: newList,
+              failureOptionTopRated: none(),
+              pageTopRated: newPage,
+              hasReachedMaxTopRated: reachedMax,
+              isFetchingTopRated: false,
+            );
+          case MovieCategoryType.upcoming:
+            return currentState.copyWith(
+              upcomings: newList,
+              failureOptionUpcoming: none(),
+              pageUpcoming: newPage,
+              hasReachedMaxUpcoming: reachedMax,
+              isFetchingUpcoming: false,
+            );
+        }
       },
     );
   }
