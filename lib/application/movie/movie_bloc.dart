@@ -285,6 +285,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
           failureOptionSearch: none(),
           pageSearch: state.pageSearch + 1,
           hasReachedMaxSearch: movies.length < 20,
+          isFetchingNowPlaying: false,
         );
       },
     );

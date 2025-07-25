@@ -1,10 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
 
+import '../../../../../../application/tv/tv_bloc.dart';
+import '../../../../../../common/function/app_function.dart';
 import '../../../../../../common/resource/resource.dart';
+import '../../../../../../domain/tv/tv.dart';
 import '../../../../../components/button/button.dart';
 import '../../../../../components/image/image.dart';
+import '../../../../../components/shimmer/shimmer.dart';
 import '../../../../../components/spacer/spacer.dart';
 
 class TvHeader extends StatefulWidget {
@@ -40,35 +45,61 @@ class _TvHeaderState extends State<TvHeader> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        CarouselSlider.builder(
-          itemCount: movies.length,
-          options: CarouselOptions(
+    return BlocBuilder<TvBloc, TvState>(
+      builder: (context, state) {
+        if (state.isFetchingOnTheAir) {
+          return ShimmerWidget(height: 400, width: double.infinity);
+        }
+
+        if (state.onTheAirs.isEmpty) {
+          return const SizedBox(
             height: 400,
-            viewportFraction: 1.0,
-            autoPlay: true,
-            autoPlayInterval: const Duration(seconds: 4),
-            onPageChanged: (index, reason) {
-              setState(() {
-                currentIndex = index;
-              });
-            },
-          ),
-          itemBuilder: (context, index, realIdx) {
-            return buildCarouselItem(context, movies[index]['image'] ?? '');
-          },
-        ),
-        Positioned(bottom: 40, left: 20, right: 20, child: _buildInfo()),
-        Positioned(bottom: 12, left: 0, right: 0, child: _buildDot()),
-      ],
+            child: Center(child: Text("No TV shows available")),
+          );
+        }
+
+        return Stack(
+          children: [
+            CarouselSlider.builder(
+              itemCount: state.onTheAirs.length,
+              options: CarouselOptions(
+                height: 400,
+                viewportFraction: 1.0,
+                autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 4),
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
+              ),
+              itemBuilder: (context, index, realIdx) {
+                final tv = state.onTheAirs[index];
+                return buildCarouselItem(context, getPosterUrl(tv.posterPath));
+              },
+            ),
+            Positioned(
+              bottom: 40,
+              left: 20,
+              right: 20,
+              child: _buildInfo(state.onTheAirs[currentIndex]),
+            ),
+            Positioned(
+              bottom: 12,
+              left: 0,
+              right: 0,
+              child: _buildDot(state.onTheAirs),
+            ),
+          ],
+        );
+      },
     );
   }
 
-  Row _buildDot() {
+  Row _buildDot(List<Tv> tv) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: movies.asMap().entries.map((entry) {
+      children: tv.asMap().entries.map((entry) {
         return AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           margin: const EdgeInsets.symmetric(horizontal: 4),
@@ -83,12 +114,12 @@ class _TvHeaderState extends State<TvHeader> {
     );
   }
 
-  Column _buildInfo() {
+  Column _buildInfo(Tv tv) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          movies[currentIndex]['title'] ?? '',
+          tv.name,
           style: AppStyle.xxl.copyWith(
             fontWeight: FontWeight.bold,
             overflow: TextOverflow.ellipsis,
@@ -97,11 +128,13 @@ class _TvHeaderState extends State<TvHeader> {
         ),
         const SizedBox(height: 8),
         Text(
-          movies[currentIndex]['genre'] ?? '',
+          tv.overview,
           style: AppStyle.md.copyWith(
             color: AppColor.grey.shade200,
             fontWeight: FontWeight.w500,
+            overflow: TextOverflow.ellipsis,
           ),
+          maxLines: 2,
         ),
         const SizedBox(height: 20),
         Row(
@@ -113,8 +146,8 @@ class _TvHeaderState extends State<TvHeader> {
             ),
             SpacerWidth(10),
             AppOutlinedButton(
-              text: "Favorite",
-              icon: LineIcons.bookmark,
+              text: "Detail",
+              icon: LineIcons.list,
               onPressed: () {},
             ),
           ],

@@ -1,17 +1,26 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../application/tv/tv_bloc.dart';
+import '../../../../../injection.dart';
 import '../../../../components/spacer/spacer.dart';
 import 'widgets/appbar.dart';
 import 'widgets/header.dart';
 import 'widgets/popular_tv.dart';
 
 @RoutePage()
-class TvPage extends StatefulWidget {
+class TvPage extends StatefulWidget implements AutoRouteWrapper {
   const TvPage({super.key});
 
   @override
   State<TvPage> createState() => _TvPageState();
+
+  @override
+  Widget wrappedRoute(BuildContext context) => BlocProvider(
+    create: (context) => getIt<TvBloc>()..add(TvEvent.fetchedOnTheAIr()),
+    child: this,
+  );
 }
 
 class _TvPageState extends State<TvPage> {

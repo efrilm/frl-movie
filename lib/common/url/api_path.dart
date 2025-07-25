@@ -7,6 +7,8 @@ class ApiPath {
   static final String movieTopRated = '/$_version/movie/top_rated';
   static final String movieUpcoming = '/$_version/movie/upcoming';
   static final String movieSearch = '/$_version/search/movie';
+  static final String tv = '/$_version/tv';
+  static final String tvOnTheAir = '/$_version/tv/on_the_air';
 
   String movieReleaseDate(int id) => '/$_version/movie/$id/release_dates';
 }
