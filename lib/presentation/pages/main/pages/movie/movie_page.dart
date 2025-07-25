@@ -38,7 +38,8 @@ class MoviePage extends StatelessWidget implements AutoRouteWrapper {
     create: (_) => getIt<MovieBloc>()
       ..add(MovieEvent.fetchedNowPlaying(1))
       ..add(MovieEvent.fetchedPopular(1))
-      ..add(MovieEvent.fetchedTopRated(1)),
+      ..add(MovieEvent.fetchedTopRated(1))
+      ..add(MovieEvent.fetchedUpcoming(1)),
     child: this,
   );
 }

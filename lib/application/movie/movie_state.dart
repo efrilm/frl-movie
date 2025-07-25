@@ -12,6 +12,9 @@ class MovieState with _$MovieState {
     required List<Movie> topRateds,
     required Option<MovieFailure> failureOptionTopRated,
     @Default(false) bool isFetchingTopRated,
+    required List<Movie> upcomings,
+    required Option<MovieFailure> failureOptionUpcoming,
+    @Default(false) bool isFetchingUpcoming,
   }) = _MovieState;
 
   factory MovieState.initial() => MovieState(
@@ -21,5 +24,7 @@ class MovieState with _$MovieState {
     failureOptionNowPlaying: none(),
     topRateds: [],
     failureOptionTopRated: none(),
+    upcomings: [],
+    failureOptionUpcoming: none(),
   );
 }

@@ -86,4 +86,27 @@ class MovieRemoteDataSource {
       return DC.error(MovieFailure.serverError(e));
     }
   }
+
+  Future<DC<MovieFailure, List<MovieDto>>> fetchUpcoming({int page = 1}) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.movieUpcoming,
+        params: {'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => MovieDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const MovieFailure.movieEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchUpcomingMovie', name: _logName, error: e);
+
+      return DC.error(MovieFailure.serverError(e));
+    }
+  }
 }
