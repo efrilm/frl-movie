@@ -6,9 +6,9 @@ import '../../../../../application/movie/movie_bloc.dart';
 import '../../../../../injection.dart';
 import '../../../../components/spacer/spacer.dart';
 import 'widgets/appbar.dart';
-import 'widgets/now_playing.dart';
-import 'widgets/popular_movie.dart';
 import 'widgets/top_rated_movie.dart';
+import 'widgets/popular_movie.dart';
+import 'widgets/now_playing_movie.dart';
 import 'widgets/upcoming_movie.dart';
 
 @RoutePage()
@@ -21,8 +21,8 @@ class MoviePage extends StatelessWidget implements AutoRouteWrapper {
       appBar: MovieAppbar(),
       body: ListView(
         children: [
-          MovieTopRated(),
           MovieNowPlaying(),
+          MovieTopRated(),
           SpacerHeight(20),
           MovieUpcoming(),
           SpacerHeight(20),
@@ -35,7 +35,9 @@ class MoviePage extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget wrappedRoute(BuildContext context) => BlocProvider(
-    create: (_) => getIt<MovieBloc>()..add(MovieEvent.fetchedPopular(1)),
+    create: (_) => getIt<MovieBloc>()
+      ..add(MovieEvent.fetchedNowPlaying(1))
+      ..add(MovieEvent.fetchedPopular(1)),
     child: this,
   );
 }

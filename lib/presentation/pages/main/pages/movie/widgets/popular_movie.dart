@@ -20,9 +20,9 @@ class MoviePopular extends StatelessWidget {
 
         BlocBuilder<MovieBloc, MovieState>(
           builder: (context, state) {
-            return state.failureOption.fold(
+            return state.failureOptionPopular.fold(
               () {
-                if (state.isFetching) {
+                if (state.isFetchingPopular) {
                   return SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     physics: const NeverScrollableScrollPhysics(),

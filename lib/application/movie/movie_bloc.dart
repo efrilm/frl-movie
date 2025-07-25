@@ -19,16 +19,41 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
   Future<void> _onMovieEvent(MovieEvent event, Emitter<MovieState> emit) {
     return event.map(
       fetchedPopular: (e) async {
-        emit(state.copyWith(isFetching: true, failureOption: none()));
+        emit(
+          state.copyWith(isFetchingPopular: true, failureOptionPopular: none()),
+        );
 
         final failureOrMovie = await _movieRepository.getPopular(page: e.page);
 
         var data = failureOrMovie.fold(
-          (f) => state.copyWith(failureOption: optionOf(f)),
-          (popular) => state.copyWith(populars: popular, failureOption: none()),
+          (f) => state.copyWith(failureOptionPopular: optionOf(f)),
+          (popular) =>
+              state.copyWith(populars: popular, failureOptionPopular: none()),
         );
 
-        emit(data.copyWith(isFetching: false));
+        emit(data.copyWith(isFetchingPopular: false));
+      },
+      fetchedNowPlaying: (e) async {
+        emit(
+          state.copyWith(
+            isFetchingNowPlaying: true,
+            failureOptionNowPlaying: none(),
+          ),
+        );
+
+        final failureOrMovie = await _movieRepository.getNowPlaying(
+          page: e.page,
+        );
+
+        var data = failureOrMovie.fold(
+          (f) => state.copyWith(failureOptionNowPlaying: optionOf(f)),
+          (nowPlaying) => state.copyWith(
+            nowPlayings: nowPlaying,
+            failureOptionNowPlaying: none(),
+          ),
+        );
+
+        emit(data.copyWith(isFetchingNowPlaying: false));
       },
     );
   }

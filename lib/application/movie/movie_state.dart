@@ -4,10 +4,17 @@ part of 'movie_bloc.dart';
 class MovieState with _$MovieState {
   const factory MovieState({
     required List<Movie> populars,
-    required Option<MovieFailure> failureOption,
-    @Default(false) bool isFetching,
+    required Option<MovieFailure> failureOptionPopular,
+    @Default(false) bool isFetchingPopular,
+    required List<Movie> nowPlayings,
+    required Option<MovieFailure> failureOptionNowPlaying,
+    @Default(false) bool isFetchingNowPlaying,
   }) = _MovieState;
 
-  factory MovieState.initial() =>
-      MovieState(populars: [], failureOption: none());
+  factory MovieState.initial() => MovieState(
+    populars: [],
+    failureOptionPopular: none(),
+    nowPlayings: [],
+    failureOptionNowPlaying: none(),
+  );
 }
