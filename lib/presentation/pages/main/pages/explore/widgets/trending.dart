@@ -11,24 +11,19 @@ class ExploreTrending extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0).copyWith(bottom: 0),
-      child: Column(
-        children: [
-          SectionTitle(title: 'Trending', isSeeAll: false),
-          SpacerHeight(16),
-          Row(
-            children: _trending
-                .map(
-                  (item) => Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: TrendingTile(title: item, onTap: () {}),
-                  ),
-                )
-                .toList(),
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SectionTitle(title: 'Trending', isSeeAll: false),
+        SpacerHeight(16),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: _trending
+              .map((item) => TrendingTile(title: item, onTap: () {}))
+              .toList(),
+        ),
+      ],
     );
   }
 }
