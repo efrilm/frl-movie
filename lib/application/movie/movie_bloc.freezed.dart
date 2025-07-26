@@ -25,6 +25,7 @@ mixin _$MovieEvent {
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -33,6 +34,7 @@ mixin _$MovieEvent {
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -41,6 +43,7 @@ mixin _$MovieEvent {
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +53,7 @@ mixin _$MovieEvent {
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -58,6 +62,7 @@ mixin _$MovieEvent {
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -66,6 +71,7 @@ mixin _$MovieEvent {
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 
@@ -195,6 +201,7 @@ class _$FetchedPopularImpl implements _FetchedPopular {
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
     return fetchedPopular(isRefresh);
   }
@@ -207,6 +214,7 @@ class _$FetchedPopularImpl implements _FetchedPopular {
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
     return fetchedPopular?.call(isRefresh);
   }
@@ -219,6 +227,7 @@ class _$FetchedPopularImpl implements _FetchedPopular {
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedPopular != null) {
@@ -235,6 +244,7 @@ class _$FetchedPopularImpl implements _FetchedPopular {
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
     return fetchedPopular(this);
   }
@@ -247,6 +257,7 @@ class _$FetchedPopularImpl implements _FetchedPopular {
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
     return fetchedPopular?.call(this);
   }
@@ -259,6 +270,7 @@ class _$FetchedPopularImpl implements _FetchedPopular {
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedPopular != null) {
@@ -364,6 +376,7 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
     return fetchedNowPlaying(isRefresh);
   }
@@ -376,6 +389,7 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
     return fetchedNowPlaying?.call(isRefresh);
   }
@@ -388,6 +402,7 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedNowPlaying != null) {
@@ -404,6 +419,7 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
     return fetchedNowPlaying(this);
   }
@@ -416,6 +432,7 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
     return fetchedNowPlaying?.call(this);
   }
@@ -428,6 +445,7 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedNowPlaying != null) {
@@ -534,6 +552,7 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
     return fetchedTopRated(isRefresh);
   }
@@ -546,6 +565,7 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
     return fetchedTopRated?.call(isRefresh);
   }
@@ -558,6 +578,7 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedTopRated != null) {
@@ -574,6 +595,7 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
     return fetchedTopRated(this);
   }
@@ -586,6 +608,7 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
     return fetchedTopRated?.call(this);
   }
@@ -598,6 +621,7 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedTopRated != null) {
@@ -704,6 +728,7 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
     return fetchedUpcoming(isRefresh);
   }
@@ -716,6 +741,7 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
     return fetchedUpcoming?.call(isRefresh);
   }
@@ -728,6 +754,7 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedUpcoming != null) {
@@ -744,6 +771,7 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
     return fetchedUpcoming(this);
   }
@@ -756,6 +784,7 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
     return fetchedUpcoming?.call(this);
   }
@@ -768,6 +797,7 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedUpcoming != null) {
@@ -878,6 +908,7 @@ class _$SearchedImpl implements _Searched {
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(bool isRefresh) fetchedUpcoming,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
     return searched(query, isRefresh);
   }
@@ -890,6 +921,7 @@ class _$SearchedImpl implements _Searched {
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(bool isRefresh)? fetchedUpcoming,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
     return searched?.call(query, isRefresh);
   }
@@ -902,6 +934,7 @@ class _$SearchedImpl implements _Searched {
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(bool isRefresh)? fetchedUpcoming,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (searched != null) {
@@ -918,6 +951,7 @@ class _$SearchedImpl implements _Searched {
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
     return searched(this);
   }
@@ -930,6 +964,7 @@ class _$SearchedImpl implements _Searched {
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
     return searched?.call(this);
   }
@@ -942,6 +977,7 @@ class _$SearchedImpl implements _Searched {
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (searched != null) {
@@ -968,6 +1004,192 @@ abstract class _Searched implements MovieEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchedByGenreImplCopyWith<$Res>
+    implements $MovieEventCopyWith<$Res> {
+  factory _$$FetchedByGenreImplCopyWith(
+    _$FetchedByGenreImpl value,
+    $Res Function(_$FetchedByGenreImpl) then,
+  ) = __$$FetchedByGenreImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({bool isRefresh, int genreId});
+}
+
+/// @nodoc
+class __$$FetchedByGenreImplCopyWithImpl<$Res>
+    extends _$MovieEventCopyWithImpl<$Res, _$FetchedByGenreImpl>
+    implements _$$FetchedByGenreImplCopyWith<$Res> {
+  __$$FetchedByGenreImplCopyWithImpl(
+    _$FetchedByGenreImpl _value,
+    $Res Function(_$FetchedByGenreImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? isRefresh = null, Object? genreId = null}) {
+    return _then(
+      _$FetchedByGenreImpl(
+        isRefresh: null == isRefresh
+            ? _value.isRefresh
+            : isRefresh // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        genreId: null == genreId
+            ? _value.genreId
+            : genreId // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$FetchedByGenreImpl implements _FetchedByGenre {
+  const _$FetchedByGenreImpl({this.isRefresh = false, required this.genreId});
+
+  @override
+  @JsonKey()
+  final bool isRefresh;
+  @override
+  final int genreId;
+
+  @override
+  String toString() {
+    return 'MovieEvent.fetchedByGenre(isRefresh: $isRefresh, genreId: $genreId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchedByGenreImpl &&
+            (identical(other.isRefresh, isRefresh) ||
+                other.isRefresh == isRefresh) &&
+            (identical(other.genreId, genreId) || other.genreId == genreId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isRefresh, genreId);
+
+  /// Create a copy of MovieEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchedByGenreImplCopyWith<_$FetchedByGenreImpl> get copyWith =>
+      __$$FetchedByGenreImplCopyWithImpl<_$FetchedByGenreImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool isRefresh) fetchedPopular,
+    required TResult Function(bool isRefresh) fetchedNowPlaying,
+    required TResult Function(bool isRefresh) fetchedTopRated,
+    required TResult Function(bool isRefresh) fetchedUpcoming,
+    required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
+  }) {
+    return fetchedByGenre(isRefresh, genreId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool isRefresh)? fetchedPopular,
+    TResult? Function(bool isRefresh)? fetchedNowPlaying,
+    TResult? Function(bool isRefresh)? fetchedTopRated,
+    TResult? Function(bool isRefresh)? fetchedUpcoming,
+    TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
+  }) {
+    return fetchedByGenre?.call(isRefresh, genreId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool isRefresh)? fetchedPopular,
+    TResult Function(bool isRefresh)? fetchedNowPlaying,
+    TResult Function(bool isRefresh)? fetchedTopRated,
+    TResult Function(bool isRefresh)? fetchedUpcoming,
+    TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
+    required TResult orElse(),
+  }) {
+    if (fetchedByGenre != null) {
+      return fetchedByGenre(isRefresh, genreId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchedPopular value) fetchedPopular,
+    required TResult Function(_FetchedNowPlaying value) fetchedNowPlaying,
+    required TResult Function(_FetchedTopRated value) fetchedTopRated,
+    required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
+  }) {
+    return fetchedByGenre(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchedPopular value)? fetchedPopular,
+    TResult? Function(_FetchedNowPlaying value)? fetchedNowPlaying,
+    TResult? Function(_FetchedTopRated value)? fetchedTopRated,
+    TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
+  }) {
+    return fetchedByGenre?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchedPopular value)? fetchedPopular,
+    TResult Function(_FetchedNowPlaying value)? fetchedNowPlaying,
+    TResult Function(_FetchedTopRated value)? fetchedTopRated,
+    TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
+    required TResult orElse(),
+  }) {
+    if (fetchedByGenre != null) {
+      return fetchedByGenre(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchedByGenre implements MovieEvent {
+  const factory _FetchedByGenre({
+    final bool isRefresh,
+    required final int genreId,
+  }) = _$FetchedByGenreImpl;
+
+  @override
+  bool get isRefresh;
+  int get genreId;
+
+  /// Create a copy of MovieEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FetchedByGenreImplCopyWith<_$FetchedByGenreImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MovieState {
   List<Movie> get populars => throw _privateConstructorUsedError;
   Option<MovieFailure> get failureOptionPopular =>
@@ -985,6 +1207,10 @@ mixin _$MovieState {
   Option<MovieFailure> get failureOptionUpcoming =>
       throw _privateConstructorUsedError;
   bool get isFetchingUpcoming => throw _privateConstructorUsedError;
+  List<Movie> get movieByGenres => throw _privateConstructorUsedError;
+  Option<MovieFailure> get failureOptionMovieByGenre =>
+      throw _privateConstructorUsedError;
+  bool get isFetchingMovieByGenre => throw _privateConstructorUsedError;
   List<Movie> get searchResults => throw _privateConstructorUsedError;
   Option<MovieFailure> get failureOptionSearch =>
       throw _privateConstructorUsedError;
@@ -997,6 +1223,8 @@ mixin _$MovieState {
   bool get hasReachedMaxUpcoming => throw _privateConstructorUsedError;
   int get pageSearch => throw _privateConstructorUsedError;
   bool get hasReachedMaxSearch => throw _privateConstructorUsedError;
+  int get pageMovieByGenre => throw _privateConstructorUsedError;
+  bool get hasReachedMaxMovieByGenre => throw _privateConstructorUsedError;
 
   /// Create a copy of MovieState
   /// with the given fields replaced by the non-null parameter values.
@@ -1025,6 +1253,9 @@ abstract class $MovieStateCopyWith<$Res> {
     List<Movie> upcomings,
     Option<MovieFailure> failureOptionUpcoming,
     bool isFetchingUpcoming,
+    List<Movie> movieByGenres,
+    Option<MovieFailure> failureOptionMovieByGenre,
+    bool isFetchingMovieByGenre,
     List<Movie> searchResults,
     Option<MovieFailure> failureOptionSearch,
     bool isSearching,
@@ -1036,6 +1267,8 @@ abstract class $MovieStateCopyWith<$Res> {
     bool hasReachedMaxUpcoming,
     int pageSearch,
     bool hasReachedMaxSearch,
+    int pageMovieByGenre,
+    bool hasReachedMaxMovieByGenre,
   });
 }
 
@@ -1066,6 +1299,9 @@ class _$MovieStateCopyWithImpl<$Res, $Val extends MovieState>
     Object? upcomings = null,
     Object? failureOptionUpcoming = null,
     Object? isFetchingUpcoming = null,
+    Object? movieByGenres = null,
+    Object? failureOptionMovieByGenre = null,
+    Object? isFetchingMovieByGenre = null,
     Object? searchResults = null,
     Object? failureOptionSearch = null,
     Object? isSearching = null,
@@ -1077,6 +1313,8 @@ class _$MovieStateCopyWithImpl<$Res, $Val extends MovieState>
     Object? hasReachedMaxUpcoming = null,
     Object? pageSearch = null,
     Object? hasReachedMaxSearch = null,
+    Object? pageMovieByGenre = null,
+    Object? hasReachedMaxMovieByGenre = null,
   }) {
     return _then(
       _value.copyWith(
@@ -1128,6 +1366,18 @@ class _$MovieStateCopyWithImpl<$Res, $Val extends MovieState>
                 ? _value.isFetchingUpcoming
                 : isFetchingUpcoming // ignore: cast_nullable_to_non_nullable
                       as bool,
+            movieByGenres: null == movieByGenres
+                ? _value.movieByGenres
+                : movieByGenres // ignore: cast_nullable_to_non_nullable
+                      as List<Movie>,
+            failureOptionMovieByGenre: null == failureOptionMovieByGenre
+                ? _value.failureOptionMovieByGenre
+                : failureOptionMovieByGenre // ignore: cast_nullable_to_non_nullable
+                      as Option<MovieFailure>,
+            isFetchingMovieByGenre: null == isFetchingMovieByGenre
+                ? _value.isFetchingMovieByGenre
+                : isFetchingMovieByGenre // ignore: cast_nullable_to_non_nullable
+                      as bool,
             searchResults: null == searchResults
                 ? _value.searchResults
                 : searchResults // ignore: cast_nullable_to_non_nullable
@@ -1172,6 +1422,14 @@ class _$MovieStateCopyWithImpl<$Res, $Val extends MovieState>
                 ? _value.hasReachedMaxSearch
                 : hasReachedMaxSearch // ignore: cast_nullable_to_non_nullable
                       as bool,
+            pageMovieByGenre: null == pageMovieByGenre
+                ? _value.pageMovieByGenre
+                : pageMovieByGenre // ignore: cast_nullable_to_non_nullable
+                      as int,
+            hasReachedMaxMovieByGenre: null == hasReachedMaxMovieByGenre
+                ? _value.hasReachedMaxMovieByGenre
+                : hasReachedMaxMovieByGenre // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -1200,6 +1458,9 @@ abstract class _$$MovieStateImplCopyWith<$Res>
     List<Movie> upcomings,
     Option<MovieFailure> failureOptionUpcoming,
     bool isFetchingUpcoming,
+    List<Movie> movieByGenres,
+    Option<MovieFailure> failureOptionMovieByGenre,
+    bool isFetchingMovieByGenre,
     List<Movie> searchResults,
     Option<MovieFailure> failureOptionSearch,
     bool isSearching,
@@ -1211,6 +1472,8 @@ abstract class _$$MovieStateImplCopyWith<$Res>
     bool hasReachedMaxUpcoming,
     int pageSearch,
     bool hasReachedMaxSearch,
+    int pageMovieByGenre,
+    bool hasReachedMaxMovieByGenre,
   });
 }
 
@@ -1240,6 +1503,9 @@ class __$$MovieStateImplCopyWithImpl<$Res>
     Object? upcomings = null,
     Object? failureOptionUpcoming = null,
     Object? isFetchingUpcoming = null,
+    Object? movieByGenres = null,
+    Object? failureOptionMovieByGenre = null,
+    Object? isFetchingMovieByGenre = null,
     Object? searchResults = null,
     Object? failureOptionSearch = null,
     Object? isSearching = null,
@@ -1251,6 +1517,8 @@ class __$$MovieStateImplCopyWithImpl<$Res>
     Object? hasReachedMaxUpcoming = null,
     Object? pageSearch = null,
     Object? hasReachedMaxSearch = null,
+    Object? pageMovieByGenre = null,
+    Object? hasReachedMaxMovieByGenre = null,
   }) {
     return _then(
       _$MovieStateImpl(
@@ -1302,6 +1570,18 @@ class __$$MovieStateImplCopyWithImpl<$Res>
             ? _value.isFetchingUpcoming
             : isFetchingUpcoming // ignore: cast_nullable_to_non_nullable
                   as bool,
+        movieByGenres: null == movieByGenres
+            ? _value._movieByGenres
+            : movieByGenres // ignore: cast_nullable_to_non_nullable
+                  as List<Movie>,
+        failureOptionMovieByGenre: null == failureOptionMovieByGenre
+            ? _value.failureOptionMovieByGenre
+            : failureOptionMovieByGenre // ignore: cast_nullable_to_non_nullable
+                  as Option<MovieFailure>,
+        isFetchingMovieByGenre: null == isFetchingMovieByGenre
+            ? _value.isFetchingMovieByGenre
+            : isFetchingMovieByGenre // ignore: cast_nullable_to_non_nullable
+                  as bool,
         searchResults: null == searchResults
             ? _value._searchResults
             : searchResults // ignore: cast_nullable_to_non_nullable
@@ -1346,6 +1626,14 @@ class __$$MovieStateImplCopyWithImpl<$Res>
             ? _value.hasReachedMaxSearch
             : hasReachedMaxSearch // ignore: cast_nullable_to_non_nullable
                   as bool,
+        pageMovieByGenre: null == pageMovieByGenre
+            ? _value.pageMovieByGenre
+            : pageMovieByGenre // ignore: cast_nullable_to_non_nullable
+                  as int,
+        hasReachedMaxMovieByGenre: null == hasReachedMaxMovieByGenre
+            ? _value.hasReachedMaxMovieByGenre
+            : hasReachedMaxMovieByGenre // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -1367,6 +1655,9 @@ class _$MovieStateImpl implements _MovieState {
     required final List<Movie> upcomings,
     required this.failureOptionUpcoming,
     this.isFetchingUpcoming = false,
+    required final List<Movie> movieByGenres,
+    required this.failureOptionMovieByGenre,
+    this.isFetchingMovieByGenre = false,
     required final List<Movie> searchResults,
     required this.failureOptionSearch,
     this.isSearching = false,
@@ -1378,10 +1669,13 @@ class _$MovieStateImpl implements _MovieState {
     this.hasReachedMaxUpcoming = false,
     this.pageSearch = 1,
     this.hasReachedMaxSearch = false,
+    this.pageMovieByGenre = 1,
+    this.hasReachedMaxMovieByGenre = false,
   }) : _populars = populars,
        _nowPlayings = nowPlayings,
        _topRateds = topRateds,
        _upcomings = upcomings,
+       _movieByGenres = movieByGenres,
        _searchResults = searchResults;
 
   final List<Movie> _populars;
@@ -1436,6 +1730,19 @@ class _$MovieStateImpl implements _MovieState {
   @override
   @JsonKey()
   final bool isFetchingUpcoming;
+  final List<Movie> _movieByGenres;
+  @override
+  List<Movie> get movieByGenres {
+    if (_movieByGenres is EqualUnmodifiableListView) return _movieByGenres;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_movieByGenres);
+  }
+
+  @override
+  final Option<MovieFailure> failureOptionMovieByGenre;
+  @override
+  @JsonKey()
+  final bool isFetchingMovieByGenre;
   final List<Movie> _searchResults;
   @override
   List<Movie> get searchResults {
@@ -1473,10 +1780,16 @@ class _$MovieStateImpl implements _MovieState {
   @override
   @JsonKey()
   final bool hasReachedMaxSearch;
+  @override
+  @JsonKey()
+  final int pageMovieByGenre;
+  @override
+  @JsonKey()
+  final bool hasReachedMaxMovieByGenre;
 
   @override
   String toString() {
-    return 'MovieState(populars: $populars, failureOptionPopular: $failureOptionPopular, isFetchingPopular: $isFetchingPopular, nowPlayings: $nowPlayings, failureOptionNowPlaying: $failureOptionNowPlaying, isFetchingNowPlaying: $isFetchingNowPlaying, topRateds: $topRateds, failureOptionTopRated: $failureOptionTopRated, isFetchingTopRated: $isFetchingTopRated, upcomings: $upcomings, failureOptionUpcoming: $failureOptionUpcoming, isFetchingUpcoming: $isFetchingUpcoming, searchResults: $searchResults, failureOptionSearch: $failureOptionSearch, isSearching: $isSearching, pageTopRated: $pageTopRated, hasReachedMaxTopRated: $hasReachedMaxTopRated, pagePopular: $pagePopular, hasReachedMaxPopular: $hasReachedMaxPopular, pageUpcoming: $pageUpcoming, hasReachedMaxUpcoming: $hasReachedMaxUpcoming, pageSearch: $pageSearch, hasReachedMaxSearch: $hasReachedMaxSearch)';
+    return 'MovieState(populars: $populars, failureOptionPopular: $failureOptionPopular, isFetchingPopular: $isFetchingPopular, nowPlayings: $nowPlayings, failureOptionNowPlaying: $failureOptionNowPlaying, isFetchingNowPlaying: $isFetchingNowPlaying, topRateds: $topRateds, failureOptionTopRated: $failureOptionTopRated, isFetchingTopRated: $isFetchingTopRated, upcomings: $upcomings, failureOptionUpcoming: $failureOptionUpcoming, isFetchingUpcoming: $isFetchingUpcoming, movieByGenres: $movieByGenres, failureOptionMovieByGenre: $failureOptionMovieByGenre, isFetchingMovieByGenre: $isFetchingMovieByGenre, searchResults: $searchResults, failureOptionSearch: $failureOptionSearch, isSearching: $isSearching, pageTopRated: $pageTopRated, hasReachedMaxTopRated: $hasReachedMaxTopRated, pagePopular: $pagePopular, hasReachedMaxPopular: $hasReachedMaxPopular, pageUpcoming: $pageUpcoming, hasReachedMaxUpcoming: $hasReachedMaxUpcoming, pageSearch: $pageSearch, hasReachedMaxSearch: $hasReachedMaxSearch, pageMovieByGenre: $pageMovieByGenre, hasReachedMaxMovieByGenre: $hasReachedMaxMovieByGenre)';
   }
 
   @override
@@ -1517,6 +1830,17 @@ class _$MovieStateImpl implements _MovieState {
             (identical(other.isFetchingUpcoming, isFetchingUpcoming) ||
                 other.isFetchingUpcoming == isFetchingUpcoming) &&
             const DeepCollectionEquality().equals(
+              other._movieByGenres,
+              _movieByGenres,
+            ) &&
+            (identical(
+                  other.failureOptionMovieByGenre,
+                  failureOptionMovieByGenre,
+                ) ||
+                other.failureOptionMovieByGenre == failureOptionMovieByGenre) &&
+            (identical(other.isFetchingMovieByGenre, isFetchingMovieByGenre) ||
+                other.isFetchingMovieByGenre == isFetchingMovieByGenre) &&
+            const DeepCollectionEquality().equals(
               other._searchResults,
               _searchResults,
             ) &&
@@ -1539,7 +1863,14 @@ class _$MovieStateImpl implements _MovieState {
             (identical(other.pageSearch, pageSearch) ||
                 other.pageSearch == pageSearch) &&
             (identical(other.hasReachedMaxSearch, hasReachedMaxSearch) ||
-                other.hasReachedMaxSearch == hasReachedMaxSearch));
+                other.hasReachedMaxSearch == hasReachedMaxSearch) &&
+            (identical(other.pageMovieByGenre, pageMovieByGenre) ||
+                other.pageMovieByGenre == pageMovieByGenre) &&
+            (identical(
+                  other.hasReachedMaxMovieByGenre,
+                  hasReachedMaxMovieByGenre,
+                ) ||
+                other.hasReachedMaxMovieByGenre == hasReachedMaxMovieByGenre));
   }
 
   @override
@@ -1557,6 +1888,9 @@ class _$MovieStateImpl implements _MovieState {
     const DeepCollectionEquality().hash(_upcomings),
     failureOptionUpcoming,
     isFetchingUpcoming,
+    const DeepCollectionEquality().hash(_movieByGenres),
+    failureOptionMovieByGenre,
+    isFetchingMovieByGenre,
     const DeepCollectionEquality().hash(_searchResults),
     failureOptionSearch,
     isSearching,
@@ -1568,6 +1902,8 @@ class _$MovieStateImpl implements _MovieState {
     hasReachedMaxUpcoming,
     pageSearch,
     hasReachedMaxSearch,
+    pageMovieByGenre,
+    hasReachedMaxMovieByGenre,
   ]);
 
   /// Create a copy of MovieState
@@ -1593,6 +1929,9 @@ abstract class _MovieState implements MovieState {
     required final List<Movie> upcomings,
     required final Option<MovieFailure> failureOptionUpcoming,
     final bool isFetchingUpcoming,
+    required final List<Movie> movieByGenres,
+    required final Option<MovieFailure> failureOptionMovieByGenre,
+    final bool isFetchingMovieByGenre,
     required final List<Movie> searchResults,
     required final Option<MovieFailure> failureOptionSearch,
     final bool isSearching,
@@ -1604,6 +1943,8 @@ abstract class _MovieState implements MovieState {
     final bool hasReachedMaxUpcoming,
     final int pageSearch,
     final bool hasReachedMaxSearch,
+    final int pageMovieByGenre,
+    final bool hasReachedMaxMovieByGenre,
   }) = _$MovieStateImpl;
 
   @override
@@ -1631,6 +1972,12 @@ abstract class _MovieState implements MovieState {
   @override
   bool get isFetchingUpcoming;
   @override
+  List<Movie> get movieByGenres;
+  @override
+  Option<MovieFailure> get failureOptionMovieByGenre;
+  @override
+  bool get isFetchingMovieByGenre;
+  @override
   List<Movie> get searchResults;
   @override
   Option<MovieFailure> get failureOptionSearch;
@@ -1652,6 +1999,10 @@ abstract class _MovieState implements MovieState {
   int get pageSearch;
   @override
   bool get hasReachedMaxSearch;
+  @override
+  int get pageMovieByGenre;
+  @override
+  bool get hasReachedMaxMovieByGenre;
 
   /// Create a copy of MovieState
   /// with the given fields replaced by the non-null parameter values.

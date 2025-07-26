@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -6,6 +7,7 @@ import '../../../../../components/section/section.dart';
 import '../../../../../components/shimmer/shimmer.dart';
 import '../../../../../components/spacer/spacer.dart';
 import '../../../../../components/tile/trending_tile.dart';
+import '../../../../../routes/app_router.gr.dart';
 
 class ExploreGenreMovie extends StatelessWidget {
   const ExploreGenreMovie({super.key});
@@ -33,7 +35,13 @@ class ExploreGenreMovie extends StatelessWidget {
               spacing: 8,
               runSpacing: 8,
               children: state.genreMovies
-                  .map((item) => TrendingTile(title: item.name, onTap: () {}))
+                  .map(
+                    (item) => TrendingTile(
+                      title: item.name,
+                      onTap: () =>
+                          context.router.push(MovieByGenreRoute(genre: item)),
+                    ),
+                  )
                   .toList(),
             );
           },

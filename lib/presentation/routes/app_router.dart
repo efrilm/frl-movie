@@ -30,6 +30,7 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: MovieSearchRoute.page),
     AutoRoute(page: MovieSeeAllRoute.page),
     AutoRoute(page: MovieDetailRoute.page),
+    AutoRoute(page: MovieByGenreRoute.page),
 
     // Tv
     AutoRoute(page: TvSearchRoute.page),

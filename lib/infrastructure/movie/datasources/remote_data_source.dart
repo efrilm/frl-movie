@@ -260,4 +260,30 @@ class MovieRemoteDataSource {
       return DC.error(MovieFailure.serverError(e));
     }
   }
+
+  Future<DC<MovieFailure, List<MovieDto>>> fetchMovieByGenre({
+    required int genreId,
+    int page = 1,
+  }) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.discoverMovie,
+        params: {'with_genres': genreId, 'page': page, 'sort_by': 'popularity'},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => MovieDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const MovieFailure.movieEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchSimilarMovie', name: _logName, error: e);
+
+      return DC.error(MovieFailure.serverError(e));
+    }
+  }
 }

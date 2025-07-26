@@ -123,6 +123,23 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
         emit(newState);
       },
+      fetchedByGenre: (e) async {
+        var newState = state;
+
+        if (e.isRefresh) {
+          newState = state.copyWith(isFetchingMovieByGenre: true);
+
+          emit(newState);
+        }
+
+        newState = await _mapFetchedMovieByGenreToState(
+          state,
+          e.genreId,
+          isRefresh: e.isRefresh,
+        );
+
+        emit(newState);
+      },
     );
   }
 
@@ -285,6 +302,55 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
           failureOptionSearch: none(),
           pageSearch: state.pageSearch + 1,
           hasReachedMaxSearch: movies.length < 20,
+          isFetchingNowPlaying: false,
+        );
+      },
+    );
+
+    return state;
+  }
+
+  Future<MovieState> _mapFetchedMovieByGenreToState(
+    MovieState state,
+    int genreId, {
+    bool isRefresh = false,
+  }) async {
+    state = state.copyWith(isFetchingMovieByGenre: false);
+
+    if (state.hasReachedMaxMovieByGenre &&
+        state.movieByGenres.isNotEmpty &&
+        !isRefresh) {
+      return state;
+    }
+
+    if (isRefresh) {
+      state = state.copyWith(
+        pageMovieByGenre: 1,
+        failureOptionMovieByGenre: none(),
+        hasReachedMaxMovieByGenre: false,
+        movieByGenres: [],
+      );
+    }
+
+    final failureOrMovie = await _movieRepository.getMovieByGenre(
+      genreId: genreId,
+      page: state.pageSearch,
+    );
+
+    state = failureOrMovie.fold(
+      (f) {
+        if (f == const MovieFailure.movieEmpty() &&
+            state.movieByGenres.isNotEmpty) {
+          return state.copyWith(hasReachedMaxMovieByGenre: true);
+        }
+        return state.copyWith(failureOptionMovieByGenre: optionOf(f));
+      },
+      (movies) {
+        return state.copyWith(
+          movieByGenres: List.from(state.movieByGenres)..addAll(movies),
+          failureOptionMovieByGenre: none(),
+          pageMovieByGenre: state.pageMovieByGenre + 1,
+          hasReachedMaxMovieByGenre: movies.length < 20,
           isFetchingNowPlaying: false,
         );
       },

@@ -21,4 +21,8 @@ abstract class IMovieRepository {
     required int movieId,
     required int page,
   });
+  Future<Either<MovieFailure, List<Movie>>> getMovieByGenre({
+    required int genreId,
+    required int page,
+  });
 }

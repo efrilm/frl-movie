@@ -15,6 +15,9 @@ class MovieState with _$MovieState {
     required List<Movie> upcomings,
     required Option<MovieFailure> failureOptionUpcoming,
     @Default(false) bool isFetchingUpcoming,
+    required List<Movie> movieByGenres,
+    required Option<MovieFailure> failureOptionMovieByGenre,
+    @Default(false) bool isFetchingMovieByGenre,
     required List<Movie> searchResults,
     required Option<MovieFailure> failureOptionSearch,
     @Default(false) bool isSearching,
@@ -26,6 +29,8 @@ class MovieState with _$MovieState {
     @Default(false) bool hasReachedMaxUpcoming,
     @Default(1) int pageSearch,
     @Default(false) bool hasReachedMaxSearch,
+    @Default(1) int pageMovieByGenre,
+    @Default(false) bool hasReachedMaxMovieByGenre,
   }) = _MovieState;
 
   factory MovieState.initial() => MovieState(
@@ -39,5 +44,7 @@ class MovieState with _$MovieState {
     failureOptionUpcoming: none(),
     searchResults: [],
     failureOptionSearch: none(),
+    movieByGenres: [],
+    failureOptionMovieByGenre: none(),
   );
 }

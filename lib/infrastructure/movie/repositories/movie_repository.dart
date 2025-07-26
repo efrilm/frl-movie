@@ -225,4 +225,28 @@ class MovieRepository implements IMovieRepository {
       return left(const MovieFailure.unexpectedError());
     }
   }
+
+  @override
+  Future<Either<MovieFailure, List<Movie>>> getMovieByGenre({
+    required int genreId,
+    required int page,
+  }) async {
+    try {
+      final result = await _remoteDataSource.fetchMovieByGenre(
+        genreId: genreId,
+        page: page,
+      );
+      if (result.hasError) {
+        return left(result.error!);
+      }
+
+      final movie = result.data!.map((item) => item.toDomain()).toList();
+
+      return right(movie);
+    } catch (e, s) {
+      log('getMovieByGenre', name: _logName, error: e, stackTrace: s);
+
+      return left(const MovieFailure.unexpectedError());
+    }
+  }
 }

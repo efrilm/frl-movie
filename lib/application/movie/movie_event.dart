@@ -14,4 +14,8 @@ class MovieEvent with _$MovieEvent {
     String query, {
     @Default(false) bool isRefresh,
   }) = _Searched;
+  const factory MovieEvent.fetchedByGenre({
+    @Default(false) bool isRefresh,
+    required int genreId,
+  }) = _FetchedByGenre;
 }
