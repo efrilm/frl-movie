@@ -21,27 +21,33 @@ mixin _$MovieDetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int movieId) fetchMovieDetail,
+    required TResult Function(int movieId) fetchCredit,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int movieId)? fetchMovieDetail,
+    TResult? Function(int movieId)? fetchCredit,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int movieId)? fetchMovieDetail,
+    TResult Function(int movieId)? fetchCredit,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchMovieDetail value) fetchMovieDetail,
+    required TResult Function(_FetchCredit value) fetchCredit,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchMovieDetail value)? fetchMovieDetail,
+    TResult? Function(_FetchCredit value)? fetchCredit,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchMovieDetail value)? fetchMovieDetail,
+    TResult Function(_FetchCredit value)? fetchCredit,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 
@@ -175,6 +181,7 @@ class _$FetchMovieDetailImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int movieId) fetchMovieDetail,
+    required TResult Function(int movieId) fetchCredit,
   }) {
     return fetchMovieDetail(movieId);
   }
@@ -183,6 +190,7 @@ class _$FetchMovieDetailImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int movieId)? fetchMovieDetail,
+    TResult? Function(int movieId)? fetchCredit,
   }) {
     return fetchMovieDetail?.call(movieId);
   }
@@ -191,6 +199,7 @@ class _$FetchMovieDetailImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int movieId)? fetchMovieDetail,
+    TResult Function(int movieId)? fetchCredit,
     required TResult orElse(),
   }) {
     if (fetchMovieDetail != null) {
@@ -203,6 +212,7 @@ class _$FetchMovieDetailImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchMovieDetail value) fetchMovieDetail,
+    required TResult Function(_FetchCredit value) fetchCredit,
   }) {
     return fetchMovieDetail(this);
   }
@@ -211,6 +221,7 @@ class _$FetchMovieDetailImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchMovieDetail value)? fetchMovieDetail,
+    TResult? Function(_FetchCredit value)? fetchCredit,
   }) {
     return fetchMovieDetail?.call(this);
   }
@@ -219,6 +230,7 @@ class _$FetchMovieDetailImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchMovieDetail value)? fetchMovieDetail,
+    TResult Function(_FetchCredit value)? fetchCredit,
     required TResult orElse(),
   }) {
     if (fetchMovieDetail != null) {
@@ -243,11 +255,169 @@ abstract class _FetchMovieDetail implements MovieDetailEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchCreditImplCopyWith<$Res>
+    implements $MovieDetailEventCopyWith<$Res> {
+  factory _$$FetchCreditImplCopyWith(
+    _$FetchCreditImpl value,
+    $Res Function(_$FetchCreditImpl) then,
+  ) = __$$FetchCreditImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int movieId});
+}
+
+/// @nodoc
+class __$$FetchCreditImplCopyWithImpl<$Res>
+    extends _$MovieDetailEventCopyWithImpl<$Res, _$FetchCreditImpl>
+    implements _$$FetchCreditImplCopyWith<$Res> {
+  __$$FetchCreditImplCopyWithImpl(
+    _$FetchCreditImpl _value,
+    $Res Function(_$FetchCreditImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieDetailEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? movieId = null}) {
+    return _then(
+      _$FetchCreditImpl(
+        null == movieId
+            ? _value.movieId
+            : movieId // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$FetchCreditImpl with DiagnosticableTreeMixin implements _FetchCredit {
+  const _$FetchCreditImpl(this.movieId);
+
+  @override
+  final int movieId;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'MovieDetailEvent.fetchCredit(movieId: $movieId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'MovieDetailEvent.fetchCredit'))
+      ..add(DiagnosticsProperty('movieId', movieId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchCreditImpl &&
+            (identical(other.movieId, movieId) || other.movieId == movieId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, movieId);
+
+  /// Create a copy of MovieDetailEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchCreditImplCopyWith<_$FetchCreditImpl> get copyWith =>
+      __$$FetchCreditImplCopyWithImpl<_$FetchCreditImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int movieId) fetchMovieDetail,
+    required TResult Function(int movieId) fetchCredit,
+  }) {
+    return fetchCredit(movieId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int movieId)? fetchMovieDetail,
+    TResult? Function(int movieId)? fetchCredit,
+  }) {
+    return fetchCredit?.call(movieId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int movieId)? fetchMovieDetail,
+    TResult Function(int movieId)? fetchCredit,
+    required TResult orElse(),
+  }) {
+    if (fetchCredit != null) {
+      return fetchCredit(movieId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchMovieDetail value) fetchMovieDetail,
+    required TResult Function(_FetchCredit value) fetchCredit,
+  }) {
+    return fetchCredit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchMovieDetail value)? fetchMovieDetail,
+    TResult? Function(_FetchCredit value)? fetchCredit,
+  }) {
+    return fetchCredit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchMovieDetail value)? fetchMovieDetail,
+    TResult Function(_FetchCredit value)? fetchCredit,
+    required TResult orElse(),
+  }) {
+    if (fetchCredit != null) {
+      return fetchCredit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchCredit implements MovieDetailEvent {
+  const factory _FetchCredit(final int movieId) = _$FetchCreditImpl;
+
+  @override
+  int get movieId;
+
+  /// Create a copy of MovieDetailEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FetchCreditImplCopyWith<_$FetchCreditImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MovieDetailState {
   MovieDetail get movieDetail => throw _privateConstructorUsedError;
   Option<MovieFailure> get failureOptionMovieDetail =>
       throw _privateConstructorUsedError;
   bool get isFetchingDetailMovie => throw _privateConstructorUsedError;
+  List<MovieCredit> get credits => throw _privateConstructorUsedError;
+  Option<MovieFailure> get failureOptionCredit =>
+      throw _privateConstructorUsedError;
+  bool get isFetchingCredit => throw _privateConstructorUsedError;
 
   /// Create a copy of MovieDetailState
   /// with the given fields replaced by the non-null parameter values.
@@ -267,6 +437,9 @@ abstract class $MovieDetailStateCopyWith<$Res> {
     MovieDetail movieDetail,
     Option<MovieFailure> failureOptionMovieDetail,
     bool isFetchingDetailMovie,
+    List<MovieCredit> credits,
+    Option<MovieFailure> failureOptionCredit,
+    bool isFetchingCredit,
   });
 
   $MovieDetailCopyWith<$Res> get movieDetail;
@@ -290,6 +463,9 @@ class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
     Object? movieDetail = null,
     Object? failureOptionMovieDetail = null,
     Object? isFetchingDetailMovie = null,
+    Object? credits = null,
+    Object? failureOptionCredit = null,
+    Object? isFetchingCredit = null,
   }) {
     return _then(
       _value.copyWith(
@@ -304,6 +480,18 @@ class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
             isFetchingDetailMovie: null == isFetchingDetailMovie
                 ? _value.isFetchingDetailMovie
                 : isFetchingDetailMovie // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            credits: null == credits
+                ? _value.credits
+                : credits // ignore: cast_nullable_to_non_nullable
+                      as List<MovieCredit>,
+            failureOptionCredit: null == failureOptionCredit
+                ? _value.failureOptionCredit
+                : failureOptionCredit // ignore: cast_nullable_to_non_nullable
+                      as Option<MovieFailure>,
+            isFetchingCredit: null == isFetchingCredit
+                ? _value.isFetchingCredit
+                : isFetchingCredit // ignore: cast_nullable_to_non_nullable
                       as bool,
           )
           as $Val,
@@ -334,6 +522,9 @@ abstract class _$$MovieDetailStateImplCopyWith<$Res>
     MovieDetail movieDetail,
     Option<MovieFailure> failureOptionMovieDetail,
     bool isFetchingDetailMovie,
+    List<MovieCredit> credits,
+    Option<MovieFailure> failureOptionCredit,
+    bool isFetchingCredit,
   });
 
   @override
@@ -357,6 +548,9 @@ class __$$MovieDetailStateImplCopyWithImpl<$Res>
     Object? movieDetail = null,
     Object? failureOptionMovieDetail = null,
     Object? isFetchingDetailMovie = null,
+    Object? credits = null,
+    Object? failureOptionCredit = null,
+    Object? isFetchingCredit = null,
   }) {
     return _then(
       _$MovieDetailStateImpl(
@@ -372,6 +566,18 @@ class __$$MovieDetailStateImplCopyWithImpl<$Res>
             ? _value.isFetchingDetailMovie
             : isFetchingDetailMovie // ignore: cast_nullable_to_non_nullable
                   as bool,
+        credits: null == credits
+            ? _value._credits
+            : credits // ignore: cast_nullable_to_non_nullable
+                  as List<MovieCredit>,
+        failureOptionCredit: null == failureOptionCredit
+            ? _value.failureOptionCredit
+            : failureOptionCredit // ignore: cast_nullable_to_non_nullable
+                  as Option<MovieFailure>,
+        isFetchingCredit: null == isFetchingCredit
+            ? _value.isFetchingCredit
+            : isFetchingCredit // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -386,7 +592,10 @@ class _$MovieDetailStateImpl
     required this.movieDetail,
     required this.failureOptionMovieDetail,
     this.isFetchingDetailMovie = false,
-  });
+    required final List<MovieCredit> credits,
+    required this.failureOptionCredit,
+    this.isFetchingCredit = false,
+  }) : _credits = credits;
 
   @override
   final MovieDetail movieDetail;
@@ -395,10 +604,23 @@ class _$MovieDetailStateImpl
   @override
   @JsonKey()
   final bool isFetchingDetailMovie;
+  final List<MovieCredit> _credits;
+  @override
+  List<MovieCredit> get credits {
+    if (_credits is EqualUnmodifiableListView) return _credits;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_credits);
+  }
+
+  @override
+  final Option<MovieFailure> failureOptionCredit;
+  @override
+  @JsonKey()
+  final bool isFetchingCredit;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MovieDetailState(movieDetail: $movieDetail, failureOptionMovieDetail: $failureOptionMovieDetail, isFetchingDetailMovie: $isFetchingDetailMovie)';
+    return 'MovieDetailState(movieDetail: $movieDetail, failureOptionMovieDetail: $failureOptionMovieDetail, isFetchingDetailMovie: $isFetchingDetailMovie, credits: $credits, failureOptionCredit: $failureOptionCredit, isFetchingCredit: $isFetchingCredit)';
   }
 
   @override
@@ -413,9 +635,10 @@ class _$MovieDetailStateImpl
           failureOptionMovieDetail,
         ),
       )
-      ..add(
-        DiagnosticsProperty('isFetchingDetailMovie', isFetchingDetailMovie),
-      );
+      ..add(DiagnosticsProperty('isFetchingDetailMovie', isFetchingDetailMovie))
+      ..add(DiagnosticsProperty('credits', credits))
+      ..add(DiagnosticsProperty('failureOptionCredit', failureOptionCredit))
+      ..add(DiagnosticsProperty('isFetchingCredit', isFetchingCredit));
   }
 
   @override
@@ -431,7 +654,12 @@ class _$MovieDetailStateImpl
                 ) ||
                 other.failureOptionMovieDetail == failureOptionMovieDetail) &&
             (identical(other.isFetchingDetailMovie, isFetchingDetailMovie) ||
-                other.isFetchingDetailMovie == isFetchingDetailMovie));
+                other.isFetchingDetailMovie == isFetchingDetailMovie) &&
+            const DeepCollectionEquality().equals(other._credits, _credits) &&
+            (identical(other.failureOptionCredit, failureOptionCredit) ||
+                other.failureOptionCredit == failureOptionCredit) &&
+            (identical(other.isFetchingCredit, isFetchingCredit) ||
+                other.isFetchingCredit == isFetchingCredit));
   }
 
   @override
@@ -440,6 +668,9 @@ class _$MovieDetailStateImpl
     movieDetail,
     failureOptionMovieDetail,
     isFetchingDetailMovie,
+    const DeepCollectionEquality().hash(_credits),
+    failureOptionCredit,
+    isFetchingCredit,
   );
 
   /// Create a copy of MovieDetailState
@@ -459,6 +690,9 @@ abstract class _MovieDetailState implements MovieDetailState {
     required final MovieDetail movieDetail,
     required final Option<MovieFailure> failureOptionMovieDetail,
     final bool isFetchingDetailMovie,
+    required final List<MovieCredit> credits,
+    required final Option<MovieFailure> failureOptionCredit,
+    final bool isFetchingCredit,
   }) = _$MovieDetailStateImpl;
 
   @override
@@ -467,6 +701,12 @@ abstract class _MovieDetailState implements MovieDetailState {
   Option<MovieFailure> get failureOptionMovieDetail;
   @override
   bool get isFetchingDetailMovie;
+  @override
+  List<MovieCredit> get credits;
+  @override
+  Option<MovieFailure> get failureOptionCredit;
+  @override
+  bool get isFetchingCredit;
 
   /// Create a copy of MovieDetailState
   /// with the given fields replaced by the non-null parameter values.

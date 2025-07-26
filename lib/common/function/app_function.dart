@@ -19,6 +19,8 @@ Future<String> getAppVersion() async {
 
 String getPosterUrl(String path) => 'https://image.tmdb.org/t/p/w500$path';
 
+String getImageUrl(String path) => 'https://image.tmdb.org/t/p/w500$path';
+
 String getBackdropUrl(String path) => 'https://image.tmdb.org/t/p/w780$path';
 
 double roundRating(double rating) {

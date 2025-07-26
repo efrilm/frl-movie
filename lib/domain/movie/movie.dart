@@ -7,6 +7,7 @@ import '../genre/genre.dart';
 part 'movie.freezed.dart';
 part 'entities/movie_entity.dart';
 part 'entities/movie_detail_entity.dart';
+part 'entities/movie_credit_entity.dart';
 part 'failures/movie_failure.dart';
 part 'repositories/i_movie_repository.dart';
 

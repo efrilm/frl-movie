@@ -186,4 +186,26 @@ class MovieRemoteDataSource {
       return DC.error(MovieFailure.serverError(e));
     }
   }
+
+  Future<DC<MovieFailure, List<MovieCreditDto>>> fetchMovieCredits({
+    required int movieId,
+  }) async {
+    try {
+      final response = await _apiClient.get(ApiPath().movieCredit(movieId));
+
+      final dtos = (response.data['cast'] as List)
+          .map((json) => MovieCreditDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const MovieFailure.movieEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchCreditMovie', name: _logName, error: e);
+
+      return DC.error(MovieFailure.serverError(e));
+    }
+  }
 }

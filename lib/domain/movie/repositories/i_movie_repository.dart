@@ -10,4 +10,7 @@ abstract class IMovieRepository {
     required int page,
   });
   Future<Either<MovieFailure, MovieDetail>> getDetail({required int movieId});
+  Future<Either<MovieFailure, List<MovieCredit>>> getCredit({
+    required int movieId,
+  });
 }

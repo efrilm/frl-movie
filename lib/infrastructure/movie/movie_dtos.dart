@@ -7,3 +7,4 @@ part 'movie_dtos.freezed.dart';
 part 'movie_dtos.g.dart';
 part 'dto/movie_dto.dart';
 part 'dto/movie_detail_dto.dart';
+part 'dto/movie_credit_dto.dart';

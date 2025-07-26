@@ -1136,3 +1136,446 @@ abstract class _MovieDetailDto extends MovieDetailDto {
   _$$MovieDetailDtoImplCopyWith<_$MovieDetailDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+MovieCreditDto _$MovieCreditDtoFromJson(Map<String, dynamic> json) {
+  return _MovieCreditDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MovieCreditDto {
+  @JsonKey(name: "adult")
+  bool? get adult => throw _privateConstructorUsedError;
+  @JsonKey(name: "gender")
+  int? get gender => throw _privateConstructorUsedError;
+  @JsonKey(name: "id")
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "known_for_department")
+  String? get knownForDepartment => throw _privateConstructorUsedError;
+  @JsonKey(name: "name")
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: "original_name")
+  String? get originalName => throw _privateConstructorUsedError;
+  @JsonKey(name: "popularity")
+  int? get popularity => throw _privateConstructorUsedError;
+  @JsonKey(name: "profile_path")
+  String? get profilePath => throw _privateConstructorUsedError;
+  @JsonKey(name: "cast_id")
+  int? get castId => throw _privateConstructorUsedError;
+  @JsonKey(name: "character")
+  String? get character => throw _privateConstructorUsedError;
+  @JsonKey(name: "credit_id")
+  String? get creditId => throw _privateConstructorUsedError;
+  @JsonKey(name: "order")
+  int? get order => throw _privateConstructorUsedError;
+
+  /// Serializes this MovieCreditDto to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of MovieCreditDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MovieCreditDtoCopyWith<MovieCreditDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MovieCreditDtoCopyWith<$Res> {
+  factory $MovieCreditDtoCopyWith(
+    MovieCreditDto value,
+    $Res Function(MovieCreditDto) then,
+  ) = _$MovieCreditDtoCopyWithImpl<$Res, MovieCreditDto>;
+  @useResult
+  $Res call({
+    @JsonKey(name: "adult") bool? adult,
+    @JsonKey(name: "gender") int? gender,
+    @JsonKey(name: "id") int? id,
+    @JsonKey(name: "known_for_department") String? knownForDepartment,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "original_name") String? originalName,
+    @JsonKey(name: "popularity") int? popularity,
+    @JsonKey(name: "profile_path") String? profilePath,
+    @JsonKey(name: "cast_id") int? castId,
+    @JsonKey(name: "character") String? character,
+    @JsonKey(name: "credit_id") String? creditId,
+    @JsonKey(name: "order") int? order,
+  });
+}
+
+/// @nodoc
+class _$MovieCreditDtoCopyWithImpl<$Res, $Val extends MovieCreditDto>
+    implements $MovieCreditDtoCopyWith<$Res> {
+  _$MovieCreditDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of MovieCreditDto
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? adult = freezed,
+    Object? gender = freezed,
+    Object? id = freezed,
+    Object? knownForDepartment = freezed,
+    Object? name = freezed,
+    Object? originalName = freezed,
+    Object? popularity = freezed,
+    Object? profilePath = freezed,
+    Object? castId = freezed,
+    Object? character = freezed,
+    Object? creditId = freezed,
+    Object? order = freezed,
+  }) {
+    return _then(
+      _value.copyWith(
+            adult: freezed == adult
+                ? _value.adult
+                : adult // ignore: cast_nullable_to_non_nullable
+                      as bool?,
+            gender: freezed == gender
+                ? _value.gender
+                : gender // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            id: freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            knownForDepartment: freezed == knownForDepartment
+                ? _value.knownForDepartment
+                : knownForDepartment // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            originalName: freezed == originalName
+                ? _value.originalName
+                : originalName // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            popularity: freezed == popularity
+                ? _value.popularity
+                : popularity // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            profilePath: freezed == profilePath
+                ? _value.profilePath
+                : profilePath // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            castId: freezed == castId
+                ? _value.castId
+                : castId // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            character: freezed == character
+                ? _value.character
+                : character // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            creditId: freezed == creditId
+                ? _value.creditId
+                : creditId // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            order: freezed == order
+                ? _value.order
+                : order // ignore: cast_nullable_to_non_nullable
+                      as int?,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$MovieCreditDtoImplCopyWith<$Res>
+    implements $MovieCreditDtoCopyWith<$Res> {
+  factory _$$MovieCreditDtoImplCopyWith(
+    _$MovieCreditDtoImpl value,
+    $Res Function(_$MovieCreditDtoImpl) then,
+  ) = __$$MovieCreditDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    @JsonKey(name: "adult") bool? adult,
+    @JsonKey(name: "gender") int? gender,
+    @JsonKey(name: "id") int? id,
+    @JsonKey(name: "known_for_department") String? knownForDepartment,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "original_name") String? originalName,
+    @JsonKey(name: "popularity") int? popularity,
+    @JsonKey(name: "profile_path") String? profilePath,
+    @JsonKey(name: "cast_id") int? castId,
+    @JsonKey(name: "character") String? character,
+    @JsonKey(name: "credit_id") String? creditId,
+    @JsonKey(name: "order") int? order,
+  });
+}
+
+/// @nodoc
+class __$$MovieCreditDtoImplCopyWithImpl<$Res>
+    extends _$MovieCreditDtoCopyWithImpl<$Res, _$MovieCreditDtoImpl>
+    implements _$$MovieCreditDtoImplCopyWith<$Res> {
+  __$$MovieCreditDtoImplCopyWithImpl(
+    _$MovieCreditDtoImpl _value,
+    $Res Function(_$MovieCreditDtoImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieCreditDto
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? adult = freezed,
+    Object? gender = freezed,
+    Object? id = freezed,
+    Object? knownForDepartment = freezed,
+    Object? name = freezed,
+    Object? originalName = freezed,
+    Object? popularity = freezed,
+    Object? profilePath = freezed,
+    Object? castId = freezed,
+    Object? character = freezed,
+    Object? creditId = freezed,
+    Object? order = freezed,
+  }) {
+    return _then(
+      _$MovieCreditDtoImpl(
+        adult: freezed == adult
+            ? _value.adult
+            : adult // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        gender: freezed == gender
+            ? _value.gender
+            : gender // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        id: freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        knownForDepartment: freezed == knownForDepartment
+            ? _value.knownForDepartment
+            : knownForDepartment // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        originalName: freezed == originalName
+            ? _value.originalName
+            : originalName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        popularity: freezed == popularity
+            ? _value.popularity
+            : popularity // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        profilePath: freezed == profilePath
+            ? _value.profilePath
+            : profilePath // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        castId: freezed == castId
+            ? _value.castId
+            : castId // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        character: freezed == character
+            ? _value.character
+            : character // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        creditId: freezed == creditId
+            ? _value.creditId
+            : creditId // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        order: freezed == order
+            ? _value.order
+            : order // ignore: cast_nullable_to_non_nullable
+                  as int?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$MovieCreditDtoImpl extends _MovieCreditDto {
+  const _$MovieCreditDtoImpl({
+    @JsonKey(name: "adult") this.adult,
+    @JsonKey(name: "gender") this.gender,
+    @JsonKey(name: "id") this.id,
+    @JsonKey(name: "known_for_department") this.knownForDepartment,
+    @JsonKey(name: "name") this.name,
+    @JsonKey(name: "original_name") this.originalName,
+    @JsonKey(name: "popularity") this.popularity,
+    @JsonKey(name: "profile_path") this.profilePath,
+    @JsonKey(name: "cast_id") this.castId,
+    @JsonKey(name: "character") this.character,
+    @JsonKey(name: "credit_id") this.creditId,
+    @JsonKey(name: "order") this.order,
+  }) : super._();
+
+  factory _$MovieCreditDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MovieCreditDtoImplFromJson(json);
+
+  @override
+  @JsonKey(name: "adult")
+  final bool? adult;
+  @override
+  @JsonKey(name: "gender")
+  final int? gender;
+  @override
+  @JsonKey(name: "id")
+  final int? id;
+  @override
+  @JsonKey(name: "known_for_department")
+  final String? knownForDepartment;
+  @override
+  @JsonKey(name: "name")
+  final String? name;
+  @override
+  @JsonKey(name: "original_name")
+  final String? originalName;
+  @override
+  @JsonKey(name: "popularity")
+  final int? popularity;
+  @override
+  @JsonKey(name: "profile_path")
+  final String? profilePath;
+  @override
+  @JsonKey(name: "cast_id")
+  final int? castId;
+  @override
+  @JsonKey(name: "character")
+  final String? character;
+  @override
+  @JsonKey(name: "credit_id")
+  final String? creditId;
+  @override
+  @JsonKey(name: "order")
+  final int? order;
+
+  @override
+  String toString() {
+    return 'MovieCreditDto(adult: $adult, gender: $gender, id: $id, knownForDepartment: $knownForDepartment, name: $name, originalName: $originalName, popularity: $popularity, profilePath: $profilePath, castId: $castId, character: $character, creditId: $creditId, order: $order)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MovieCreditDtoImpl &&
+            (identical(other.adult, adult) || other.adult == adult) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.knownForDepartment, knownForDepartment) ||
+                other.knownForDepartment == knownForDepartment) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.originalName, originalName) ||
+                other.originalName == originalName) &&
+            (identical(other.popularity, popularity) ||
+                other.popularity == popularity) &&
+            (identical(other.profilePath, profilePath) ||
+                other.profilePath == profilePath) &&
+            (identical(other.castId, castId) || other.castId == castId) &&
+            (identical(other.character, character) ||
+                other.character == character) &&
+            (identical(other.creditId, creditId) ||
+                other.creditId == creditId) &&
+            (identical(other.order, order) || other.order == order));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    adult,
+    gender,
+    id,
+    knownForDepartment,
+    name,
+    originalName,
+    popularity,
+    profilePath,
+    castId,
+    character,
+    creditId,
+    order,
+  );
+
+  /// Create a copy of MovieCreditDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MovieCreditDtoImplCopyWith<_$MovieCreditDtoImpl> get copyWith =>
+      __$$MovieCreditDtoImplCopyWithImpl<_$MovieCreditDtoImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$MovieCreditDtoImplToJson(this);
+  }
+}
+
+abstract class _MovieCreditDto extends MovieCreditDto {
+  const factory _MovieCreditDto({
+    @JsonKey(name: "adult") final bool? adult,
+    @JsonKey(name: "gender") final int? gender,
+    @JsonKey(name: "id") final int? id,
+    @JsonKey(name: "known_for_department") final String? knownForDepartment,
+    @JsonKey(name: "name") final String? name,
+    @JsonKey(name: "original_name") final String? originalName,
+    @JsonKey(name: "popularity") final int? popularity,
+    @JsonKey(name: "profile_path") final String? profilePath,
+    @JsonKey(name: "cast_id") final int? castId,
+    @JsonKey(name: "character") final String? character,
+    @JsonKey(name: "credit_id") final String? creditId,
+    @JsonKey(name: "order") final int? order,
+  }) = _$MovieCreditDtoImpl;
+  const _MovieCreditDto._() : super._();
+
+  factory _MovieCreditDto.fromJson(Map<String, dynamic> json) =
+      _$MovieCreditDtoImpl.fromJson;
+
+  @override
+  @JsonKey(name: "adult")
+  bool? get adult;
+  @override
+  @JsonKey(name: "gender")
+  int? get gender;
+  @override
+  @JsonKey(name: "id")
+  int? get id;
+  @override
+  @JsonKey(name: "known_for_department")
+  String? get knownForDepartment;
+  @override
+  @JsonKey(name: "name")
+  String? get name;
+  @override
+  @JsonKey(name: "original_name")
+  String? get originalName;
+  @override
+  @JsonKey(name: "popularity")
+  int? get popularity;
+  @override
+  @JsonKey(name: "profile_path")
+  String? get profilePath;
+  @override
+  @JsonKey(name: "cast_id")
+  int? get castId;
+  @override
+  @JsonKey(name: "character")
+  String? get character;
+  @override
+  @JsonKey(name: "credit_id")
+  String? get creditId;
+  @override
+  @JsonKey(name: "order")
+  int? get order;
+
+  /// Create a copy of MovieCreditDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MovieCreditDtoImplCopyWith<_$MovieCreditDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

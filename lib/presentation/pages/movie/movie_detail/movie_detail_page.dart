@@ -6,6 +6,7 @@ import '../../../../application/movie/movie_detail/movie_detail_bloc.dart';
 import '../../../../common/resource/resource.dart';
 import '../../../../domain/movie/movie.dart';
 import '../../../../injection.dart';
+import 'widget/credit.dart';
 import 'widget/header.dart';
 import 'widget/synopsis.dart';
 import 'widget/title.dart';
@@ -33,6 +34,8 @@ class MovieDetailPage extends StatelessWidget implements AutoRouteWrapper {
                 MovieDetailTitle(movie: state.movieDetail),
                 Divider(color: AppColor.dark.shade400),
                 MovieDetailSynopsis(movie: state.movieDetail),
+                Divider(color: AppColor.dark.shade400),
+                MovieDetailCredit(),
               ],
             ),
             (f) => Center(
@@ -46,9 +49,9 @@ class MovieDetailPage extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget wrappedRoute(BuildContext context) => BlocProvider(
-    create: (_) =>
-        getIt<MovieDetailBloc>()
-          ..add(MovieDetailEvent.fetchMovieDetail(movie.id)),
+    create: (_) => getIt<MovieDetailBloc>()
+      ..add(MovieDetailEvent.fetchMovieDetail(movie.id))
+      ..add(MovieDetailEvent.fetchCredit(movie.id)),
     child: this,
   );
 }

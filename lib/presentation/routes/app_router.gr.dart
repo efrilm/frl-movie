@@ -84,7 +84,9 @@ class MovieDetailRoute extends _i12.PageRouteInfo<MovieDetailRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<MovieDetailRouteArgs>();
-      return _i3.MovieDetailPage(key: args.key, movie: args.movie);
+      return _i12.WrappedRoute(
+        child: _i3.MovieDetailPage(key: args.key, movie: args.movie),
+      );
     },
   );
 }

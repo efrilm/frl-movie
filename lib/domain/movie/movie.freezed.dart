@@ -1036,6 +1036,391 @@ abstract class _MovieDetail extends MovieDetail {
 }
 
 /// @nodoc
+mixin _$MovieCredit {
+  bool get adult => throw _privateConstructorUsedError;
+  int get gender => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get knownForDepartment => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get originalName => throw _privateConstructorUsedError;
+  int get popularity => throw _privateConstructorUsedError;
+  String get profilePath => throw _privateConstructorUsedError;
+  int get castId => throw _privateConstructorUsedError;
+  String get character => throw _privateConstructorUsedError;
+  String get creditId => throw _privateConstructorUsedError;
+  int get order => throw _privateConstructorUsedError;
+
+  /// Create a copy of MovieCredit
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MovieCreditCopyWith<MovieCredit> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MovieCreditCopyWith<$Res> {
+  factory $MovieCreditCopyWith(
+    MovieCredit value,
+    $Res Function(MovieCredit) then,
+  ) = _$MovieCreditCopyWithImpl<$Res, MovieCredit>;
+  @useResult
+  $Res call({
+    bool adult,
+    int gender,
+    int id,
+    String knownForDepartment,
+    String name,
+    String originalName,
+    int popularity,
+    String profilePath,
+    int castId,
+    String character,
+    String creditId,
+    int order,
+  });
+}
+
+/// @nodoc
+class _$MovieCreditCopyWithImpl<$Res, $Val extends MovieCredit>
+    implements $MovieCreditCopyWith<$Res> {
+  _$MovieCreditCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of MovieCredit
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? adult = null,
+    Object? gender = null,
+    Object? id = null,
+    Object? knownForDepartment = null,
+    Object? name = null,
+    Object? originalName = null,
+    Object? popularity = null,
+    Object? profilePath = null,
+    Object? castId = null,
+    Object? character = null,
+    Object? creditId = null,
+    Object? order = null,
+  }) {
+    return _then(
+      _value.copyWith(
+            adult: null == adult
+                ? _value.adult
+                : adult // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            gender: null == gender
+                ? _value.gender
+                : gender // ignore: cast_nullable_to_non_nullable
+                      as int,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            knownForDepartment: null == knownForDepartment
+                ? _value.knownForDepartment
+                : knownForDepartment // ignore: cast_nullable_to_non_nullable
+                      as String,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            originalName: null == originalName
+                ? _value.originalName
+                : originalName // ignore: cast_nullable_to_non_nullable
+                      as String,
+            popularity: null == popularity
+                ? _value.popularity
+                : popularity // ignore: cast_nullable_to_non_nullable
+                      as int,
+            profilePath: null == profilePath
+                ? _value.profilePath
+                : profilePath // ignore: cast_nullable_to_non_nullable
+                      as String,
+            castId: null == castId
+                ? _value.castId
+                : castId // ignore: cast_nullable_to_non_nullable
+                      as int,
+            character: null == character
+                ? _value.character
+                : character // ignore: cast_nullable_to_non_nullable
+                      as String,
+            creditId: null == creditId
+                ? _value.creditId
+                : creditId // ignore: cast_nullable_to_non_nullable
+                      as String,
+            order: null == order
+                ? _value.order
+                : order // ignore: cast_nullable_to_non_nullable
+                      as int,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$MovieCreditImplCopyWith<$Res>
+    implements $MovieCreditCopyWith<$Res> {
+  factory _$$MovieCreditImplCopyWith(
+    _$MovieCreditImpl value,
+    $Res Function(_$MovieCreditImpl) then,
+  ) = __$$MovieCreditImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    bool adult,
+    int gender,
+    int id,
+    String knownForDepartment,
+    String name,
+    String originalName,
+    int popularity,
+    String profilePath,
+    int castId,
+    String character,
+    String creditId,
+    int order,
+  });
+}
+
+/// @nodoc
+class __$$MovieCreditImplCopyWithImpl<$Res>
+    extends _$MovieCreditCopyWithImpl<$Res, _$MovieCreditImpl>
+    implements _$$MovieCreditImplCopyWith<$Res> {
+  __$$MovieCreditImplCopyWithImpl(
+    _$MovieCreditImpl _value,
+    $Res Function(_$MovieCreditImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieCredit
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? adult = null,
+    Object? gender = null,
+    Object? id = null,
+    Object? knownForDepartment = null,
+    Object? name = null,
+    Object? originalName = null,
+    Object? popularity = null,
+    Object? profilePath = null,
+    Object? castId = null,
+    Object? character = null,
+    Object? creditId = null,
+    Object? order = null,
+  }) {
+    return _then(
+      _$MovieCreditImpl(
+        adult: null == adult
+            ? _value.adult
+            : adult // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        gender: null == gender
+            ? _value.gender
+            : gender // ignore: cast_nullable_to_non_nullable
+                  as int,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        knownForDepartment: null == knownForDepartment
+            ? _value.knownForDepartment
+            : knownForDepartment // ignore: cast_nullable_to_non_nullable
+                  as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        originalName: null == originalName
+            ? _value.originalName
+            : originalName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        popularity: null == popularity
+            ? _value.popularity
+            : popularity // ignore: cast_nullable_to_non_nullable
+                  as int,
+        profilePath: null == profilePath
+            ? _value.profilePath
+            : profilePath // ignore: cast_nullable_to_non_nullable
+                  as String,
+        castId: null == castId
+            ? _value.castId
+            : castId // ignore: cast_nullable_to_non_nullable
+                  as int,
+        character: null == character
+            ? _value.character
+            : character // ignore: cast_nullable_to_non_nullable
+                  as String,
+        creditId: null == creditId
+            ? _value.creditId
+            : creditId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        order: null == order
+            ? _value.order
+            : order // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$MovieCreditImpl extends _MovieCredit {
+  const _$MovieCreditImpl({
+    required this.adult,
+    required this.gender,
+    required this.id,
+    required this.knownForDepartment,
+    required this.name,
+    required this.originalName,
+    required this.popularity,
+    required this.profilePath,
+    required this.castId,
+    required this.character,
+    required this.creditId,
+    required this.order,
+  }) : super._();
+
+  @override
+  final bool adult;
+  @override
+  final int gender;
+  @override
+  final int id;
+  @override
+  final String knownForDepartment;
+  @override
+  final String name;
+  @override
+  final String originalName;
+  @override
+  final int popularity;
+  @override
+  final String profilePath;
+  @override
+  final int castId;
+  @override
+  final String character;
+  @override
+  final String creditId;
+  @override
+  final int order;
+
+  @override
+  String toString() {
+    return 'MovieCredit(adult: $adult, gender: $gender, id: $id, knownForDepartment: $knownForDepartment, name: $name, originalName: $originalName, popularity: $popularity, profilePath: $profilePath, castId: $castId, character: $character, creditId: $creditId, order: $order)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MovieCreditImpl &&
+            (identical(other.adult, adult) || other.adult == adult) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.knownForDepartment, knownForDepartment) ||
+                other.knownForDepartment == knownForDepartment) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.originalName, originalName) ||
+                other.originalName == originalName) &&
+            (identical(other.popularity, popularity) ||
+                other.popularity == popularity) &&
+            (identical(other.profilePath, profilePath) ||
+                other.profilePath == profilePath) &&
+            (identical(other.castId, castId) || other.castId == castId) &&
+            (identical(other.character, character) ||
+                other.character == character) &&
+            (identical(other.creditId, creditId) ||
+                other.creditId == creditId) &&
+            (identical(other.order, order) || other.order == order));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    adult,
+    gender,
+    id,
+    knownForDepartment,
+    name,
+    originalName,
+    popularity,
+    profilePath,
+    castId,
+    character,
+    creditId,
+    order,
+  );
+
+  /// Create a copy of MovieCredit
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MovieCreditImplCopyWith<_$MovieCreditImpl> get copyWith =>
+      __$$MovieCreditImplCopyWithImpl<_$MovieCreditImpl>(this, _$identity);
+}
+
+abstract class _MovieCredit extends MovieCredit {
+  const factory _MovieCredit({
+    required final bool adult,
+    required final int gender,
+    required final int id,
+    required final String knownForDepartment,
+    required final String name,
+    required final String originalName,
+    required final int popularity,
+    required final String profilePath,
+    required final int castId,
+    required final String character,
+    required final String creditId,
+    required final int order,
+  }) = _$MovieCreditImpl;
+  const _MovieCredit._() : super._();
+
+  @override
+  bool get adult;
+  @override
+  int get gender;
+  @override
+  int get id;
+  @override
+  String get knownForDepartment;
+  @override
+  String get name;
+  @override
+  String get originalName;
+  @override
+  int get popularity;
+  @override
+  String get profilePath;
+  @override
+  int get castId;
+  @override
+  String get character;
+  @override
+  String get creditId;
+  @override
+  int get order;
+
+  /// Create a copy of MovieCredit
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MovieCreditImplCopyWith<_$MovieCreditImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MovieFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
