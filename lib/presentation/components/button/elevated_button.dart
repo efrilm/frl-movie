@@ -22,6 +22,7 @@ class AppElevatedButton extends StatelessWidget {
         ),
         onPressed: onPressed,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (icon != null) ...[
               LineIcon(icon!, color: AppColor.white),

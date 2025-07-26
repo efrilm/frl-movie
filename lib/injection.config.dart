@@ -16,6 +16,7 @@ import 'package:frl_movie/application/movie/movie_bloc.dart' as _i966;
 import 'package:frl_movie/application/movie/movie_detail/movie_detail_bloc.dart'
     as _i677;
 import 'package:frl_movie/application/tv/tv_bloc.dart' as _i851;
+import 'package:frl_movie/application/watchlist/watchlist_bloc.dart' as _i890;
 import 'package:frl_movie/common/api/api_client.dart' as _i836;
 import 'package:frl_movie/common/di/auto_route_di.dart' as _i371;
 import 'package:frl_movie/common/di/connectivity_di.dart' as _i238;
@@ -25,6 +26,8 @@ import 'package:frl_movie/common/network/network_client.dart' as _i41;
 import 'package:frl_movie/domain/genre/genre.dart' as _i501;
 import 'package:frl_movie/domain/movie/movie.dart' as _i1052;
 import 'package:frl_movie/domain/tv/tv.dart' as _i425;
+import 'package:frl_movie/domain/watchlist/repositories/i_watchlist_repository.dart'
+    as _i1051;
 import 'package:frl_movie/env.dart' as _i380;
 import 'package:frl_movie/infrastructure/genre/datasources/remote_data_source.dart'
     as _i548;
@@ -38,6 +41,8 @@ import 'package:frl_movie/infrastructure/tv/datasources/remote_data_source.dart'
     as _i4;
 import 'package:frl_movie/infrastructure/tv/repositories/tv_repository.dart'
     as _i147;
+import 'package:frl_movie/infrastructure/watchlist/repositories/watchlist_repository.dart'
+    as _i604;
 import 'package:frl_movie/presentation/routes/app_router.dart' as _i494;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
@@ -68,7 +73,13 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i41.NetworkClient(gh<_i895.Connectivity>()),
     );
     gh.factory<_i380.Env>(() => _i380.DevEnv(), registerFor: {_dev});
+    gh.factory<_i1051.IWatchlistRepository>(
+      () => _i604.WatchlistRepository(gh<_i460.SharedPreferences>()),
+    );
     gh.factory<_i380.Env>(() => _i380.ProdEnv(), registerFor: {_prod});
+    gh.factory<_i890.WatchlistBloc>(
+      () => _i890.WatchlistBloc(gh<_i1051.IWatchlistRepository>()),
+    );
     gh.lazySingleton<_i836.ApiClient>(
       () => _i836.ApiClient(gh<_i361.Dio>(), gh<_i380.Env>()),
     );

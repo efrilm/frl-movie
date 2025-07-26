@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../application/watchlist/watchlist_bloc.dart';
 import '../common/constant/app_constant.dart';
 import '../common/resource/resource.dart';
 import '../injection.dart';
@@ -18,12 +20,15 @@ class _AppWidgetState extends State<AppWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      title: AppConstant.appName,
-      theme: getApplicationTheme(),
-      routerConfig: _appRouter.config(
-        navigatorObservers: () => <NavigatorObserver>[AppRouteObserver()],
+    return BlocProvider(
+      create: (context) => getIt<WatchlistBloc>(),
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        title: AppConstant.appName,
+        theme: getApplicationTheme(),
+        routerConfig: _appRouter.config(
+          navigatorObservers: () => <NavigatorObserver>[AppRouteObserver()],
+        ),
       ),
     );
   }

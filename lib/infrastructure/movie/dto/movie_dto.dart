@@ -39,4 +39,20 @@ class MovieDto with _$MovieDto {
     popularity: popularity ?? 0,
     certification: 'NR',
   );
+
+  factory MovieDto.fromDomain(Movie movie) => MovieDto(
+    id: movie.id,
+    originalTitle: movie.originalTitle,
+    originalLanguage: movie.originalLanguage,
+    backdropPath: movie.backdropPath,
+    title: movie.title,
+    overview: movie.overview,
+    posterPath: movie.posterPath,
+    releaseDate: movie.releaseDate,
+    voteAverage: movie.voteAverage,
+    voteCount: movie.voteCount,
+    adult: movie.adult,
+    genreIds: movie.genreIds,
+    popularity: movie.popularity,
+  );
 }

@@ -6,3 +6,4 @@ import '../spacer/spacer.dart';
 
 part 'elevated_button.dart';
 part 'outlined_button.dart';
+part 'outlined_button_icon.dart';
