@@ -17,6 +17,8 @@ class MovieDetailDto with _$MovieDetailDto {
     @JsonKey(name: "overview") String? overview,
     @JsonKey(name: "popularity") int? popularity,
     @JsonKey(name: "poster_path") String? posterPath,
+    @JsonKey(name: "production_companies")
+    List<MovieProductionCompanyDto>? productionCompanies,
     @JsonKey(name: "release_date") String? releaseDate,
     @JsonKey(name: "revenue") int? revenue,
     @JsonKey(name: "runtime") int? runtime,
@@ -46,6 +48,8 @@ class MovieDetailDto with _$MovieDetailDto {
     certification: 'NR',
     budget: budget ?? 0,
     genres: genres?.map((item) => item.toDomain()).toList() ?? [],
+    productionCompanies:
+        productionCompanies?.map((item) => item.toDomain()).toList() ?? [],
     homepage: homepage ?? '',
     imdbId: imdbId ?? '',
     revenue: revenue ?? 0,

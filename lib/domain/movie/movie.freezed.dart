@@ -463,6 +463,8 @@ mixin _$MovieDetail {
   String get overview => throw _privateConstructorUsedError;
   int get popularity => throw _privateConstructorUsedError;
   String get posterPath => throw _privateConstructorUsedError;
+  List<MovieProductionCompany> get productionCompanies =>
+      throw _privateConstructorUsedError;
   String get releaseDate => throw _privateConstructorUsedError;
   int get revenue => throw _privateConstructorUsedError;
   int get runtime => throw _privateConstructorUsedError;
@@ -500,6 +502,7 @@ abstract class $MovieDetailCopyWith<$Res> {
     String overview,
     int popularity,
     String posterPath,
+    List<MovieProductionCompany> productionCompanies,
     String releaseDate,
     int revenue,
     int runtime,
@@ -539,6 +542,7 @@ class _$MovieDetailCopyWithImpl<$Res, $Val extends MovieDetail>
     Object? overview = null,
     Object? popularity = null,
     Object? posterPath = null,
+    Object? productionCompanies = null,
     Object? releaseDate = null,
     Object? revenue = null,
     Object? runtime = null,
@@ -599,6 +603,10 @@ class _$MovieDetailCopyWithImpl<$Res, $Val extends MovieDetail>
                 ? _value.posterPath
                 : posterPath // ignore: cast_nullable_to_non_nullable
                       as String,
+            productionCompanies: null == productionCompanies
+                ? _value.productionCompanies
+                : productionCompanies // ignore: cast_nullable_to_non_nullable
+                      as List<MovieProductionCompany>,
             releaseDate: null == releaseDate
                 ? _value.releaseDate
                 : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -663,6 +671,7 @@ abstract class _$$MovieDetailImplCopyWith<$Res>
     String overview,
     int popularity,
     String posterPath,
+    List<MovieProductionCompany> productionCompanies,
     String releaseDate,
     int revenue,
     int runtime,
@@ -701,6 +710,7 @@ class __$$MovieDetailImplCopyWithImpl<$Res>
     Object? overview = null,
     Object? popularity = null,
     Object? posterPath = null,
+    Object? productionCompanies = null,
     Object? releaseDate = null,
     Object? revenue = null,
     Object? runtime = null,
@@ -761,6 +771,10 @@ class __$$MovieDetailImplCopyWithImpl<$Res>
             ? _value.posterPath
             : posterPath // ignore: cast_nullable_to_non_nullable
                   as String,
+        productionCompanies: null == productionCompanies
+            ? _value._productionCompanies
+            : productionCompanies // ignore: cast_nullable_to_non_nullable
+                  as List<MovieProductionCompany>,
         releaseDate: null == releaseDate
             ? _value.releaseDate
             : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -818,6 +832,7 @@ class _$MovieDetailImpl extends _MovieDetail {
     required this.overview,
     required this.popularity,
     required this.posterPath,
+    required final List<MovieProductionCompany> productionCompanies,
     required this.releaseDate,
     required this.revenue,
     required this.runtime,
@@ -828,6 +843,7 @@ class _$MovieDetailImpl extends _MovieDetail {
     required this.voteCount,
     this.certification,
   }) : _genres = genres,
+       _productionCompanies = productionCompanies,
        super._();
 
   @override
@@ -860,6 +876,15 @@ class _$MovieDetailImpl extends _MovieDetail {
   final int popularity;
   @override
   final String posterPath;
+  final List<MovieProductionCompany> _productionCompanies;
+  @override
+  List<MovieProductionCompany> get productionCompanies {
+    if (_productionCompanies is EqualUnmodifiableListView)
+      return _productionCompanies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_productionCompanies);
+  }
+
   @override
   final String releaseDate;
   @override
@@ -881,7 +906,7 @@ class _$MovieDetailImpl extends _MovieDetail {
 
   @override
   String toString() {
-    return 'MovieDetail(id: $id, adult: $adult, backdropPath: $backdropPath, budget: $budget, genres: $genres, homepage: $homepage, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, voteAverage: $voteAverage, voteCount: $voteCount, certification: $certification)';
+    return 'MovieDetail(id: $id, adult: $adult, backdropPath: $backdropPath, budget: $budget, genres: $genres, homepage: $homepage, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, productionCompanies: $productionCompanies, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, voteAverage: $voteAverage, voteCount: $voteCount, certification: $certification)';
   }
 
   @override
@@ -908,6 +933,10 @@ class _$MovieDetailImpl extends _MovieDetail {
                 other.popularity == popularity) &&
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
+            const DeepCollectionEquality().equals(
+              other._productionCompanies,
+              _productionCompanies,
+            ) &&
             (identical(other.releaseDate, releaseDate) ||
                 other.releaseDate == releaseDate) &&
             (identical(other.revenue, revenue) || other.revenue == revenue) &&
@@ -938,6 +967,7 @@ class _$MovieDetailImpl extends _MovieDetail {
     overview,
     popularity,
     posterPath,
+    const DeepCollectionEquality().hash(_productionCompanies),
     releaseDate,
     revenue,
     runtime,
@@ -972,6 +1002,7 @@ abstract class _MovieDetail extends MovieDetail {
     required final String overview,
     required final int popularity,
     required final String posterPath,
+    required final List<MovieProductionCompany> productionCompanies,
     required final String releaseDate,
     required final int revenue,
     required final int runtime,
@@ -1008,6 +1039,8 @@ abstract class _MovieDetail extends MovieDetail {
   int get popularity;
   @override
   String get posterPath;
+  @override
+  List<MovieProductionCompany> get productionCompanies;
   @override
   String get releaseDate;
   @override
@@ -1418,6 +1451,212 @@ abstract class _MovieCredit extends MovieCredit {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MovieCreditImplCopyWith<_$MovieCreditImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$MovieProductionCompany {
+  int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get logoPath => throw _privateConstructorUsedError;
+  String get originCountry => throw _privateConstructorUsedError;
+
+  /// Create a copy of MovieProductionCompany
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MovieProductionCompanyCopyWith<MovieProductionCompany> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MovieProductionCompanyCopyWith<$Res> {
+  factory $MovieProductionCompanyCopyWith(
+    MovieProductionCompany value,
+    $Res Function(MovieProductionCompany) then,
+  ) = _$MovieProductionCompanyCopyWithImpl<$Res, MovieProductionCompany>;
+  @useResult
+  $Res call({int id, String name, String logoPath, String originCountry});
+}
+
+/// @nodoc
+class _$MovieProductionCompanyCopyWithImpl<
+  $Res,
+  $Val extends MovieProductionCompany
+>
+    implements $MovieProductionCompanyCopyWith<$Res> {
+  _$MovieProductionCompanyCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of MovieProductionCompany
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? logoPath = null,
+    Object? originCountry = null,
+  }) {
+    return _then(
+      _value.copyWith(
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            logoPath: null == logoPath
+                ? _value.logoPath
+                : logoPath // ignore: cast_nullable_to_non_nullable
+                      as String,
+            originCountry: null == originCountry
+                ? _value.originCountry
+                : originCountry // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$MovieProductionCompanyImplCopyWith<$Res>
+    implements $MovieProductionCompanyCopyWith<$Res> {
+  factory _$$MovieProductionCompanyImplCopyWith(
+    _$MovieProductionCompanyImpl value,
+    $Res Function(_$MovieProductionCompanyImpl) then,
+  ) = __$$MovieProductionCompanyImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int id, String name, String logoPath, String originCountry});
+}
+
+/// @nodoc
+class __$$MovieProductionCompanyImplCopyWithImpl<$Res>
+    extends
+        _$MovieProductionCompanyCopyWithImpl<$Res, _$MovieProductionCompanyImpl>
+    implements _$$MovieProductionCompanyImplCopyWith<$Res> {
+  __$$MovieProductionCompanyImplCopyWithImpl(
+    _$MovieProductionCompanyImpl _value,
+    $Res Function(_$MovieProductionCompanyImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieProductionCompany
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? logoPath = null,
+    Object? originCountry = null,
+  }) {
+    return _then(
+      _$MovieProductionCompanyImpl(
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        logoPath: null == logoPath
+            ? _value.logoPath
+            : logoPath // ignore: cast_nullable_to_non_nullable
+                  as String,
+        originCountry: null == originCountry
+            ? _value.originCountry
+            : originCountry // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$MovieProductionCompanyImpl extends _MovieProductionCompany {
+  const _$MovieProductionCompanyImpl({
+    required this.id,
+    required this.name,
+    required this.logoPath,
+    required this.originCountry,
+  }) : super._();
+
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final String logoPath;
+  @override
+  final String originCountry;
+
+  @override
+  String toString() {
+    return 'MovieProductionCompany(id: $id, name: $name, logoPath: $logoPath, originCountry: $originCountry)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MovieProductionCompanyImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.logoPath, logoPath) ||
+                other.logoPath == logoPath) &&
+            (identical(other.originCountry, originCountry) ||
+                other.originCountry == originCountry));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, logoPath, originCountry);
+
+  /// Create a copy of MovieProductionCompany
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MovieProductionCompanyImplCopyWith<_$MovieProductionCompanyImpl>
+  get copyWith =>
+      __$$MovieProductionCompanyImplCopyWithImpl<_$MovieProductionCompanyImpl>(
+        this,
+        _$identity,
+      );
+}
+
+abstract class _MovieProductionCompany extends MovieProductionCompany {
+  const factory _MovieProductionCompany({
+    required final int id,
+    required final String name,
+    required final String logoPath,
+    required final String originCountry,
+  }) = _$MovieProductionCompanyImpl;
+  const _MovieProductionCompany._() : super._();
+
+  @override
+  int get id;
+  @override
+  String get name;
+  @override
+  String get logoPath;
+  @override
+  String get originCountry;
+
+  /// Create a copy of MovieProductionCompany
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MovieProductionCompanyImplCopyWith<_$MovieProductionCompanyImpl>
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

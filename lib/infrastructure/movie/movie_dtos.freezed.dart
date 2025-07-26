@@ -519,6 +519,9 @@ mixin _$MovieDetailDto {
   int? get popularity => throw _privateConstructorUsedError;
   @JsonKey(name: "poster_path")
   String? get posterPath => throw _privateConstructorUsedError;
+  @JsonKey(name: "production_companies")
+  List<MovieProductionCompanyDto>? get productionCompanies =>
+      throw _privateConstructorUsedError;
   @JsonKey(name: "release_date")
   String? get releaseDate => throw _privateConstructorUsedError;
   @JsonKey(name: "revenue")
@@ -566,6 +569,8 @@ abstract class $MovieDetailDtoCopyWith<$Res> {
     @JsonKey(name: "overview") String? overview,
     @JsonKey(name: "popularity") int? popularity,
     @JsonKey(name: "poster_path") String? posterPath,
+    @JsonKey(name: "production_companies")
+    List<MovieProductionCompanyDto>? productionCompanies,
     @JsonKey(name: "release_date") String? releaseDate,
     @JsonKey(name: "revenue") int? revenue,
     @JsonKey(name: "runtime") int? runtime,
@@ -604,6 +609,7 @@ class _$MovieDetailDtoCopyWithImpl<$Res, $Val extends MovieDetailDto>
     Object? overview = freezed,
     Object? popularity = freezed,
     Object? posterPath = freezed,
+    Object? productionCompanies = freezed,
     Object? releaseDate = freezed,
     Object? revenue = freezed,
     Object? runtime = freezed,
@@ -663,6 +669,10 @@ class _$MovieDetailDtoCopyWithImpl<$Res, $Val extends MovieDetailDto>
                 ? _value.posterPath
                 : posterPath // ignore: cast_nullable_to_non_nullable
                       as String?,
+            productionCompanies: freezed == productionCompanies
+                ? _value.productionCompanies
+                : productionCompanies // ignore: cast_nullable_to_non_nullable
+                      as List<MovieProductionCompanyDto>?,
             releaseDate: freezed == releaseDate
                 ? _value.releaseDate
                 : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -723,6 +733,8 @@ abstract class _$$MovieDetailDtoImplCopyWith<$Res>
     @JsonKey(name: "overview") String? overview,
     @JsonKey(name: "popularity") int? popularity,
     @JsonKey(name: "poster_path") String? posterPath,
+    @JsonKey(name: "production_companies")
+    List<MovieProductionCompanyDto>? productionCompanies,
     @JsonKey(name: "release_date") String? releaseDate,
     @JsonKey(name: "revenue") int? revenue,
     @JsonKey(name: "runtime") int? runtime,
@@ -760,6 +772,7 @@ class __$$MovieDetailDtoImplCopyWithImpl<$Res>
     Object? overview = freezed,
     Object? popularity = freezed,
     Object? posterPath = freezed,
+    Object? productionCompanies = freezed,
     Object? releaseDate = freezed,
     Object? revenue = freezed,
     Object? runtime = freezed,
@@ -819,6 +832,10 @@ class __$$MovieDetailDtoImplCopyWithImpl<$Res>
             ? _value.posterPath
             : posterPath // ignore: cast_nullable_to_non_nullable
                   as String?,
+        productionCompanies: freezed == productionCompanies
+            ? _value._productionCompanies
+            : productionCompanies // ignore: cast_nullable_to_non_nullable
+                  as List<MovieProductionCompanyDto>?,
         releaseDate: freezed == releaseDate
             ? _value.releaseDate
             : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -872,6 +889,8 @@ class _$MovieDetailDtoImpl extends _MovieDetailDto {
     @JsonKey(name: "overview") this.overview,
     @JsonKey(name: "popularity") this.popularity,
     @JsonKey(name: "poster_path") this.posterPath,
+    @JsonKey(name: "production_companies")
+    final List<MovieProductionCompanyDto>? productionCompanies,
     @JsonKey(name: "release_date") this.releaseDate,
     @JsonKey(name: "revenue") this.revenue,
     @JsonKey(name: "runtime") this.runtime,
@@ -881,6 +900,7 @@ class _$MovieDetailDtoImpl extends _MovieDetailDto {
     @JsonKey(name: "vote_average") this.voteAverage,
     @JsonKey(name: "vote_count") this.voteCount,
   }) : _genres = genres,
+       _productionCompanies = productionCompanies,
        super._();
 
   factory _$MovieDetailDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -930,6 +950,18 @@ class _$MovieDetailDtoImpl extends _MovieDetailDto {
   @override
   @JsonKey(name: "poster_path")
   final String? posterPath;
+  final List<MovieProductionCompanyDto>? _productionCompanies;
+  @override
+  @JsonKey(name: "production_companies")
+  List<MovieProductionCompanyDto>? get productionCompanies {
+    final value = _productionCompanies;
+    if (value == null) return null;
+    if (_productionCompanies is EqualUnmodifiableListView)
+      return _productionCompanies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey(name: "release_date")
   final String? releaseDate;
@@ -957,7 +989,7 @@ class _$MovieDetailDtoImpl extends _MovieDetailDto {
 
   @override
   String toString() {
-    return 'MovieDetailDto(id: $id, adult: $adult, backdropPath: $backdropPath, budget: $budget, genres: $genres, homepage: $homepage, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, voteAverage: $voteAverage, voteCount: $voteCount)';
+    return 'MovieDetailDto(id: $id, adult: $adult, backdropPath: $backdropPath, budget: $budget, genres: $genres, homepage: $homepage, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, productionCompanies: $productionCompanies, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, voteAverage: $voteAverage, voteCount: $voteCount)';
   }
 
   @override
@@ -984,6 +1016,10 @@ class _$MovieDetailDtoImpl extends _MovieDetailDto {
                 other.popularity == popularity) &&
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
+            const DeepCollectionEquality().equals(
+              other._productionCompanies,
+              _productionCompanies,
+            ) &&
             (identical(other.releaseDate, releaseDate) ||
                 other.releaseDate == releaseDate) &&
             (identical(other.revenue, revenue) || other.revenue == revenue) &&
@@ -1013,6 +1049,7 @@ class _$MovieDetailDtoImpl extends _MovieDetailDto {
     overview,
     popularity,
     posterPath,
+    const DeepCollectionEquality().hash(_productionCompanies),
     releaseDate,
     revenue,
     runtime,
@@ -1054,6 +1091,8 @@ abstract class _MovieDetailDto extends MovieDetailDto {
     @JsonKey(name: "overview") final String? overview,
     @JsonKey(name: "popularity") final int? popularity,
     @JsonKey(name: "poster_path") final String? posterPath,
+    @JsonKey(name: "production_companies")
+    final List<MovieProductionCompanyDto>? productionCompanies,
     @JsonKey(name: "release_date") final String? releaseDate,
     @JsonKey(name: "revenue") final int? revenue,
     @JsonKey(name: "runtime") final int? runtime,
@@ -1104,6 +1143,9 @@ abstract class _MovieDetailDto extends MovieDetailDto {
   @override
   @JsonKey(name: "poster_path")
   String? get posterPath;
+  @override
+  @JsonKey(name: "production_companies")
+  List<MovieProductionCompanyDto>? get productionCompanies;
   @override
   @JsonKey(name: "release_date")
   String? get releaseDate;
@@ -1578,4 +1620,255 @@ abstract class _MovieCreditDto extends MovieCreditDto {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MovieCreditDtoImplCopyWith<_$MovieCreditDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+MovieProductionCompanyDto _$MovieProductionCompanyDtoFromJson(
+  Map<String, dynamic> json,
+) {
+  return _MovieProductionCompanyDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MovieProductionCompanyDto {
+  @JsonKey(name: "id")
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "name")
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: "logo_path")
+  String? get logoPath => throw _privateConstructorUsedError;
+  @JsonKey(name: "origin_country")
+  String? get originCountry => throw _privateConstructorUsedError;
+
+  /// Serializes this MovieProductionCompanyDto to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of MovieProductionCompanyDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MovieProductionCompanyDtoCopyWith<MovieProductionCompanyDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MovieProductionCompanyDtoCopyWith<$Res> {
+  factory $MovieProductionCompanyDtoCopyWith(
+    MovieProductionCompanyDto value,
+    $Res Function(MovieProductionCompanyDto) then,
+  ) = _$MovieProductionCompanyDtoCopyWithImpl<$Res, MovieProductionCompanyDto>;
+  @useResult
+  $Res call({
+    @JsonKey(name: "id") int? id,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "logo_path") String? logoPath,
+    @JsonKey(name: "origin_country") String? originCountry,
+  });
+}
+
+/// @nodoc
+class _$MovieProductionCompanyDtoCopyWithImpl<
+  $Res,
+  $Val extends MovieProductionCompanyDto
+>
+    implements $MovieProductionCompanyDtoCopyWith<$Res> {
+  _$MovieProductionCompanyDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of MovieProductionCompanyDto
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? logoPath = freezed,
+    Object? originCountry = freezed,
+  }) {
+    return _then(
+      _value.copyWith(
+            id: freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            logoPath: freezed == logoPath
+                ? _value.logoPath
+                : logoPath // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            originCountry: freezed == originCountry
+                ? _value.originCountry
+                : originCountry // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$MovieProductionCompanyDtoImplCopyWith<$Res>
+    implements $MovieProductionCompanyDtoCopyWith<$Res> {
+  factory _$$MovieProductionCompanyDtoImplCopyWith(
+    _$MovieProductionCompanyDtoImpl value,
+    $Res Function(_$MovieProductionCompanyDtoImpl) then,
+  ) = __$$MovieProductionCompanyDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    @JsonKey(name: "id") int? id,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "logo_path") String? logoPath,
+    @JsonKey(name: "origin_country") String? originCountry,
+  });
+}
+
+/// @nodoc
+class __$$MovieProductionCompanyDtoImplCopyWithImpl<$Res>
+    extends
+        _$MovieProductionCompanyDtoCopyWithImpl<
+          $Res,
+          _$MovieProductionCompanyDtoImpl
+        >
+    implements _$$MovieProductionCompanyDtoImplCopyWith<$Res> {
+  __$$MovieProductionCompanyDtoImplCopyWithImpl(
+    _$MovieProductionCompanyDtoImpl _value,
+    $Res Function(_$MovieProductionCompanyDtoImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieProductionCompanyDto
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? logoPath = freezed,
+    Object? originCountry = freezed,
+  }) {
+    return _then(
+      _$MovieProductionCompanyDtoImpl(
+        id: freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        logoPath: freezed == logoPath
+            ? _value.logoPath
+            : logoPath // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        originCountry: freezed == originCountry
+            ? _value.originCountry
+            : originCountry // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$MovieProductionCompanyDtoImpl extends _MovieProductionCompanyDto {
+  const _$MovieProductionCompanyDtoImpl({
+    @JsonKey(name: "id") this.id,
+    @JsonKey(name: "name") this.name,
+    @JsonKey(name: "logo_path") this.logoPath,
+    @JsonKey(name: "origin_country") this.originCountry,
+  }) : super._();
+
+  factory _$MovieProductionCompanyDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MovieProductionCompanyDtoImplFromJson(json);
+
+  @override
+  @JsonKey(name: "id")
+  final int? id;
+  @override
+  @JsonKey(name: "name")
+  final String? name;
+  @override
+  @JsonKey(name: "logo_path")
+  final String? logoPath;
+  @override
+  @JsonKey(name: "origin_country")
+  final String? originCountry;
+
+  @override
+  String toString() {
+    return 'MovieProductionCompanyDto(id: $id, name: $name, logoPath: $logoPath, originCountry: $originCountry)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MovieProductionCompanyDtoImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.logoPath, logoPath) ||
+                other.logoPath == logoPath) &&
+            (identical(other.originCountry, originCountry) ||
+                other.originCountry == originCountry));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, logoPath, originCountry);
+
+  /// Create a copy of MovieProductionCompanyDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MovieProductionCompanyDtoImplCopyWith<_$MovieProductionCompanyDtoImpl>
+  get copyWith =>
+      __$$MovieProductionCompanyDtoImplCopyWithImpl<
+        _$MovieProductionCompanyDtoImpl
+      >(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$MovieProductionCompanyDtoImplToJson(this);
+  }
+}
+
+abstract class _MovieProductionCompanyDto extends MovieProductionCompanyDto {
+  const factory _MovieProductionCompanyDto({
+    @JsonKey(name: "id") final int? id,
+    @JsonKey(name: "name") final String? name,
+    @JsonKey(name: "logo_path") final String? logoPath,
+    @JsonKey(name: "origin_country") final String? originCountry,
+  }) = _$MovieProductionCompanyDtoImpl;
+  const _MovieProductionCompanyDto._() : super._();
+
+  factory _MovieProductionCompanyDto.fromJson(Map<String, dynamic> json) =
+      _$MovieProductionCompanyDtoImpl.fromJson;
+
+  @override
+  @JsonKey(name: "id")
+  int? get id;
+  @override
+  @JsonKey(name: "name")
+  String? get name;
+  @override
+  @JsonKey(name: "logo_path")
+  String? get logoPath;
+  @override
+  @JsonKey(name: "origin_country")
+  String? get originCountry;
+
+  /// Create a copy of MovieProductionCompanyDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MovieProductionCompanyDtoImplCopyWith<_$MovieProductionCompanyDtoImpl>
+  get copyWith => throw _privateConstructorUsedError;
 }

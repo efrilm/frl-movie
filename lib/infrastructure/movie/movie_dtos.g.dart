@@ -58,6 +58,12 @@ _$MovieDetailDtoImpl _$$MovieDetailDtoImplFromJson(Map<String, dynamic> json) =>
       overview: json['overview'] as String?,
       popularity: (json['popularity'] as num?)?.toInt(),
       posterPath: json['poster_path'] as String?,
+      productionCompanies: (json['production_companies'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                MovieProductionCompanyDto.fromJson(e as Map<String, dynamic>),
+          )
+          .toList(),
       releaseDate: json['release_date'] as String?,
       revenue: (json['revenue'] as num?)?.toInt(),
       runtime: (json['runtime'] as num?)?.toInt(),
@@ -83,6 +89,7 @@ Map<String, dynamic> _$$MovieDetailDtoImplToJson(
   'overview': instance.overview,
   'popularity': instance.popularity,
   'poster_path': instance.posterPath,
+  'production_companies': instance.productionCompanies,
   'release_date': instance.releaseDate,
   'revenue': instance.revenue,
   'runtime': instance.runtime,
@@ -124,4 +131,22 @@ Map<String, dynamic> _$$MovieCreditDtoImplToJson(
   'character': instance.character,
   'credit_id': instance.creditId,
   'order': instance.order,
+};
+
+_$MovieProductionCompanyDtoImpl _$$MovieProductionCompanyDtoImplFromJson(
+  Map<String, dynamic> json,
+) => _$MovieProductionCompanyDtoImpl(
+  id: (json['id'] as num?)?.toInt(),
+  name: json['name'] as String?,
+  logoPath: json['logo_path'] as String?,
+  originCountry: json['origin_country'] as String?,
+);
+
+Map<String, dynamic> _$$MovieProductionCompanyDtoImplToJson(
+  _$MovieProductionCompanyDtoImpl instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'logo_path': instance.logoPath,
+  'origin_country': instance.originCountry,
 };

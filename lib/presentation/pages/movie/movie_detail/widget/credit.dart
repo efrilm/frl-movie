@@ -12,7 +12,7 @@ class MovieDetailCredit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0).copyWith(top: 10, right: 0),
+      padding: const EdgeInsets.all(20.0).copyWith(top: 0, right: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

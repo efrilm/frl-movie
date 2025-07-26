@@ -8,6 +8,7 @@ import '../../../../domain/movie/movie.dart';
 import '../../../../injection.dart';
 import 'widget/credit.dart';
 import 'widget/header.dart';
+import 'widget/product_company.dart';
 import 'widget/synopsis.dart';
 import 'widget/title.dart';
 
@@ -35,6 +36,9 @@ class MovieDetailPage extends StatelessWidget implements AutoRouteWrapper {
                 Divider(color: AppColor.dark.shade400),
                 MovieDetailSynopsis(movie: state.movieDetail),
                 Divider(color: AppColor.dark.shade400),
+                MovieDetailProductionCompany(
+                  productionCompanies: state.movieDetail.productionCompanies,
+                ),
                 MovieDetailCredit(),
               ],
             ),
