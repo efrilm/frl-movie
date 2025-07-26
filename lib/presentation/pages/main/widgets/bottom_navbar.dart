@@ -39,9 +39,9 @@ class _MainBottomNavbarState extends State<MainBottomNavbar> {
           label: 'Explore',
         ),
         BottomNavigationBarItem(
-          icon: LineIcon(LineIcons.userAlt),
-          tooltip: 'Profile',
-          label: 'Profile',
+          icon: LineIcon(LineIcons.bookmark),
+          tooltip: 'Watchlist',
+          label: 'Watchlist',
         ),
       ],
     );

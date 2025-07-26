@@ -31,6 +31,14 @@ ThemeData getApplicationTheme() => ThemeData(
     backgroundColor: AppColor.dark.shade800,
     titleTextStyle: AppStyle.lg.copyWith(fontWeight: FontWeight.w600),
   ),
+  tabBarTheme: TabBarThemeData(
+    labelColor: AppColor.primary,
+    unselectedLabelColor: AppColor.grey.shade600,
+    indicator: UnderlineTabIndicator(
+      borderSide: BorderSide(width: 2, color: AppColor.primary),
+    ),
+    indicatorSize: TabBarIndicatorSize.tab,
+  ),
   inputDecorationTheme: InputDecorationTheme(
     filled: true,
     fillColor: AppColor.dark.shade600,
