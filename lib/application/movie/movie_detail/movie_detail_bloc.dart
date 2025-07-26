@@ -62,6 +62,29 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
 
         emit(data.copyWith(isFetchingCredit: false));
       },
+      fetchRecommendation: (e) async {
+        emit(
+          state.copyWith(
+            isFetchingRecommendation: true,
+            failureOptionRecommendation: none(),
+          ),
+        );
+
+        final failureOrMovie = await _movieRepository.getRecommendation(
+          movieId: e.movieId,
+          page: 1,
+        );
+
+        var data = failureOrMovie.fold(
+          (f) => state.copyWith(failureOptionRecommendation: optionOf(f)),
+          (recommendation) => state.copyWith(
+            recommendations: recommendation,
+            failureOptionRecommendation: none(),
+          ),
+        );
+
+        emit(data.copyWith(isFetchingRecommendation: false));
+      },
     );
   }
 }

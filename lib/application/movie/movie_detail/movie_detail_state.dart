@@ -9,6 +9,9 @@ class MovieDetailState with _$MovieDetailState {
     required List<MovieCredit> credits,
     required Option<MovieFailure> failureOptionCredit,
     @Default(false) bool isFetchingCredit,
+    required List<Movie> recommendations,
+    required Option<MovieFailure> failureOptionRecommendation,
+    @Default(false) bool isFetchingRecommendation,
   }) = _MovieDetailState;
 
   factory MovieDetailState.initial() => MovieDetailState(
@@ -16,5 +19,7 @@ class MovieDetailState with _$MovieDetailState {
     failureOptionMovieDetail: none(),
     credits: [],
     failureOptionCredit: none(),
+    recommendations: [],
+    failureOptionRecommendation: none(),
   );
 }

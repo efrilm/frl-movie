@@ -22,32 +22,38 @@ mixin _$MovieDetailEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(int movieId) fetchMovieDetail,
     required TResult Function(int movieId) fetchCredit,
+    required TResult Function(int movieId) fetchRecommendation,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int movieId)? fetchMovieDetail,
     TResult? Function(int movieId)? fetchCredit,
+    TResult? Function(int movieId)? fetchRecommendation,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int movieId)? fetchMovieDetail,
     TResult Function(int movieId)? fetchCredit,
+    TResult Function(int movieId)? fetchRecommendation,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchMovieDetail value) fetchMovieDetail,
     required TResult Function(_FetchCredit value) fetchCredit,
+    required TResult Function(_FetchRecommendation value) fetchRecommendation,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchMovieDetail value)? fetchMovieDetail,
     TResult? Function(_FetchCredit value)? fetchCredit,
+    TResult? Function(_FetchRecommendation value)? fetchRecommendation,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchMovieDetail value)? fetchMovieDetail,
     TResult Function(_FetchCredit value)? fetchCredit,
+    TResult Function(_FetchRecommendation value)? fetchRecommendation,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 
@@ -182,6 +188,7 @@ class _$FetchMovieDetailImpl
   TResult when<TResult extends Object?>({
     required TResult Function(int movieId) fetchMovieDetail,
     required TResult Function(int movieId) fetchCredit,
+    required TResult Function(int movieId) fetchRecommendation,
   }) {
     return fetchMovieDetail(movieId);
   }
@@ -191,6 +198,7 @@ class _$FetchMovieDetailImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int movieId)? fetchMovieDetail,
     TResult? Function(int movieId)? fetchCredit,
+    TResult? Function(int movieId)? fetchRecommendation,
   }) {
     return fetchMovieDetail?.call(movieId);
   }
@@ -200,6 +208,7 @@ class _$FetchMovieDetailImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int movieId)? fetchMovieDetail,
     TResult Function(int movieId)? fetchCredit,
+    TResult Function(int movieId)? fetchRecommendation,
     required TResult orElse(),
   }) {
     if (fetchMovieDetail != null) {
@@ -213,6 +222,7 @@ class _$FetchMovieDetailImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchMovieDetail value) fetchMovieDetail,
     required TResult Function(_FetchCredit value) fetchCredit,
+    required TResult Function(_FetchRecommendation value) fetchRecommendation,
   }) {
     return fetchMovieDetail(this);
   }
@@ -222,6 +232,7 @@ class _$FetchMovieDetailImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchMovieDetail value)? fetchMovieDetail,
     TResult? Function(_FetchCredit value)? fetchCredit,
+    TResult? Function(_FetchRecommendation value)? fetchRecommendation,
   }) {
     return fetchMovieDetail?.call(this);
   }
@@ -231,6 +242,7 @@ class _$FetchMovieDetailImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchMovieDetail value)? fetchMovieDetail,
     TResult Function(_FetchCredit value)? fetchCredit,
+    TResult Function(_FetchRecommendation value)? fetchRecommendation,
     required TResult orElse(),
   }) {
     if (fetchMovieDetail != null) {
@@ -336,6 +348,7 @@ class _$FetchCreditImpl with DiagnosticableTreeMixin implements _FetchCredit {
   TResult when<TResult extends Object?>({
     required TResult Function(int movieId) fetchMovieDetail,
     required TResult Function(int movieId) fetchCredit,
+    required TResult Function(int movieId) fetchRecommendation,
   }) {
     return fetchCredit(movieId);
   }
@@ -345,6 +358,7 @@ class _$FetchCreditImpl with DiagnosticableTreeMixin implements _FetchCredit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int movieId)? fetchMovieDetail,
     TResult? Function(int movieId)? fetchCredit,
+    TResult? Function(int movieId)? fetchRecommendation,
   }) {
     return fetchCredit?.call(movieId);
   }
@@ -354,6 +368,7 @@ class _$FetchCreditImpl with DiagnosticableTreeMixin implements _FetchCredit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int movieId)? fetchMovieDetail,
     TResult Function(int movieId)? fetchCredit,
+    TResult Function(int movieId)? fetchRecommendation,
     required TResult orElse(),
   }) {
     if (fetchCredit != null) {
@@ -367,6 +382,7 @@ class _$FetchCreditImpl with DiagnosticableTreeMixin implements _FetchCredit {
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchMovieDetail value) fetchMovieDetail,
     required TResult Function(_FetchCredit value) fetchCredit,
+    required TResult Function(_FetchRecommendation value) fetchRecommendation,
   }) {
     return fetchCredit(this);
   }
@@ -376,6 +392,7 @@ class _$FetchCreditImpl with DiagnosticableTreeMixin implements _FetchCredit {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchMovieDetail value)? fetchMovieDetail,
     TResult? Function(_FetchCredit value)? fetchCredit,
+    TResult? Function(_FetchRecommendation value)? fetchRecommendation,
   }) {
     return fetchCredit?.call(this);
   }
@@ -385,6 +402,7 @@ class _$FetchCreditImpl with DiagnosticableTreeMixin implements _FetchCredit {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchMovieDetail value)? fetchMovieDetail,
     TResult Function(_FetchCredit value)? fetchCredit,
+    TResult Function(_FetchRecommendation value)? fetchRecommendation,
     required TResult orElse(),
   }) {
     if (fetchCredit != null) {
@@ -409,6 +427,172 @@ abstract class _FetchCredit implements MovieDetailEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchRecommendationImplCopyWith<$Res>
+    implements $MovieDetailEventCopyWith<$Res> {
+  factory _$$FetchRecommendationImplCopyWith(
+    _$FetchRecommendationImpl value,
+    $Res Function(_$FetchRecommendationImpl) then,
+  ) = __$$FetchRecommendationImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int movieId});
+}
+
+/// @nodoc
+class __$$FetchRecommendationImplCopyWithImpl<$Res>
+    extends _$MovieDetailEventCopyWithImpl<$Res, _$FetchRecommendationImpl>
+    implements _$$FetchRecommendationImplCopyWith<$Res> {
+  __$$FetchRecommendationImplCopyWithImpl(
+    _$FetchRecommendationImpl _value,
+    $Res Function(_$FetchRecommendationImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieDetailEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? movieId = null}) {
+    return _then(
+      _$FetchRecommendationImpl(
+        null == movieId
+            ? _value.movieId
+            : movieId // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$FetchRecommendationImpl
+    with DiagnosticableTreeMixin
+    implements _FetchRecommendation {
+  const _$FetchRecommendationImpl(this.movieId);
+
+  @override
+  final int movieId;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'MovieDetailEvent.fetchRecommendation(movieId: $movieId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'MovieDetailEvent.fetchRecommendation'))
+      ..add(DiagnosticsProperty('movieId', movieId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchRecommendationImpl &&
+            (identical(other.movieId, movieId) || other.movieId == movieId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, movieId);
+
+  /// Create a copy of MovieDetailEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchRecommendationImplCopyWith<_$FetchRecommendationImpl> get copyWith =>
+      __$$FetchRecommendationImplCopyWithImpl<_$FetchRecommendationImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int movieId) fetchMovieDetail,
+    required TResult Function(int movieId) fetchCredit,
+    required TResult Function(int movieId) fetchRecommendation,
+  }) {
+    return fetchRecommendation(movieId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int movieId)? fetchMovieDetail,
+    TResult? Function(int movieId)? fetchCredit,
+    TResult? Function(int movieId)? fetchRecommendation,
+  }) {
+    return fetchRecommendation?.call(movieId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int movieId)? fetchMovieDetail,
+    TResult Function(int movieId)? fetchCredit,
+    TResult Function(int movieId)? fetchRecommendation,
+    required TResult orElse(),
+  }) {
+    if (fetchRecommendation != null) {
+      return fetchRecommendation(movieId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchMovieDetail value) fetchMovieDetail,
+    required TResult Function(_FetchCredit value) fetchCredit,
+    required TResult Function(_FetchRecommendation value) fetchRecommendation,
+  }) {
+    return fetchRecommendation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchMovieDetail value)? fetchMovieDetail,
+    TResult? Function(_FetchCredit value)? fetchCredit,
+    TResult? Function(_FetchRecommendation value)? fetchRecommendation,
+  }) {
+    return fetchRecommendation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchMovieDetail value)? fetchMovieDetail,
+    TResult Function(_FetchCredit value)? fetchCredit,
+    TResult Function(_FetchRecommendation value)? fetchRecommendation,
+    required TResult orElse(),
+  }) {
+    if (fetchRecommendation != null) {
+      return fetchRecommendation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchRecommendation implements MovieDetailEvent {
+  const factory _FetchRecommendation(final int movieId) =
+      _$FetchRecommendationImpl;
+
+  @override
+  int get movieId;
+
+  /// Create a copy of MovieDetailEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FetchRecommendationImplCopyWith<_$FetchRecommendationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MovieDetailState {
   MovieDetail get movieDetail => throw _privateConstructorUsedError;
   Option<MovieFailure> get failureOptionMovieDetail =>
@@ -418,6 +602,10 @@ mixin _$MovieDetailState {
   Option<MovieFailure> get failureOptionCredit =>
       throw _privateConstructorUsedError;
   bool get isFetchingCredit => throw _privateConstructorUsedError;
+  List<Movie> get recommendations => throw _privateConstructorUsedError;
+  Option<MovieFailure> get failureOptionRecommendation =>
+      throw _privateConstructorUsedError;
+  bool get isFetchingRecommendation => throw _privateConstructorUsedError;
 
   /// Create a copy of MovieDetailState
   /// with the given fields replaced by the non-null parameter values.
@@ -440,6 +628,9 @@ abstract class $MovieDetailStateCopyWith<$Res> {
     List<MovieCredit> credits,
     Option<MovieFailure> failureOptionCredit,
     bool isFetchingCredit,
+    List<Movie> recommendations,
+    Option<MovieFailure> failureOptionRecommendation,
+    bool isFetchingRecommendation,
   });
 
   $MovieDetailCopyWith<$Res> get movieDetail;
@@ -466,6 +657,9 @@ class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
     Object? credits = null,
     Object? failureOptionCredit = null,
     Object? isFetchingCredit = null,
+    Object? recommendations = null,
+    Object? failureOptionRecommendation = null,
+    Object? isFetchingRecommendation = null,
   }) {
     return _then(
       _value.copyWith(
@@ -492,6 +686,18 @@ class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
             isFetchingCredit: null == isFetchingCredit
                 ? _value.isFetchingCredit
                 : isFetchingCredit // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            recommendations: null == recommendations
+                ? _value.recommendations
+                : recommendations // ignore: cast_nullable_to_non_nullable
+                      as List<Movie>,
+            failureOptionRecommendation: null == failureOptionRecommendation
+                ? _value.failureOptionRecommendation
+                : failureOptionRecommendation // ignore: cast_nullable_to_non_nullable
+                      as Option<MovieFailure>,
+            isFetchingRecommendation: null == isFetchingRecommendation
+                ? _value.isFetchingRecommendation
+                : isFetchingRecommendation // ignore: cast_nullable_to_non_nullable
                       as bool,
           )
           as $Val,
@@ -525,6 +731,9 @@ abstract class _$$MovieDetailStateImplCopyWith<$Res>
     List<MovieCredit> credits,
     Option<MovieFailure> failureOptionCredit,
     bool isFetchingCredit,
+    List<Movie> recommendations,
+    Option<MovieFailure> failureOptionRecommendation,
+    bool isFetchingRecommendation,
   });
 
   @override
@@ -551,6 +760,9 @@ class __$$MovieDetailStateImplCopyWithImpl<$Res>
     Object? credits = null,
     Object? failureOptionCredit = null,
     Object? isFetchingCredit = null,
+    Object? recommendations = null,
+    Object? failureOptionRecommendation = null,
+    Object? isFetchingRecommendation = null,
   }) {
     return _then(
       _$MovieDetailStateImpl(
@@ -578,6 +790,18 @@ class __$$MovieDetailStateImplCopyWithImpl<$Res>
             ? _value.isFetchingCredit
             : isFetchingCredit // ignore: cast_nullable_to_non_nullable
                   as bool,
+        recommendations: null == recommendations
+            ? _value._recommendations
+            : recommendations // ignore: cast_nullable_to_non_nullable
+                  as List<Movie>,
+        failureOptionRecommendation: null == failureOptionRecommendation
+            ? _value.failureOptionRecommendation
+            : failureOptionRecommendation // ignore: cast_nullable_to_non_nullable
+                  as Option<MovieFailure>,
+        isFetchingRecommendation: null == isFetchingRecommendation
+            ? _value.isFetchingRecommendation
+            : isFetchingRecommendation // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -595,7 +819,11 @@ class _$MovieDetailStateImpl
     required final List<MovieCredit> credits,
     required this.failureOptionCredit,
     this.isFetchingCredit = false,
-  }) : _credits = credits;
+    required final List<Movie> recommendations,
+    required this.failureOptionRecommendation,
+    this.isFetchingRecommendation = false,
+  }) : _credits = credits,
+       _recommendations = recommendations;
 
   @override
   final MovieDetail movieDetail;
@@ -617,10 +845,23 @@ class _$MovieDetailStateImpl
   @override
   @JsonKey()
   final bool isFetchingCredit;
+  final List<Movie> _recommendations;
+  @override
+  List<Movie> get recommendations {
+    if (_recommendations is EqualUnmodifiableListView) return _recommendations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_recommendations);
+  }
+
+  @override
+  final Option<MovieFailure> failureOptionRecommendation;
+  @override
+  @JsonKey()
+  final bool isFetchingRecommendation;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MovieDetailState(movieDetail: $movieDetail, failureOptionMovieDetail: $failureOptionMovieDetail, isFetchingDetailMovie: $isFetchingDetailMovie, credits: $credits, failureOptionCredit: $failureOptionCredit, isFetchingCredit: $isFetchingCredit)';
+    return 'MovieDetailState(movieDetail: $movieDetail, failureOptionMovieDetail: $failureOptionMovieDetail, isFetchingDetailMovie: $isFetchingDetailMovie, credits: $credits, failureOptionCredit: $failureOptionCredit, isFetchingCredit: $isFetchingCredit, recommendations: $recommendations, failureOptionRecommendation: $failureOptionRecommendation, isFetchingRecommendation: $isFetchingRecommendation)';
   }
 
   @override
@@ -638,7 +879,20 @@ class _$MovieDetailStateImpl
       ..add(DiagnosticsProperty('isFetchingDetailMovie', isFetchingDetailMovie))
       ..add(DiagnosticsProperty('credits', credits))
       ..add(DiagnosticsProperty('failureOptionCredit', failureOptionCredit))
-      ..add(DiagnosticsProperty('isFetchingCredit', isFetchingCredit));
+      ..add(DiagnosticsProperty('isFetchingCredit', isFetchingCredit))
+      ..add(DiagnosticsProperty('recommendations', recommendations))
+      ..add(
+        DiagnosticsProperty(
+          'failureOptionRecommendation',
+          failureOptionRecommendation,
+        ),
+      )
+      ..add(
+        DiagnosticsProperty(
+          'isFetchingRecommendation',
+          isFetchingRecommendation,
+        ),
+      );
   }
 
   @override
@@ -659,7 +913,22 @@ class _$MovieDetailStateImpl
             (identical(other.failureOptionCredit, failureOptionCredit) ||
                 other.failureOptionCredit == failureOptionCredit) &&
             (identical(other.isFetchingCredit, isFetchingCredit) ||
-                other.isFetchingCredit == isFetchingCredit));
+                other.isFetchingCredit == isFetchingCredit) &&
+            const DeepCollectionEquality().equals(
+              other._recommendations,
+              _recommendations,
+            ) &&
+            (identical(
+                  other.failureOptionRecommendation,
+                  failureOptionRecommendation,
+                ) ||
+                other.failureOptionRecommendation ==
+                    failureOptionRecommendation) &&
+            (identical(
+                  other.isFetchingRecommendation,
+                  isFetchingRecommendation,
+                ) ||
+                other.isFetchingRecommendation == isFetchingRecommendation));
   }
 
   @override
@@ -671,6 +940,9 @@ class _$MovieDetailStateImpl
     const DeepCollectionEquality().hash(_credits),
     failureOptionCredit,
     isFetchingCredit,
+    const DeepCollectionEquality().hash(_recommendations),
+    failureOptionRecommendation,
+    isFetchingRecommendation,
   );
 
   /// Create a copy of MovieDetailState
@@ -693,6 +965,9 @@ abstract class _MovieDetailState implements MovieDetailState {
     required final List<MovieCredit> credits,
     required final Option<MovieFailure> failureOptionCredit,
     final bool isFetchingCredit,
+    required final List<Movie> recommendations,
+    required final Option<MovieFailure> failureOptionRecommendation,
+    final bool isFetchingRecommendation,
   }) = _$MovieDetailStateImpl;
 
   @override
@@ -707,6 +982,12 @@ abstract class _MovieDetailState implements MovieDetailState {
   Option<MovieFailure> get failureOptionCredit;
   @override
   bool get isFetchingCredit;
+  @override
+  List<Movie> get recommendations;
+  @override
+  Option<MovieFailure> get failureOptionRecommendation;
+  @override
+  bool get isFetchingRecommendation;
 
   /// Create a copy of MovieDetailState
   /// with the given fields replaced by the non-null parameter values.

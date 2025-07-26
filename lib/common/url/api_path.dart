@@ -18,4 +18,5 @@ class ApiPath {
 
   String movieReleaseDate(int id) => '/$_version/movie/$id/release_dates';
   String movieCredit(int id) => '/$_version/movie/$id/credits';
+  String movieRecommendations(int id) => '/$_version/movie/$id/recommendations';
 }
