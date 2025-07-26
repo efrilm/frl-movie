@@ -7,4 +7,5 @@ class MovieDetailEvent with _$MovieDetailEvent {
   const factory MovieDetailEvent.fetchCredit(int movieId) = _FetchCredit;
   const factory MovieDetailEvent.fetchRecommendation(int movieId) =
       _FetchRecommendation;
+  const factory MovieDetailEvent.fetchSimilar(int movieId) = _FetchSimilar;
 }

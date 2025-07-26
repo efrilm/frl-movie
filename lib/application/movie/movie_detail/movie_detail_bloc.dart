@@ -85,6 +85,24 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
 
         emit(data.copyWith(isFetchingRecommendation: false));
       },
+      fetchSimilar: (e) async {
+        emit(
+          state.copyWith(isFetchingSimilar: true, failureOptionSimilar: none()),
+        );
+
+        final failureOrMovie = await _movieRepository.getSimilar(
+          movieId: e.movieId,
+          page: 1,
+        );
+
+        var data = failureOrMovie.fold(
+          (f) => state.copyWith(failureOptionSimilar: optionOf(f)),
+          (similar) =>
+              state.copyWith(similars: similar, failureOptionSimilar: none()),
+        );
+
+        emit(data.copyWith(isFetchingSimilar: false));
+      },
     );
   }
 }

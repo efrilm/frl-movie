@@ -17,4 +17,8 @@ abstract class IMovieRepository {
     required int movieId,
     required int page,
   });
+  Future<Either<MovieFailure, List<Movie>>> getSimilar({
+    required int movieId,
+    required int page,
+  });
 }

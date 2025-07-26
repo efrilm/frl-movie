@@ -10,6 +10,7 @@ import 'widget/credit.dart';
 import 'widget/header.dart';
 import 'widget/product_company.dart';
 import 'widget/recomendations.dart';
+import 'widget/similar.dart';
 import 'widget/synopsis.dart';
 import 'widget/title.dart';
 
@@ -42,6 +43,7 @@ class MovieDetailPage extends StatelessWidget implements AutoRouteWrapper {
                 ),
                 MovieDetailCredit(),
                 MovieDetailRecommendations(),
+                MovieDetailSimilar(),
               ],
             ),
             (f) => Center(
@@ -58,7 +60,8 @@ class MovieDetailPage extends StatelessWidget implements AutoRouteWrapper {
     create: (_) => getIt<MovieDetailBloc>()
       ..add(MovieDetailEvent.fetchMovieDetail(movie.id))
       ..add(MovieDetailEvent.fetchCredit(movie.id))
-      ..add(MovieDetailEvent.fetchRecommendation(movie.id)),
+      ..add(MovieDetailEvent.fetchRecommendation(movie.id))
+      ..add(MovieDetailEvent.fetchSimilar(movie.id)),
     child: this,
   );
 }

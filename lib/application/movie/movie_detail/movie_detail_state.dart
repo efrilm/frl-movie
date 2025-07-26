@@ -12,6 +12,9 @@ class MovieDetailState with _$MovieDetailState {
     required List<Movie> recommendations,
     required Option<MovieFailure> failureOptionRecommendation,
     @Default(false) bool isFetchingRecommendation,
+    required List<Movie> similars,
+    required Option<MovieFailure> failureOptionSimilar,
+    @Default(false) bool isFetchingSimilar,
   }) = _MovieDetailState;
 
   factory MovieDetailState.initial() => MovieDetailState(
@@ -21,5 +24,7 @@ class MovieDetailState with _$MovieDetailState {
     failureOptionCredit: none(),
     recommendations: [],
     failureOptionRecommendation: none(),
+    similars: [],
+    failureOptionSimilar: none(),
   );
 }
