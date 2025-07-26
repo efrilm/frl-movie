@@ -1,0 +1,162 @@
+import 'dart:developer';
+
+import 'package:data_channel/data_channel.dart';
+import 'package:injectable/injectable.dart';
+
+import '../../../common/api/api_client.dart';
+import '../../../common/api/api_failure.dart';
+import '../../../common/url/api_path.dart';
+import '../../../domain/tv/tv.dart';
+import '../tv_dtos.dart';
+
+@Injectable()
+class TvRemoteDataSource {
+  final ApiClient _apiClient;
+  final String _logName = 'TvRemoteDataSource';
+
+  TvRemoteDataSource(this._apiClient);
+
+  Future<DC<TvFailure, List<TvDto>>> fetchOnTheAir({int page = 1}) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.tvOnTheAir,
+        params: {'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => TvDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const TvFailure.tvEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchOnTheAirTv', name: _logName, error: e);
+
+      return DC.error(TvFailure.serverError(e));
+    }
+  }
+
+  Future<DC<TvFailure, List<TvDto>>> fetchAiringToday({int page = 1}) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.tvAiringToday,
+        params: {'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => TvDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const TvFailure.tvEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchAiringTodayTv', name: _logName, error: e);
+
+      return DC.error(TvFailure.serverError(e));
+    }
+  }
+
+  Future<DC<TvFailure, List<TvDto>>> fetchPopular({int page = 1}) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.tvPopular,
+        params: {'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => TvDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const TvFailure.tvEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchPopularTv', name: _logName, error: e);
+
+      return DC.error(TvFailure.serverError(e));
+    }
+  }
+
+  Future<DC<TvFailure, List<TvDto>>> fetchTopRated({int page = 1}) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.tvTopRated,
+        params: {'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => TvDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const TvFailure.tvEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchTopRatedTv', name: _logName, error: e);
+
+      return DC.error(TvFailure.serverError(e));
+    }
+  }
+
+  Future<DC<TvFailure, List<TvDto>>> search({
+    required String query,
+    int page = 1,
+  }) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.tvSearch,
+        params: {'query': query, 'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => TvDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const TvFailure.tvEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchSearchTv', name: _logName, error: e);
+
+      return DC.error(TvFailure.serverError(e));
+    }
+  }
+
+  Future<DC<TvFailure, List<TvDto>>> fetchByGenre({
+    required int genreId,
+    int page = 1,
+  }) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.discoverMovie,
+        params: {'with_genres': genreId, 'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => TvDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const TvFailure.tvEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchByGenreTv', name: _logName, error: e);
+
+      return DC.error(TvFailure.serverError(e));
+    }
+  }
+}

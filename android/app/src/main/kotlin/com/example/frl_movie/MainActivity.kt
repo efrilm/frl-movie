@@ -1,4 +1,4 @@
-package com.example.frl_movie
+package com.frldev.frl_movie
 
 import io.flutter.embedding.android.FlutterActivity
 
