@@ -126,4 +126,33 @@ class MovieRepository implements IMovieRepository {
       return left(const MovieFailure.unexpectedError());
     }
   }
+
+  @override
+  Future<Either<MovieFailure, MovieDetail>> getDetail({
+    required int movieId,
+  }) async {
+    try {
+      final result = await _remoteDataSource.fetchDetail(movieId: movieId);
+
+      if (result.hasError) {
+        return left(result.error!);
+      }
+
+      final dto = result.data!;
+
+      final certResult = await _remoteDataSource.fetchCertification(
+        movieId: dto.id ?? 0,
+      );
+
+      final certification = certResult.hasData ? certResult.data! : 'NR';
+
+      final movie = dto.toDomain().copyWith(certification: certification);
+
+      return right(movie);
+    } catch (e, s) {
+      log('getDetailMovie', name: _logName, error: e, stackTrace: s);
+
+      return left(const MovieFailure.unexpectedError());
+    }
+  }
 }

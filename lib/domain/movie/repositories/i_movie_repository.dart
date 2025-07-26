@@ -9,4 +9,5 @@ abstract class IMovieRepository {
     required String query,
     required int page,
   });
+  Future<Either<MovieFailure, MovieDetail>> getDetail({required int movieId});
 }

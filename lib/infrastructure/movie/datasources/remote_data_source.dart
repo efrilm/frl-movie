@@ -170,4 +170,20 @@ class MovieRemoteDataSource {
       return DC.error(MovieFailure.serverError(e));
     }
   }
+
+  Future<DC<MovieFailure, MovieDetailDto>> fetchDetail({
+    required int movieId,
+  }) async {
+    try {
+      final response = await _apiClient.get("${ApiPath.movie}/$movieId");
+
+      final dtos = MovieDetailDto.fromJson(response.data);
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchDetailMovie', name: _logName, error: e);
+
+      return DC.error(MovieFailure.serverError(e));
+    }
+  }
 }

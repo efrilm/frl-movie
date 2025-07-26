@@ -450,6 +450,592 @@ abstract class _Movie extends Movie {
 }
 
 /// @nodoc
+mixin _$MovieDetail {
+  int get id => throw _privateConstructorUsedError;
+  bool get adult => throw _privateConstructorUsedError;
+  String get backdropPath => throw _privateConstructorUsedError;
+  int get budget => throw _privateConstructorUsedError;
+  List<Genre> get genres => throw _privateConstructorUsedError;
+  String get homepage => throw _privateConstructorUsedError;
+  String get imdbId => throw _privateConstructorUsedError;
+  String get originalLanguage => throw _privateConstructorUsedError;
+  String get originalTitle => throw _privateConstructorUsedError;
+  String get overview => throw _privateConstructorUsedError;
+  int get popularity => throw _privateConstructorUsedError;
+  String get posterPath => throw _privateConstructorUsedError;
+  String get releaseDate => throw _privateConstructorUsedError;
+  int get revenue => throw _privateConstructorUsedError;
+  int get runtime => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
+  String get tagline => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  double get voteAverage => throw _privateConstructorUsedError;
+  int get voteCount => throw _privateConstructorUsedError;
+  String? get certification => throw _privateConstructorUsedError;
+
+  /// Create a copy of MovieDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MovieDetailCopyWith<MovieDetail> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MovieDetailCopyWith<$Res> {
+  factory $MovieDetailCopyWith(
+    MovieDetail value,
+    $Res Function(MovieDetail) then,
+  ) = _$MovieDetailCopyWithImpl<$Res, MovieDetail>;
+  @useResult
+  $Res call({
+    int id,
+    bool adult,
+    String backdropPath,
+    int budget,
+    List<Genre> genres,
+    String homepage,
+    String imdbId,
+    String originalLanguage,
+    String originalTitle,
+    String overview,
+    int popularity,
+    String posterPath,
+    String releaseDate,
+    int revenue,
+    int runtime,
+    String status,
+    String tagline,
+    String title,
+    double voteAverage,
+    int voteCount,
+    String? certification,
+  });
+}
+
+/// @nodoc
+class _$MovieDetailCopyWithImpl<$Res, $Val extends MovieDetail>
+    implements $MovieDetailCopyWith<$Res> {
+  _$MovieDetailCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of MovieDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? adult = null,
+    Object? backdropPath = null,
+    Object? budget = null,
+    Object? genres = null,
+    Object? homepage = null,
+    Object? imdbId = null,
+    Object? originalLanguage = null,
+    Object? originalTitle = null,
+    Object? overview = null,
+    Object? popularity = null,
+    Object? posterPath = null,
+    Object? releaseDate = null,
+    Object? revenue = null,
+    Object? runtime = null,
+    Object? status = null,
+    Object? tagline = null,
+    Object? title = null,
+    Object? voteAverage = null,
+    Object? voteCount = null,
+    Object? certification = freezed,
+  }) {
+    return _then(
+      _value.copyWith(
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            adult: null == adult
+                ? _value.adult
+                : adult // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            backdropPath: null == backdropPath
+                ? _value.backdropPath
+                : backdropPath // ignore: cast_nullable_to_non_nullable
+                      as String,
+            budget: null == budget
+                ? _value.budget
+                : budget // ignore: cast_nullable_to_non_nullable
+                      as int,
+            genres: null == genres
+                ? _value.genres
+                : genres // ignore: cast_nullable_to_non_nullable
+                      as List<Genre>,
+            homepage: null == homepage
+                ? _value.homepage
+                : homepage // ignore: cast_nullable_to_non_nullable
+                      as String,
+            imdbId: null == imdbId
+                ? _value.imdbId
+                : imdbId // ignore: cast_nullable_to_non_nullable
+                      as String,
+            originalLanguage: null == originalLanguage
+                ? _value.originalLanguage
+                : originalLanguage // ignore: cast_nullable_to_non_nullable
+                      as String,
+            originalTitle: null == originalTitle
+                ? _value.originalTitle
+                : originalTitle // ignore: cast_nullable_to_non_nullable
+                      as String,
+            overview: null == overview
+                ? _value.overview
+                : overview // ignore: cast_nullable_to_non_nullable
+                      as String,
+            popularity: null == popularity
+                ? _value.popularity
+                : popularity // ignore: cast_nullable_to_non_nullable
+                      as int,
+            posterPath: null == posterPath
+                ? _value.posterPath
+                : posterPath // ignore: cast_nullable_to_non_nullable
+                      as String,
+            releaseDate: null == releaseDate
+                ? _value.releaseDate
+                : releaseDate // ignore: cast_nullable_to_non_nullable
+                      as String,
+            revenue: null == revenue
+                ? _value.revenue
+                : revenue // ignore: cast_nullable_to_non_nullable
+                      as int,
+            runtime: null == runtime
+                ? _value.runtime
+                : runtime // ignore: cast_nullable_to_non_nullable
+                      as int,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String,
+            tagline: null == tagline
+                ? _value.tagline
+                : tagline // ignore: cast_nullable_to_non_nullable
+                      as String,
+            title: null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                      as String,
+            voteAverage: null == voteAverage
+                ? _value.voteAverage
+                : voteAverage // ignore: cast_nullable_to_non_nullable
+                      as double,
+            voteCount: null == voteCount
+                ? _value.voteCount
+                : voteCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+            certification: freezed == certification
+                ? _value.certification
+                : certification // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$MovieDetailImplCopyWith<$Res>
+    implements $MovieDetailCopyWith<$Res> {
+  factory _$$MovieDetailImplCopyWith(
+    _$MovieDetailImpl value,
+    $Res Function(_$MovieDetailImpl) then,
+  ) = __$$MovieDetailImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    int id,
+    bool adult,
+    String backdropPath,
+    int budget,
+    List<Genre> genres,
+    String homepage,
+    String imdbId,
+    String originalLanguage,
+    String originalTitle,
+    String overview,
+    int popularity,
+    String posterPath,
+    String releaseDate,
+    int revenue,
+    int runtime,
+    String status,
+    String tagline,
+    String title,
+    double voteAverage,
+    int voteCount,
+    String? certification,
+  });
+}
+
+/// @nodoc
+class __$$MovieDetailImplCopyWithImpl<$Res>
+    extends _$MovieDetailCopyWithImpl<$Res, _$MovieDetailImpl>
+    implements _$$MovieDetailImplCopyWith<$Res> {
+  __$$MovieDetailImplCopyWithImpl(
+    _$MovieDetailImpl _value,
+    $Res Function(_$MovieDetailImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? adult = null,
+    Object? backdropPath = null,
+    Object? budget = null,
+    Object? genres = null,
+    Object? homepage = null,
+    Object? imdbId = null,
+    Object? originalLanguage = null,
+    Object? originalTitle = null,
+    Object? overview = null,
+    Object? popularity = null,
+    Object? posterPath = null,
+    Object? releaseDate = null,
+    Object? revenue = null,
+    Object? runtime = null,
+    Object? status = null,
+    Object? tagline = null,
+    Object? title = null,
+    Object? voteAverage = null,
+    Object? voteCount = null,
+    Object? certification = freezed,
+  }) {
+    return _then(
+      _$MovieDetailImpl(
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        adult: null == adult
+            ? _value.adult
+            : adult // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        backdropPath: null == backdropPath
+            ? _value.backdropPath
+            : backdropPath // ignore: cast_nullable_to_non_nullable
+                  as String,
+        budget: null == budget
+            ? _value.budget
+            : budget // ignore: cast_nullable_to_non_nullable
+                  as int,
+        genres: null == genres
+            ? _value._genres
+            : genres // ignore: cast_nullable_to_non_nullable
+                  as List<Genre>,
+        homepage: null == homepage
+            ? _value.homepage
+            : homepage // ignore: cast_nullable_to_non_nullable
+                  as String,
+        imdbId: null == imdbId
+            ? _value.imdbId
+            : imdbId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        originalLanguage: null == originalLanguage
+            ? _value.originalLanguage
+            : originalLanguage // ignore: cast_nullable_to_non_nullable
+                  as String,
+        originalTitle: null == originalTitle
+            ? _value.originalTitle
+            : originalTitle // ignore: cast_nullable_to_non_nullable
+                  as String,
+        overview: null == overview
+            ? _value.overview
+            : overview // ignore: cast_nullable_to_non_nullable
+                  as String,
+        popularity: null == popularity
+            ? _value.popularity
+            : popularity // ignore: cast_nullable_to_non_nullable
+                  as int,
+        posterPath: null == posterPath
+            ? _value.posterPath
+            : posterPath // ignore: cast_nullable_to_non_nullable
+                  as String,
+        releaseDate: null == releaseDate
+            ? _value.releaseDate
+            : releaseDate // ignore: cast_nullable_to_non_nullable
+                  as String,
+        revenue: null == revenue
+            ? _value.revenue
+            : revenue // ignore: cast_nullable_to_non_nullable
+                  as int,
+        runtime: null == runtime
+            ? _value.runtime
+            : runtime // ignore: cast_nullable_to_non_nullable
+                  as int,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String,
+        tagline: null == tagline
+            ? _value.tagline
+            : tagline // ignore: cast_nullable_to_non_nullable
+                  as String,
+        title: null == title
+            ? _value.title
+            : title // ignore: cast_nullable_to_non_nullable
+                  as String,
+        voteAverage: null == voteAverage
+            ? _value.voteAverage
+            : voteAverage // ignore: cast_nullable_to_non_nullable
+                  as double,
+        voteCount: null == voteCount
+            ? _value.voteCount
+            : voteCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+        certification: freezed == certification
+            ? _value.certification
+            : certification // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$MovieDetailImpl extends _MovieDetail {
+  const _$MovieDetailImpl({
+    required this.id,
+    required this.adult,
+    required this.backdropPath,
+    required this.budget,
+    required final List<Genre> genres,
+    required this.homepage,
+    required this.imdbId,
+    required this.originalLanguage,
+    required this.originalTitle,
+    required this.overview,
+    required this.popularity,
+    required this.posterPath,
+    required this.releaseDate,
+    required this.revenue,
+    required this.runtime,
+    required this.status,
+    required this.tagline,
+    required this.title,
+    required this.voteAverage,
+    required this.voteCount,
+    this.certification,
+  }) : _genres = genres,
+       super._();
+
+  @override
+  final int id;
+  @override
+  final bool adult;
+  @override
+  final String backdropPath;
+  @override
+  final int budget;
+  final List<Genre> _genres;
+  @override
+  List<Genre> get genres {
+    if (_genres is EqualUnmodifiableListView) return _genres;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genres);
+  }
+
+  @override
+  final String homepage;
+  @override
+  final String imdbId;
+  @override
+  final String originalLanguage;
+  @override
+  final String originalTitle;
+  @override
+  final String overview;
+  @override
+  final int popularity;
+  @override
+  final String posterPath;
+  @override
+  final String releaseDate;
+  @override
+  final int revenue;
+  @override
+  final int runtime;
+  @override
+  final String status;
+  @override
+  final String tagline;
+  @override
+  final String title;
+  @override
+  final double voteAverage;
+  @override
+  final int voteCount;
+  @override
+  final String? certification;
+
+  @override
+  String toString() {
+    return 'MovieDetail(id: $id, adult: $adult, backdropPath: $backdropPath, budget: $budget, genres: $genres, homepage: $homepage, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, voteAverage: $voteAverage, voteCount: $voteCount, certification: $certification)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MovieDetailImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.adult, adult) || other.adult == adult) &&
+            (identical(other.backdropPath, backdropPath) ||
+                other.backdropPath == backdropPath) &&
+            (identical(other.budget, budget) || other.budget == budget) &&
+            const DeepCollectionEquality().equals(other._genres, _genres) &&
+            (identical(other.homepage, homepage) ||
+                other.homepage == homepage) &&
+            (identical(other.imdbId, imdbId) || other.imdbId == imdbId) &&
+            (identical(other.originalLanguage, originalLanguage) ||
+                other.originalLanguage == originalLanguage) &&
+            (identical(other.originalTitle, originalTitle) ||
+                other.originalTitle == originalTitle) &&
+            (identical(other.overview, overview) ||
+                other.overview == overview) &&
+            (identical(other.popularity, popularity) ||
+                other.popularity == popularity) &&
+            (identical(other.posterPath, posterPath) ||
+                other.posterPath == posterPath) &&
+            (identical(other.releaseDate, releaseDate) ||
+                other.releaseDate == releaseDate) &&
+            (identical(other.revenue, revenue) || other.revenue == revenue) &&
+            (identical(other.runtime, runtime) || other.runtime == runtime) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.tagline, tagline) || other.tagline == tagline) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.voteAverage, voteAverage) ||
+                other.voteAverage == voteAverage) &&
+            (identical(other.voteCount, voteCount) ||
+                other.voteCount == voteCount) &&
+            (identical(other.certification, certification) ||
+                other.certification == certification));
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    runtimeType,
+    id,
+    adult,
+    backdropPath,
+    budget,
+    const DeepCollectionEquality().hash(_genres),
+    homepage,
+    imdbId,
+    originalLanguage,
+    originalTitle,
+    overview,
+    popularity,
+    posterPath,
+    releaseDate,
+    revenue,
+    runtime,
+    status,
+    tagline,
+    title,
+    voteAverage,
+    voteCount,
+    certification,
+  ]);
+
+  /// Create a copy of MovieDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MovieDetailImplCopyWith<_$MovieDetailImpl> get copyWith =>
+      __$$MovieDetailImplCopyWithImpl<_$MovieDetailImpl>(this, _$identity);
+}
+
+abstract class _MovieDetail extends MovieDetail {
+  const factory _MovieDetail({
+    required final int id,
+    required final bool adult,
+    required final String backdropPath,
+    required final int budget,
+    required final List<Genre> genres,
+    required final String homepage,
+    required final String imdbId,
+    required final String originalLanguage,
+    required final String originalTitle,
+    required final String overview,
+    required final int popularity,
+    required final String posterPath,
+    required final String releaseDate,
+    required final int revenue,
+    required final int runtime,
+    required final String status,
+    required final String tagline,
+    required final String title,
+    required final double voteAverage,
+    required final int voteCount,
+    final String? certification,
+  }) = _$MovieDetailImpl;
+  const _MovieDetail._() : super._();
+
+  @override
+  int get id;
+  @override
+  bool get adult;
+  @override
+  String get backdropPath;
+  @override
+  int get budget;
+  @override
+  List<Genre> get genres;
+  @override
+  String get homepage;
+  @override
+  String get imdbId;
+  @override
+  String get originalLanguage;
+  @override
+  String get originalTitle;
+  @override
+  String get overview;
+  @override
+  int get popularity;
+  @override
+  String get posterPath;
+  @override
+  String get releaseDate;
+  @override
+  int get revenue;
+  @override
+  int get runtime;
+  @override
+  String get status;
+  @override
+  String get tagline;
+  @override
+  String get title;
+  @override
+  double get voteAverage;
+  @override
+  int get voteCount;
+  @override
+  String? get certification;
+
+  /// Create a copy of MovieDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MovieDetailImplCopyWith<_$MovieDetailImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MovieFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({

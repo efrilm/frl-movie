@@ -13,6 +13,8 @@ import 'package:connectivity_plus/connectivity_plus.dart' as _i895;
 import 'package:dio/dio.dart' as _i361;
 import 'package:frl_movie/application/genre/genre_bloc.dart' as _i158;
 import 'package:frl_movie/application/movie/movie_bloc.dart' as _i966;
+import 'package:frl_movie/application/movie/movie_detail/movie_detail_bloc.dart'
+    as _i677;
 import 'package:frl_movie/application/tv/tv_bloc.dart' as _i851;
 import 'package:frl_movie/common/api/api_client.dart' as _i836;
 import 'package:frl_movie/common/di/auto_route_di.dart' as _i371;
@@ -94,6 +96,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i851.TvBloc>(() => _i851.TvBloc(gh<_i425.ITvRepository>()));
     gh.factory<_i966.MovieBloc>(
       () => _i966.MovieBloc(gh<_i1052.IMovieRepository>()),
+    );
+    gh.factory<_i677.MovieDetailBloc>(
+      () => _i677.MovieDetailBloc(gh<_i1052.IMovieRepository>()),
     );
     return this;
   }
