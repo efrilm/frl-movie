@@ -107,4 +107,28 @@ class TvRepository implements ITvRepository {
       return left(const TvFailure.unexpectedError());
     }
   }
+
+  @override
+  Future<Either<TvFailure, List<Tv>>> getByGenre({
+    required int genreId,
+    required int page,
+  }) async {
+    try {
+      final result = await _remoteDataSource.fetchByGenre(
+        genreId: genreId,
+        page: page,
+      );
+      if (result.hasError) {
+        return left(result.error!);
+      }
+
+      final tv = result.data!.map((item) => item.toDomain()).toList();
+
+      return right(tv);
+    } catch (e, s) {
+      log('getSearchTv', name: _logName, error: e, stackTrace: s);
+
+      return left(const TvFailure.unexpectedError());
+    }
+  }
 }

@@ -16,6 +16,7 @@ class ApiPath {
   static final String tvSearch = '/$_version/search/tv';
   static final String tvGenre = '/$_version/genre/tv/list';
   static final String discoverMovie = '/$_version/discover/movie';
+  static final String discoverTv = '/$_version/discover/tv';
 
   String movieReleaseDate(int id) => '/$_version/movie/$id/release_dates';
   String movieCredit(int id) => '/$_version/movie/$id/credits';

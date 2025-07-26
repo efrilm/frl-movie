@@ -25,6 +25,7 @@ mixin _$TvEvent {
     required TResult Function(bool isRefresh) fetchedPopular,
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -33,6 +34,7 @@ mixin _$TvEvent {
     TResult? Function(bool isRefresh)? fetchedPopular,
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -41,6 +43,7 @@ mixin _$TvEvent {
     TResult Function(bool isRefresh)? fetchedPopular,
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +53,7 @@ mixin _$TvEvent {
     required TResult Function(_FetchedPopular value) fetchedPopular,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -58,6 +62,7 @@ mixin _$TvEvent {
     TResult? Function(_FetchedPopular value)? fetchedPopular,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -66,6 +71,7 @@ mixin _$TvEvent {
     TResult Function(_FetchedPopular value)? fetchedPopular,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 
@@ -202,6 +208,7 @@ class _$FetchedOnTheAIrImpl
     required TResult Function(bool isRefresh) fetchedPopular,
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
     return fetchedOnTheAIr(isRefresh);
   }
@@ -214,6 +221,7 @@ class _$FetchedOnTheAIrImpl
     TResult? Function(bool isRefresh)? fetchedPopular,
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
     return fetchedOnTheAIr?.call(isRefresh);
   }
@@ -226,6 +234,7 @@ class _$FetchedOnTheAIrImpl
     TResult Function(bool isRefresh)? fetchedPopular,
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedOnTheAIr != null) {
@@ -242,6 +251,7 @@ class _$FetchedOnTheAIrImpl
     required TResult Function(_FetchedPopular value) fetchedPopular,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
     return fetchedOnTheAIr(this);
   }
@@ -254,6 +264,7 @@ class _$FetchedOnTheAIrImpl
     TResult? Function(_FetchedPopular value)? fetchedPopular,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
     return fetchedOnTheAIr?.call(this);
   }
@@ -266,6 +277,7 @@ class _$FetchedOnTheAIrImpl
     TResult Function(_FetchedPopular value)? fetchedPopular,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedOnTheAIr != null) {
@@ -382,6 +394,7 @@ class _$FetchedAiringTodayImpl
     required TResult Function(bool isRefresh) fetchedPopular,
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
     return fetchedAiringToday(isRefresh);
   }
@@ -394,6 +407,7 @@ class _$FetchedAiringTodayImpl
     TResult? Function(bool isRefresh)? fetchedPopular,
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
     return fetchedAiringToday?.call(isRefresh);
   }
@@ -406,6 +420,7 @@ class _$FetchedAiringTodayImpl
     TResult Function(bool isRefresh)? fetchedPopular,
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedAiringToday != null) {
@@ -422,6 +437,7 @@ class _$FetchedAiringTodayImpl
     required TResult Function(_FetchedPopular value) fetchedPopular,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
     return fetchedAiringToday(this);
   }
@@ -434,6 +450,7 @@ class _$FetchedAiringTodayImpl
     TResult? Function(_FetchedPopular value)? fetchedPopular,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
     return fetchedAiringToday?.call(this);
   }
@@ -446,6 +463,7 @@ class _$FetchedAiringTodayImpl
     TResult Function(_FetchedPopular value)? fetchedPopular,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedAiringToday != null) {
@@ -562,6 +580,7 @@ class _$FetchedPopularImpl
     required TResult Function(bool isRefresh) fetchedPopular,
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
     return fetchedPopular(isRefresh);
   }
@@ -574,6 +593,7 @@ class _$FetchedPopularImpl
     TResult? Function(bool isRefresh)? fetchedPopular,
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
     return fetchedPopular?.call(isRefresh);
   }
@@ -586,6 +606,7 @@ class _$FetchedPopularImpl
     TResult Function(bool isRefresh)? fetchedPopular,
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedPopular != null) {
@@ -602,6 +623,7 @@ class _$FetchedPopularImpl
     required TResult Function(_FetchedPopular value) fetchedPopular,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
     return fetchedPopular(this);
   }
@@ -614,6 +636,7 @@ class _$FetchedPopularImpl
     TResult? Function(_FetchedPopular value)? fetchedPopular,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
     return fetchedPopular?.call(this);
   }
@@ -626,6 +649,7 @@ class _$FetchedPopularImpl
     TResult Function(_FetchedPopular value)? fetchedPopular,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedPopular != null) {
@@ -741,6 +765,7 @@ class _$FetchedTopRatedImpl
     required TResult Function(bool isRefresh) fetchedPopular,
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
     return fetchedTopRated(isRefresh);
   }
@@ -753,6 +778,7 @@ class _$FetchedTopRatedImpl
     TResult? Function(bool isRefresh)? fetchedPopular,
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
     return fetchedTopRated?.call(isRefresh);
   }
@@ -765,6 +791,7 @@ class _$FetchedTopRatedImpl
     TResult Function(bool isRefresh)? fetchedPopular,
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedTopRated != null) {
@@ -781,6 +808,7 @@ class _$FetchedTopRatedImpl
     required TResult Function(_FetchedPopular value) fetchedPopular,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
     return fetchedTopRated(this);
   }
@@ -793,6 +821,7 @@ class _$FetchedTopRatedImpl
     TResult? Function(_FetchedPopular value)? fetchedPopular,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
     return fetchedTopRated?.call(this);
   }
@@ -805,6 +834,7 @@ class _$FetchedTopRatedImpl
     TResult Function(_FetchedPopular value)? fetchedPopular,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedTopRated != null) {
@@ -923,6 +953,7 @@ class _$SearchedImpl with DiagnosticableTreeMixin implements _Searched {
     required TResult Function(bool isRefresh) fetchedPopular,
     required TResult Function(bool isRefresh) fetchedTopRated,
     required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
     return searched(query, isRefresh);
   }
@@ -935,6 +966,7 @@ class _$SearchedImpl with DiagnosticableTreeMixin implements _Searched {
     TResult? Function(bool isRefresh)? fetchedPopular,
     TResult? Function(bool isRefresh)? fetchedTopRated,
     TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
     return searched?.call(query, isRefresh);
   }
@@ -947,6 +979,7 @@ class _$SearchedImpl with DiagnosticableTreeMixin implements _Searched {
     TResult Function(bool isRefresh)? fetchedPopular,
     TResult Function(bool isRefresh)? fetchedTopRated,
     TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (searched != null) {
@@ -963,6 +996,7 @@ class _$SearchedImpl with DiagnosticableTreeMixin implements _Searched {
     required TResult Function(_FetchedPopular value) fetchedPopular,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
     return searched(this);
   }
@@ -975,6 +1009,7 @@ class _$SearchedImpl with DiagnosticableTreeMixin implements _Searched {
     TResult? Function(_FetchedPopular value)? fetchedPopular,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
     return searched?.call(this);
   }
@@ -987,6 +1022,7 @@ class _$SearchedImpl with DiagnosticableTreeMixin implements _Searched {
     TResult Function(_FetchedPopular value)? fetchedPopular,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (searched != null) {
@@ -1013,6 +1049,203 @@ abstract class _Searched implements TvEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchedByGenreImplCopyWith<$Res>
+    implements $TvEventCopyWith<$Res> {
+  factory _$$FetchedByGenreImplCopyWith(
+    _$FetchedByGenreImpl value,
+    $Res Function(_$FetchedByGenreImpl) then,
+  ) = __$$FetchedByGenreImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({bool isRefresh, int genreId});
+}
+
+/// @nodoc
+class __$$FetchedByGenreImplCopyWithImpl<$Res>
+    extends _$TvEventCopyWithImpl<$Res, _$FetchedByGenreImpl>
+    implements _$$FetchedByGenreImplCopyWith<$Res> {
+  __$$FetchedByGenreImplCopyWithImpl(
+    _$FetchedByGenreImpl _value,
+    $Res Function(_$FetchedByGenreImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of TvEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? isRefresh = null, Object? genreId = null}) {
+    return _then(
+      _$FetchedByGenreImpl(
+        isRefresh: null == isRefresh
+            ? _value.isRefresh
+            : isRefresh // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        genreId: null == genreId
+            ? _value.genreId
+            : genreId // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$FetchedByGenreImpl
+    with DiagnosticableTreeMixin
+    implements _FetchedByGenre {
+  const _$FetchedByGenreImpl({this.isRefresh = false, required this.genreId});
+
+  @override
+  @JsonKey()
+  final bool isRefresh;
+  @override
+  final int genreId;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TvEvent.fetchedByGenre(isRefresh: $isRefresh, genreId: $genreId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'TvEvent.fetchedByGenre'))
+      ..add(DiagnosticsProperty('isRefresh', isRefresh))
+      ..add(DiagnosticsProperty('genreId', genreId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchedByGenreImpl &&
+            (identical(other.isRefresh, isRefresh) ||
+                other.isRefresh == isRefresh) &&
+            (identical(other.genreId, genreId) || other.genreId == genreId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isRefresh, genreId);
+
+  /// Create a copy of TvEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchedByGenreImplCopyWith<_$FetchedByGenreImpl> get copyWith =>
+      __$$FetchedByGenreImplCopyWithImpl<_$FetchedByGenreImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool isRefresh) fetchedOnTheAIr,
+    required TResult Function(bool isRefresh) fetchedAiringToday,
+    required TResult Function(bool isRefresh) fetchedPopular,
+    required TResult Function(bool isRefresh) fetchedTopRated,
+    required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
+  }) {
+    return fetchedByGenre(isRefresh, genreId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool isRefresh)? fetchedOnTheAIr,
+    TResult? Function(bool isRefresh)? fetchedAiringToday,
+    TResult? Function(bool isRefresh)? fetchedPopular,
+    TResult? Function(bool isRefresh)? fetchedTopRated,
+    TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
+  }) {
+    return fetchedByGenre?.call(isRefresh, genreId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool isRefresh)? fetchedOnTheAIr,
+    TResult Function(bool isRefresh)? fetchedAiringToday,
+    TResult Function(bool isRefresh)? fetchedPopular,
+    TResult Function(bool isRefresh)? fetchedTopRated,
+    TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
+    required TResult orElse(),
+  }) {
+    if (fetchedByGenre != null) {
+      return fetchedByGenre(isRefresh, genreId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchedOnTheAIr value) fetchedOnTheAIr,
+    required TResult Function(_FetchedAiringToday value) fetchedAiringToday,
+    required TResult Function(_FetchedPopular value) fetchedPopular,
+    required TResult Function(_FetchedTopRated value) fetchedTopRated,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
+  }) {
+    return fetchedByGenre(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchedOnTheAIr value)? fetchedOnTheAIr,
+    TResult? Function(_FetchedAiringToday value)? fetchedAiringToday,
+    TResult? Function(_FetchedPopular value)? fetchedPopular,
+    TResult? Function(_FetchedTopRated value)? fetchedTopRated,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
+  }) {
+    return fetchedByGenre?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchedOnTheAIr value)? fetchedOnTheAIr,
+    TResult Function(_FetchedAiringToday value)? fetchedAiringToday,
+    TResult Function(_FetchedPopular value)? fetchedPopular,
+    TResult Function(_FetchedTopRated value)? fetchedTopRated,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
+    required TResult orElse(),
+  }) {
+    if (fetchedByGenre != null) {
+      return fetchedByGenre(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchedByGenre implements TvEvent {
+  const factory _FetchedByGenre({
+    final bool isRefresh,
+    required final int genreId,
+  }) = _$FetchedByGenreImpl;
+
+  @override
+  bool get isRefresh;
+  int get genreId;
+
+  /// Create a copy of TvEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FetchedByGenreImplCopyWith<_$FetchedByGenreImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$TvState {
   List<Tv> get onTheAirs => throw _privateConstructorUsedError;
   Option<TvFailure> get failureOptionOnTheAir =>
@@ -1032,6 +1265,10 @@ mixin _$TvState {
   List<Tv> get searchResults => throw _privateConstructorUsedError;
   Option<TvFailure> get failureOptionSearch =>
       throw _privateConstructorUsedError;
+  List<Tv> get tvByGenres => throw _privateConstructorUsedError;
+  Option<TvFailure> get failureOptionTvByGenre =>
+      throw _privateConstructorUsedError;
+  bool get isFetchingTvByGenre => throw _privateConstructorUsedError;
   bool get isSearching => throw _privateConstructorUsedError;
   bool get isFetchingTopRated => throw _privateConstructorUsedError;
   int get pagePopular => throw _privateConstructorUsedError;
@@ -1042,6 +1279,8 @@ mixin _$TvState {
   bool get hasReachedMaxTopRated => throw _privateConstructorUsedError;
   int get pageSearch => throw _privateConstructorUsedError;
   bool get hasReachedMaxSearch => throw _privateConstructorUsedError;
+  int get pageTvByGenre => throw _privateConstructorUsedError;
+  bool get hasReachedMaxTvByGenre => throw _privateConstructorUsedError;
 
   /// Create a copy of TvState
   /// with the given fields replaced by the non-null parameter values.
@@ -1068,6 +1307,9 @@ abstract class $TvStateCopyWith<$Res> {
     Option<TvFailure> failureOptionTopRated,
     List<Tv> searchResults,
     Option<TvFailure> failureOptionSearch,
+    List<Tv> tvByGenres,
+    Option<TvFailure> failureOptionTvByGenre,
+    bool isFetchingTvByGenre,
     bool isSearching,
     bool isFetchingTopRated,
     int pagePopular,
@@ -1078,6 +1320,8 @@ abstract class $TvStateCopyWith<$Res> {
     bool hasReachedMaxTopRated,
     int pageSearch,
     bool hasReachedMaxSearch,
+    int pageTvByGenre,
+    bool hasReachedMaxTvByGenre,
   });
 }
 
@@ -1109,6 +1353,9 @@ class _$TvStateCopyWithImpl<$Res, $Val extends TvState>
     Object? failureOptionTopRated = null,
     Object? searchResults = null,
     Object? failureOptionSearch = null,
+    Object? tvByGenres = null,
+    Object? failureOptionTvByGenre = null,
+    Object? isFetchingTvByGenre = null,
     Object? isSearching = null,
     Object? isFetchingTopRated = null,
     Object? pagePopular = null,
@@ -1119,6 +1366,8 @@ class _$TvStateCopyWithImpl<$Res, $Val extends TvState>
     Object? hasReachedMaxTopRated = null,
     Object? pageSearch = null,
     Object? hasReachedMaxSearch = null,
+    Object? pageTvByGenre = null,
+    Object? hasReachedMaxTvByGenre = null,
   }) {
     return _then(
       _value.copyWith(
@@ -1174,6 +1423,18 @@ class _$TvStateCopyWithImpl<$Res, $Val extends TvState>
                 ? _value.failureOptionSearch
                 : failureOptionSearch // ignore: cast_nullable_to_non_nullable
                       as Option<TvFailure>,
+            tvByGenres: null == tvByGenres
+                ? _value.tvByGenres
+                : tvByGenres // ignore: cast_nullable_to_non_nullable
+                      as List<Tv>,
+            failureOptionTvByGenre: null == failureOptionTvByGenre
+                ? _value.failureOptionTvByGenre
+                : failureOptionTvByGenre // ignore: cast_nullable_to_non_nullable
+                      as Option<TvFailure>,
+            isFetchingTvByGenre: null == isFetchingTvByGenre
+                ? _value.isFetchingTvByGenre
+                : isFetchingTvByGenre // ignore: cast_nullable_to_non_nullable
+                      as bool,
             isSearching: null == isSearching
                 ? _value.isSearching
                 : isSearching // ignore: cast_nullable_to_non_nullable
@@ -1214,6 +1475,14 @@ class _$TvStateCopyWithImpl<$Res, $Val extends TvState>
                 ? _value.hasReachedMaxSearch
                 : hasReachedMaxSearch // ignore: cast_nullable_to_non_nullable
                       as bool,
+            pageTvByGenre: null == pageTvByGenre
+                ? _value.pageTvByGenre
+                : pageTvByGenre // ignore: cast_nullable_to_non_nullable
+                      as int,
+            hasReachedMaxTvByGenre: null == hasReachedMaxTvByGenre
+                ? _value.hasReachedMaxTvByGenre
+                : hasReachedMaxTvByGenre // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -1242,6 +1511,9 @@ abstract class _$$TvStateImplCopyWith<$Res> implements $TvStateCopyWith<$Res> {
     Option<TvFailure> failureOptionTopRated,
     List<Tv> searchResults,
     Option<TvFailure> failureOptionSearch,
+    List<Tv> tvByGenres,
+    Option<TvFailure> failureOptionTvByGenre,
+    bool isFetchingTvByGenre,
     bool isSearching,
     bool isFetchingTopRated,
     int pagePopular,
@@ -1252,6 +1524,8 @@ abstract class _$$TvStateImplCopyWith<$Res> implements $TvStateCopyWith<$Res> {
     bool hasReachedMaxTopRated,
     int pageSearch,
     bool hasReachedMaxSearch,
+    int pageTvByGenre,
+    bool hasReachedMaxTvByGenre,
   });
 }
 
@@ -1282,6 +1556,9 @@ class __$$TvStateImplCopyWithImpl<$Res>
     Object? failureOptionTopRated = null,
     Object? searchResults = null,
     Object? failureOptionSearch = null,
+    Object? tvByGenres = null,
+    Object? failureOptionTvByGenre = null,
+    Object? isFetchingTvByGenre = null,
     Object? isSearching = null,
     Object? isFetchingTopRated = null,
     Object? pagePopular = null,
@@ -1292,6 +1569,8 @@ class __$$TvStateImplCopyWithImpl<$Res>
     Object? hasReachedMaxTopRated = null,
     Object? pageSearch = null,
     Object? hasReachedMaxSearch = null,
+    Object? pageTvByGenre = null,
+    Object? hasReachedMaxTvByGenre = null,
   }) {
     return _then(
       _$TvStateImpl(
@@ -1347,6 +1626,18 @@ class __$$TvStateImplCopyWithImpl<$Res>
             ? _value.failureOptionSearch
             : failureOptionSearch // ignore: cast_nullable_to_non_nullable
                   as Option<TvFailure>,
+        tvByGenres: null == tvByGenres
+            ? _value._tvByGenres
+            : tvByGenres // ignore: cast_nullable_to_non_nullable
+                  as List<Tv>,
+        failureOptionTvByGenre: null == failureOptionTvByGenre
+            ? _value.failureOptionTvByGenre
+            : failureOptionTvByGenre // ignore: cast_nullable_to_non_nullable
+                  as Option<TvFailure>,
+        isFetchingTvByGenre: null == isFetchingTvByGenre
+            ? _value.isFetchingTvByGenre
+            : isFetchingTvByGenre // ignore: cast_nullable_to_non_nullable
+                  as bool,
         isSearching: null == isSearching
             ? _value.isSearching
             : isSearching // ignore: cast_nullable_to_non_nullable
@@ -1387,6 +1678,14 @@ class __$$TvStateImplCopyWithImpl<$Res>
             ? _value.hasReachedMaxSearch
             : hasReachedMaxSearch // ignore: cast_nullable_to_non_nullable
                   as bool,
+        pageTvByGenre: null == pageTvByGenre
+            ? _value.pageTvByGenre
+            : pageTvByGenre // ignore: cast_nullable_to_non_nullable
+                  as int,
+        hasReachedMaxTvByGenre: null == hasReachedMaxTvByGenre
+            ? _value.hasReachedMaxTvByGenre
+            : hasReachedMaxTvByGenre // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -1409,6 +1708,9 @@ class _$TvStateImpl with DiagnosticableTreeMixin implements _TvState {
     required this.failureOptionTopRated,
     required final List<Tv> searchResults,
     required this.failureOptionSearch,
+    required final List<Tv> tvByGenres,
+    required this.failureOptionTvByGenre,
+    this.isFetchingTvByGenre = false,
     this.isSearching = false,
     this.isFetchingTopRated = false,
     this.pagePopular = 1,
@@ -1419,11 +1721,14 @@ class _$TvStateImpl with DiagnosticableTreeMixin implements _TvState {
     this.hasReachedMaxTopRated = false,
     this.pageSearch = 1,
     this.hasReachedMaxSearch = false,
+    this.pageTvByGenre = 1,
+    this.hasReachedMaxTvByGenre = false,
   }) : _onTheAirs = onTheAirs,
        _airingTodays = airingTodays,
        _populars = populars,
        _topRateds = topRateds,
-       _searchResults = searchResults;
+       _searchResults = searchResults,
+       _tvByGenres = tvByGenres;
 
   final List<Tv> _onTheAirs;
   @override
@@ -1484,6 +1789,19 @@ class _$TvStateImpl with DiagnosticableTreeMixin implements _TvState {
 
   @override
   final Option<TvFailure> failureOptionSearch;
+  final List<Tv> _tvByGenres;
+  @override
+  List<Tv> get tvByGenres {
+    if (_tvByGenres is EqualUnmodifiableListView) return _tvByGenres;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tvByGenres);
+  }
+
+  @override
+  final Option<TvFailure> failureOptionTvByGenre;
+  @override
+  @JsonKey()
+  final bool isFetchingTvByGenre;
   @override
   @JsonKey()
   final bool isSearching;
@@ -1514,10 +1832,16 @@ class _$TvStateImpl with DiagnosticableTreeMixin implements _TvState {
   @override
   @JsonKey()
   final bool hasReachedMaxSearch;
+  @override
+  @JsonKey()
+  final int pageTvByGenre;
+  @override
+  @JsonKey()
+  final bool hasReachedMaxTvByGenre;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TvState(onTheAirs: $onTheAirs, failureOptionOnTheAir: $failureOptionOnTheAir, isFetchingOnTheAir: $isFetchingOnTheAir, airingTodays: $airingTodays, failureOptionAiringToday: $failureOptionAiringToday, isFetchingAiringToday: $isFetchingAiringToday, populars: $populars, failureOptionPopular: $failureOptionPopular, isFetchingPopular: $isFetchingPopular, topRateds: $topRateds, failureOptionTopRated: $failureOptionTopRated, searchResults: $searchResults, failureOptionSearch: $failureOptionSearch, isSearching: $isSearching, isFetchingTopRated: $isFetchingTopRated, pagePopular: $pagePopular, hasReachedMaxPopular: $hasReachedMaxPopular, pageAiringToday: $pageAiringToday, hasReachedMaxAiringToday: $hasReachedMaxAiringToday, pageTopRated: $pageTopRated, hasReachedMaxTopRated: $hasReachedMaxTopRated, pageSearch: $pageSearch, hasReachedMaxSearch: $hasReachedMaxSearch)';
+    return 'TvState(onTheAirs: $onTheAirs, failureOptionOnTheAir: $failureOptionOnTheAir, isFetchingOnTheAir: $isFetchingOnTheAir, airingTodays: $airingTodays, failureOptionAiringToday: $failureOptionAiringToday, isFetchingAiringToday: $isFetchingAiringToday, populars: $populars, failureOptionPopular: $failureOptionPopular, isFetchingPopular: $isFetchingPopular, topRateds: $topRateds, failureOptionTopRated: $failureOptionTopRated, searchResults: $searchResults, failureOptionSearch: $failureOptionSearch, tvByGenres: $tvByGenres, failureOptionTvByGenre: $failureOptionTvByGenre, isFetchingTvByGenre: $isFetchingTvByGenre, isSearching: $isSearching, isFetchingTopRated: $isFetchingTopRated, pagePopular: $pagePopular, hasReachedMaxPopular: $hasReachedMaxPopular, pageAiringToday: $pageAiringToday, hasReachedMaxAiringToday: $hasReachedMaxAiringToday, pageTopRated: $pageTopRated, hasReachedMaxTopRated: $hasReachedMaxTopRated, pageSearch: $pageSearch, hasReachedMaxSearch: $hasReachedMaxSearch, pageTvByGenre: $pageTvByGenre, hasReachedMaxTvByGenre: $hasReachedMaxTvByGenre)';
   }
 
   @override
@@ -1543,6 +1867,11 @@ class _$TvStateImpl with DiagnosticableTreeMixin implements _TvState {
       ..add(DiagnosticsProperty('failureOptionTopRated', failureOptionTopRated))
       ..add(DiagnosticsProperty('searchResults', searchResults))
       ..add(DiagnosticsProperty('failureOptionSearch', failureOptionSearch))
+      ..add(DiagnosticsProperty('tvByGenres', tvByGenres))
+      ..add(
+        DiagnosticsProperty('failureOptionTvByGenre', failureOptionTvByGenre),
+      )
+      ..add(DiagnosticsProperty('isFetchingTvByGenre', isFetchingTvByGenre))
       ..add(DiagnosticsProperty('isSearching', isSearching))
       ..add(DiagnosticsProperty('isFetchingTopRated', isFetchingTopRated))
       ..add(DiagnosticsProperty('pagePopular', pagePopular))
@@ -1557,7 +1886,11 @@ class _$TvStateImpl with DiagnosticableTreeMixin implements _TvState {
       ..add(DiagnosticsProperty('pageTopRated', pageTopRated))
       ..add(DiagnosticsProperty('hasReachedMaxTopRated', hasReachedMaxTopRated))
       ..add(DiagnosticsProperty('pageSearch', pageSearch))
-      ..add(DiagnosticsProperty('hasReachedMaxSearch', hasReachedMaxSearch));
+      ..add(DiagnosticsProperty('hasReachedMaxSearch', hasReachedMaxSearch))
+      ..add(DiagnosticsProperty('pageTvByGenre', pageTvByGenre))
+      ..add(
+        DiagnosticsProperty('hasReachedMaxTvByGenre', hasReachedMaxTvByGenre),
+      );
   }
 
   @override
@@ -1601,6 +1934,14 @@ class _$TvStateImpl with DiagnosticableTreeMixin implements _TvState {
             ) &&
             (identical(other.failureOptionSearch, failureOptionSearch) ||
                 other.failureOptionSearch == failureOptionSearch) &&
+            const DeepCollectionEquality().equals(
+              other._tvByGenres,
+              _tvByGenres,
+            ) &&
+            (identical(other.failureOptionTvByGenre, failureOptionTvByGenre) ||
+                other.failureOptionTvByGenre == failureOptionTvByGenre) &&
+            (identical(other.isFetchingTvByGenre, isFetchingTvByGenre) ||
+                other.isFetchingTvByGenre == isFetchingTvByGenre) &&
             (identical(other.isSearching, isSearching) ||
                 other.isSearching == isSearching) &&
             (identical(other.isFetchingTopRated, isFetchingTopRated) ||
@@ -1623,7 +1964,11 @@ class _$TvStateImpl with DiagnosticableTreeMixin implements _TvState {
             (identical(other.pageSearch, pageSearch) ||
                 other.pageSearch == pageSearch) &&
             (identical(other.hasReachedMaxSearch, hasReachedMaxSearch) ||
-                other.hasReachedMaxSearch == hasReachedMaxSearch));
+                other.hasReachedMaxSearch == hasReachedMaxSearch) &&
+            (identical(other.pageTvByGenre, pageTvByGenre) ||
+                other.pageTvByGenre == pageTvByGenre) &&
+            (identical(other.hasReachedMaxTvByGenre, hasReachedMaxTvByGenre) ||
+                other.hasReachedMaxTvByGenre == hasReachedMaxTvByGenre));
   }
 
   @override
@@ -1642,6 +1987,9 @@ class _$TvStateImpl with DiagnosticableTreeMixin implements _TvState {
     failureOptionTopRated,
     const DeepCollectionEquality().hash(_searchResults),
     failureOptionSearch,
+    const DeepCollectionEquality().hash(_tvByGenres),
+    failureOptionTvByGenre,
+    isFetchingTvByGenre,
     isSearching,
     isFetchingTopRated,
     pagePopular,
@@ -1652,6 +2000,8 @@ class _$TvStateImpl with DiagnosticableTreeMixin implements _TvState {
     hasReachedMaxTopRated,
     pageSearch,
     hasReachedMaxSearch,
+    pageTvByGenre,
+    hasReachedMaxTvByGenre,
   ]);
 
   /// Create a copy of TvState
@@ -1678,6 +2028,9 @@ abstract class _TvState implements TvState {
     required final Option<TvFailure> failureOptionTopRated,
     required final List<Tv> searchResults,
     required final Option<TvFailure> failureOptionSearch,
+    required final List<Tv> tvByGenres,
+    required final Option<TvFailure> failureOptionTvByGenre,
+    final bool isFetchingTvByGenre,
     final bool isSearching,
     final bool isFetchingTopRated,
     final int pagePopular,
@@ -1688,6 +2041,8 @@ abstract class _TvState implements TvState {
     final bool hasReachedMaxTopRated,
     final int pageSearch,
     final bool hasReachedMaxSearch,
+    final int pageTvByGenre,
+    final bool hasReachedMaxTvByGenre,
   }) = _$TvStateImpl;
 
   @override
@@ -1717,6 +2072,12 @@ abstract class _TvState implements TvState {
   @override
   Option<TvFailure> get failureOptionSearch;
   @override
+  List<Tv> get tvByGenres;
+  @override
+  Option<TvFailure> get failureOptionTvByGenre;
+  @override
+  bool get isFetchingTvByGenre;
+  @override
   bool get isSearching;
   @override
   bool get isFetchingTopRated;
@@ -1736,6 +2097,10 @@ abstract class _TvState implements TvState {
   int get pageSearch;
   @override
   bool get hasReachedMaxSearch;
+  @override
+  int get pageTvByGenre;
+  @override
+  bool get hasReachedMaxTvByGenre;
 
   /// Create a copy of TvState
   /// with the given fields replaced by the non-null parameter values.

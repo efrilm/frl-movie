@@ -117,6 +117,23 @@ class TvBloc extends Bloc<TvEvent, TvState> {
 
         emit(newState);
       },
+      fetchedByGenre: (e) async {
+        var newState = state;
+
+        if (e.isRefresh) {
+          newState = state.copyWith(isFetchingTvByGenre: true);
+
+          emit(newState);
+        }
+
+        newState = await _mapByGenreToState(
+          state,
+          e.genreId,
+          isRefresh: e.isRefresh,
+        );
+
+        emit(newState);
+      },
     );
   }
 
@@ -276,6 +293,53 @@ class TvBloc extends Bloc<TvEvent, TvState> {
           failureOptionSearch: none(),
           pageSearch: state.pageSearch + 1,
           hasReachedMaxSearch: movies.length < 20,
+        );
+      },
+    );
+
+    return state;
+  }
+
+  Future<TvState> _mapByGenreToState(
+    TvState state,
+    int genreId, {
+    bool isRefresh = false,
+  }) async {
+    state = state.copyWith(isFetchingTvByGenre: false);
+
+    if (state.hasReachedMaxTvByGenre &&
+        state.tvByGenres.isNotEmpty &&
+        !isRefresh) {
+      return state;
+    }
+
+    if (isRefresh) {
+      state = state.copyWith(
+        pageTvByGenre: 1,
+        failureOptionTvByGenre: none(),
+        hasReachedMaxTvByGenre: false,
+        tvByGenres: [],
+      );
+    }
+
+    final failureOrTv = await _tvRepository.getByGenre(
+      genreId: genreId,
+      page: state.pageTvByGenre,
+    );
+
+    state = failureOrTv.fold(
+      (f) {
+        if (f == const TvFailure.tvEmpty() && state.tvByGenres.isNotEmpty) {
+          return state.copyWith(hasReachedMaxTvByGenre: true);
+        }
+        return state.copyWith(failureOptionTvByGenre: optionOf(f));
+      },
+      (movies) {
+        return state.copyWith(
+          tvByGenres: List.from(state.tvByGenres)..addAll(movies),
+          failureOptionTvByGenre: none(),
+          pageTvByGenre: state.pageTvByGenre + 1,
+          hasReachedMaxTvByGenre: movies.length < 20,
         );
       },
     );

@@ -128,7 +128,33 @@ class TvRemoteDataSource {
 
       return DC.data(dtos);
     } on ApiFailure catch (e) {
-      log('fetchTopRatedTv', name: _logName, error: e);
+      log('fetchSearchTv', name: _logName, error: e);
+
+      return DC.error(TvFailure.serverError(e));
+    }
+  }
+
+  Future<DC<TvFailure, List<TvDto>>> fetchByGenre({
+    required int genreId,
+    int page = 1,
+  }) async {
+    try {
+      final response = await _apiClient.get(
+        ApiPath.discoverMovie,
+        params: {'with_genres': genreId, 'page': page},
+      );
+
+      final dtos = (response.data['results'] as List)
+          .map((json) => TvDto.fromJson(json))
+          .toList();
+
+      if (dtos.isEmpty) {
+        return DC.error(const TvFailure.tvEmpty());
+      }
+
+      return DC.data(dtos);
+    } on ApiFailure catch (e) {
+      log('fetchByGenreTv', name: _logName, error: e);
 
       return DC.error(TvFailure.serverError(e));
     }

@@ -9,4 +9,8 @@ abstract class ITvRepository {
     required String query,
     required int page,
   });
+  Future<Either<TvFailure, List<Tv>>> getByGenre({
+    required int genreId,
+    required int page,
+  });
 }

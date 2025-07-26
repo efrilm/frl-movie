@@ -14,4 +14,8 @@ class TvEvent with _$TvEvent {
     String query, {
     @Default(false) bool isRefresh,
   }) = _Searched;
+  const factory TvEvent.fetchedByGenre({
+    @Default(false) bool isRefresh,
+    required int genreId,
+  }) = _FetchedByGenre;
 }
