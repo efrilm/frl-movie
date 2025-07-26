@@ -7,7 +7,6 @@ import '../../../../../injection.dart';
 import '../../../../components/spacer/spacer.dart';
 import 'widgets/genre_movie.dart';
 import 'widgets/genre_tv.dart';
-import 'widgets/trending.dart';
 
 @RoutePage()
 class ExplorePage extends StatelessWidget implements AutoRouteWrapper {
@@ -20,8 +19,6 @@ class ExplorePage extends StatelessWidget implements AutoRouteWrapper {
       body: ListView(
         padding: EdgeInsets.all(20),
         children: const [
-          ExploreTrending(),
-          SpacerHeight(20),
           ExploreGenreMovie(),
           SpacerHeight(20),
           ExploreGenreTv(),

@@ -35,11 +35,7 @@ class MovieAppbar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
             SpacerWidth(12),
-            AppElevatedButton(
-              text: 'VIP',
-              icon: LineIcons.crown,
-              onPressed: () {},
-            ),
+            AppOutlinedIconButton(icon: LineIcons.bell, onPressed: () {}),
           ],
         ),
       ),
