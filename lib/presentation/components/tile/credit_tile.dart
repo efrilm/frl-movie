@@ -16,7 +16,7 @@ class CreditTile extends StatelessWidget {
       width: 80,
       child: Column(
         children: [
-          AppNetworkImage(
+          AppProfileImage(
             url: getImageUrl(credit.profilePath),
             height: 120,
             width: 80,

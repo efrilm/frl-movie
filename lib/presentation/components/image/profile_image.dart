@@ -1,6 +1,6 @@
 part of 'image.dart';
 
-class AppNetworkImage extends StatelessWidget {
+class AppProfileImage extends StatelessWidget {
   final String? url;
   final double? height;
   final double? width;
@@ -9,7 +9,7 @@ class AppNetworkImage extends StatelessWidget {
   final bool? isCanZoom;
   final VoidCallback? onTap;
 
-  const AppNetworkImage({
+  const AppProfileImage({
     super.key,
     this.url,
     this.height,
@@ -42,7 +42,7 @@ class AppNetworkImage extends StatelessWidget {
             color: Colors.grey.shade300,
             borderRadius: BorderRadius.circular(radius ?? 0),
             image: DecorationImage(
-              image: Assets.images.noImage.provider(),
+              image: Assets.images.profile.provider(),
               fit: fitx,
             ),
           ),
