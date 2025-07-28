@@ -22,10 +22,10 @@ class MovieSeeAllPage extends StatefulWidget implements AutoRouteWrapper {
     create: (context) => getIt<MovieBloc>()
       ..add(
         type == "popular"
-            ? const MovieEvent.fetchedPopular(isRefresh: true)
+            ? const MovieEvent.fetchedPopularWithPagination(isRefresh: true)
             : type == "upcoming"
-            ? const MovieEvent.fetchedUpcoming(isRefresh: true)
-            : const MovieEvent.fetchedTopRated(isRefresh: true),
+            ? const MovieEvent.fetchedUpcomingWithPagination(isRefresh: true)
+            : const MovieEvent.fetchedTopRatedWithPagination(isRefresh: true),
       ),
     child: this,
   );

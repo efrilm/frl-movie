@@ -21,24 +21,6 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
   Future<void> _onMovieEvent(MovieEvent event, Emitter<MovieState> emit) {
     return event.map(
-      fetchedPopular: (e) async {
-        var newState = state;
-
-        if (e.isRefresh) {
-          newState = state.copyWith(isFetchingPopular: true);
-
-          emit(newState);
-        }
-
-        newState = await _mapFetchedCategoryToState(
-          newState,
-          category: MovieCategoryType.popular,
-          isRefresh: e.isRefresh,
-          fetch: _movieRepository.getPopular,
-        );
-
-        emit(newState);
-      },
       fetchedNowPlaying: (e) async {
         emit(
           state.copyWith(
@@ -59,7 +41,60 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
         emit(data.copyWith(isFetchingNowPlaying: false));
       },
+      fetchedPopular: (e) async {
+        emit(
+          state.copyWith(isFetchingPopular: true, failureOptionPopular: none()),
+        );
+
+        final failureOrMovie = await _movieRepository.getPopular(page: 1);
+
+        var data = failureOrMovie.fold(
+          (f) => state.copyWith(failureOptionPopular: optionOf(f)),
+          (popular) =>
+              state.copyWith(populars: popular, failureOptionPopular: none()),
+        );
+
+        emit(data.copyWith(isFetchingPopular: false));
+      },
+      fetchedPopularWithPagination: (e) async {
+        var newState = state;
+
+        if (e.isRefresh) {
+          newState = state.copyWith(isFetchingPopular: true);
+
+          emit(newState);
+        }
+
+        newState = await _mapFetchedCategoryToState(
+          newState,
+          category: MovieCategoryType.popular,
+          isRefresh: e.isRefresh,
+          fetch: _movieRepository.getPopular,
+        );
+
+        emit(newState);
+      },
       fetchedTopRated: (e) async {
+        emit(
+          state.copyWith(
+            isFetchingTopRated: true,
+            failureOptionTopRated: none(),
+          ),
+        );
+
+        final failureOrMovie = await _movieRepository.getTopRated(page: 1);
+
+        var data = failureOrMovie.fold(
+          (f) => state.copyWith(failureOptionTopRated: optionOf(f)),
+          (topRated) => state.copyWith(
+            topRateds: topRated,
+            failureOptionTopRated: none(),
+          ),
+        );
+
+        emit(data.copyWith(isFetchingTopRated: false));
+      },
+      fetchedTopRatedWithPagination: (e) async {
         var newState = state;
 
         if (e.isRefresh) {
@@ -84,6 +119,26 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
         emit(newState);
       },
       fetchedUpcoming: (e) async {
+        emit(
+          state.copyWith(
+            isFetchingUpcoming: true,
+            failureOptionUpcoming: none(),
+          ),
+        );
+
+        final failureOrMovie = await _movieRepository.getUpcoming(page: 1);
+
+        var data = failureOrMovie.fold(
+          (f) => state.copyWith(failureOptionUpcoming: optionOf(f)),
+          (upcoming) => state.copyWith(
+            upcomings: upcoming,
+            failureOptionUpcoming: none(),
+          ),
+        );
+
+        emit(data.copyWith(isFetchingUpcoming: false));
+      },
+      fetchedUpcomingWithPagination: (e) async {
         var newState = state;
 
         if (e.isRefresh) {

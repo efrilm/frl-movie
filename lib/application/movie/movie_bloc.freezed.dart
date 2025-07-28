@@ -17,31 +17,39 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$MovieEvent {
-  bool get isRefresh => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isRefresh) fetchedPopular,
-    required TResult Function(bool isRefresh) fetchedNowPlaying,
-    required TResult Function(bool isRefresh) fetchedTopRated,
-    required TResult Function(bool isRefresh) fetchedUpcoming,
+    required TResult Function() fetchedPopular,
+    required TResult Function() fetchedNowPlaying,
+    required TResult Function() fetchedTopRated,
+    required TResult Function() fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopularWithPagination,
+    required TResult Function(bool isRefresh) fetchedTopRatedWithPagination,
+    required TResult Function(bool isRefresh) fetchedUpcomingWithPagination,
     required TResult Function(String query, bool isRefresh) searched,
     required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isRefresh)? fetchedPopular,
-    TResult? Function(bool isRefresh)? fetchedNowPlaying,
-    TResult? Function(bool isRefresh)? fetchedTopRated,
-    TResult? Function(bool isRefresh)? fetchedUpcoming,
+    TResult? Function()? fetchedPopular,
+    TResult? Function()? fetchedNowPlaying,
+    TResult? Function()? fetchedTopRated,
+    TResult? Function()? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult? Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult? Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult? Function(String query, bool isRefresh)? searched,
     TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isRefresh)? fetchedPopular,
-    TResult Function(bool isRefresh)? fetchedNowPlaying,
-    TResult Function(bool isRefresh)? fetchedTopRated,
-    TResult Function(bool isRefresh)? fetchedUpcoming,
+    TResult Function()? fetchedPopular,
+    TResult Function()? fetchedNowPlaying,
+    TResult Function()? fetchedTopRated,
+    TResult Function()? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult Function(String query, bool isRefresh)? searched,
     TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
@@ -52,6 +60,12 @@ mixin _$MovieEvent {
     required TResult Function(_FetchedNowPlaying value) fetchedNowPlaying,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
+    required TResult Function(_FetchedPopularWithPagination value)
+    fetchedPopularWithPagination,
+    required TResult Function(_FetchedTopRatedWithPagination value)
+    fetchedTopRatedWithPagination,
+    required TResult Function(_FetchedUpcomingWithPagination value)
+    fetchedUpcomingWithPagination,
     required TResult Function(_Searched value) searched,
     required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) => throw _privateConstructorUsedError;
@@ -61,6 +75,12 @@ mixin _$MovieEvent {
     TResult? Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult? Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult? Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult? Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult? Function(_Searched value)? searched,
     TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) => throw _privateConstructorUsedError;
@@ -70,16 +90,16 @@ mixin _$MovieEvent {
     TResult Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult Function(_Searched value)? searched,
     TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
-
-  /// Create a copy of MovieEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $MovieEventCopyWith<MovieEvent> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -88,8 +108,6 @@ abstract class $MovieEventCopyWith<$Res> {
     MovieEvent value,
     $Res Function(MovieEvent) then,
   ) = _$MovieEventCopyWithImpl<$Res, MovieEvent>;
-  @useResult
-  $Res call({bool isRefresh});
 }
 
 /// @nodoc
@@ -104,31 +122,14 @@ class _$MovieEventCopyWithImpl<$Res, $Val extends MovieEvent>
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? isRefresh = null}) {
-    return _then(
-      _value.copyWith(
-            isRefresh: null == isRefresh
-                ? _value.isRefresh
-                : isRefresh // ignore: cast_nullable_to_non_nullable
-                      as bool,
-          )
-          as $Val,
-    );
-  }
 }
 
 /// @nodoc
-abstract class _$$FetchedPopularImplCopyWith<$Res>
-    implements $MovieEventCopyWith<$Res> {
+abstract class _$$FetchedPopularImplCopyWith<$Res> {
   factory _$$FetchedPopularImplCopyWith(
     _$FetchedPopularImpl value,
     $Res Function(_$FetchedPopularImpl) then,
   ) = __$$FetchedPopularImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool isRefresh});
 }
 
 /// @nodoc
@@ -142,96 +143,75 @@ class __$$FetchedPopularImplCopyWithImpl<$Res>
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? isRefresh = null}) {
-    return _then(
-      _$FetchedPopularImpl(
-        isRefresh: null == isRefresh
-            ? _value.isRefresh
-            : isRefresh // ignore: cast_nullable_to_non_nullable
-                  as bool,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
 class _$FetchedPopularImpl implements _FetchedPopular {
-  const _$FetchedPopularImpl({this.isRefresh = false});
-
-  @override
-  @JsonKey()
-  final bool isRefresh;
+  const _$FetchedPopularImpl();
 
   @override
   String toString() {
-    return 'MovieEvent.fetchedPopular(isRefresh: $isRefresh)';
+    return 'MovieEvent.fetchedPopular()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchedPopularImpl &&
-            (identical(other.isRefresh, isRefresh) ||
-                other.isRefresh == isRefresh));
+        (other.runtimeType == runtimeType && other is _$FetchedPopularImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isRefresh);
-
-  /// Create a copy of MovieEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchedPopularImplCopyWith<_$FetchedPopularImpl> get copyWith =>
-      __$$FetchedPopularImplCopyWithImpl<_$FetchedPopularImpl>(
-        this,
-        _$identity,
-      );
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isRefresh) fetchedPopular,
-    required TResult Function(bool isRefresh) fetchedNowPlaying,
-    required TResult Function(bool isRefresh) fetchedTopRated,
-    required TResult Function(bool isRefresh) fetchedUpcoming,
+    required TResult Function() fetchedPopular,
+    required TResult Function() fetchedNowPlaying,
+    required TResult Function() fetchedTopRated,
+    required TResult Function() fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopularWithPagination,
+    required TResult Function(bool isRefresh) fetchedTopRatedWithPagination,
+    required TResult Function(bool isRefresh) fetchedUpcomingWithPagination,
     required TResult Function(String query, bool isRefresh) searched,
     required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
-    return fetchedPopular(isRefresh);
+    return fetchedPopular();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isRefresh)? fetchedPopular,
-    TResult? Function(bool isRefresh)? fetchedNowPlaying,
-    TResult? Function(bool isRefresh)? fetchedTopRated,
-    TResult? Function(bool isRefresh)? fetchedUpcoming,
+    TResult? Function()? fetchedPopular,
+    TResult? Function()? fetchedNowPlaying,
+    TResult? Function()? fetchedTopRated,
+    TResult? Function()? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult? Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult? Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult? Function(String query, bool isRefresh)? searched,
     TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
-    return fetchedPopular?.call(isRefresh);
+    return fetchedPopular?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isRefresh)? fetchedPopular,
-    TResult Function(bool isRefresh)? fetchedNowPlaying,
-    TResult Function(bool isRefresh)? fetchedTopRated,
-    TResult Function(bool isRefresh)? fetchedUpcoming,
+    TResult Function()? fetchedPopular,
+    TResult Function()? fetchedNowPlaying,
+    TResult Function()? fetchedTopRated,
+    TResult Function()? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult Function(String query, bool isRefresh)? searched,
     TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedPopular != null) {
-      return fetchedPopular(isRefresh);
+      return fetchedPopular();
     }
     return orElse();
   }
@@ -243,6 +223,12 @@ class _$FetchedPopularImpl implements _FetchedPopular {
     required TResult Function(_FetchedNowPlaying value) fetchedNowPlaying,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
+    required TResult Function(_FetchedPopularWithPagination value)
+    fetchedPopularWithPagination,
+    required TResult Function(_FetchedTopRatedWithPagination value)
+    fetchedTopRatedWithPagination,
+    required TResult Function(_FetchedUpcomingWithPagination value)
+    fetchedUpcomingWithPagination,
     required TResult Function(_Searched value) searched,
     required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
@@ -256,6 +242,12 @@ class _$FetchedPopularImpl implements _FetchedPopular {
     TResult? Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult? Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult? Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult? Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult? Function(_Searched value)? searched,
     TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
@@ -269,6 +261,12 @@ class _$FetchedPopularImpl implements _FetchedPopular {
     TResult Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult Function(_Searched value)? searched,
     TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
@@ -281,29 +279,15 @@ class _$FetchedPopularImpl implements _FetchedPopular {
 }
 
 abstract class _FetchedPopular implements MovieEvent {
-  const factory _FetchedPopular({final bool isRefresh}) = _$FetchedPopularImpl;
-
-  @override
-  bool get isRefresh;
-
-  /// Create a copy of MovieEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchedPopularImplCopyWith<_$FetchedPopularImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _FetchedPopular() = _$FetchedPopularImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchedNowPlayingImplCopyWith<$Res>
-    implements $MovieEventCopyWith<$Res> {
+abstract class _$$FetchedNowPlayingImplCopyWith<$Res> {
   factory _$$FetchedNowPlayingImplCopyWith(
     _$FetchedNowPlayingImpl value,
     $Res Function(_$FetchedNowPlayingImpl) then,
   ) = __$$FetchedNowPlayingImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool isRefresh});
 }
 
 /// @nodoc
@@ -317,96 +301,75 @@ class __$$FetchedNowPlayingImplCopyWithImpl<$Res>
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? isRefresh = null}) {
-    return _then(
-      _$FetchedNowPlayingImpl(
-        isRefresh: null == isRefresh
-            ? _value.isRefresh
-            : isRefresh // ignore: cast_nullable_to_non_nullable
-                  as bool,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
 class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
-  const _$FetchedNowPlayingImpl({this.isRefresh = false});
-
-  @override
-  @JsonKey()
-  final bool isRefresh;
+  const _$FetchedNowPlayingImpl();
 
   @override
   String toString() {
-    return 'MovieEvent.fetchedNowPlaying(isRefresh: $isRefresh)';
+    return 'MovieEvent.fetchedNowPlaying()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchedNowPlayingImpl &&
-            (identical(other.isRefresh, isRefresh) ||
-                other.isRefresh == isRefresh));
+        (other.runtimeType == runtimeType && other is _$FetchedNowPlayingImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isRefresh);
-
-  /// Create a copy of MovieEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchedNowPlayingImplCopyWith<_$FetchedNowPlayingImpl> get copyWith =>
-      __$$FetchedNowPlayingImplCopyWithImpl<_$FetchedNowPlayingImpl>(
-        this,
-        _$identity,
-      );
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isRefresh) fetchedPopular,
-    required TResult Function(bool isRefresh) fetchedNowPlaying,
-    required TResult Function(bool isRefresh) fetchedTopRated,
-    required TResult Function(bool isRefresh) fetchedUpcoming,
+    required TResult Function() fetchedPopular,
+    required TResult Function() fetchedNowPlaying,
+    required TResult Function() fetchedTopRated,
+    required TResult Function() fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopularWithPagination,
+    required TResult Function(bool isRefresh) fetchedTopRatedWithPagination,
+    required TResult Function(bool isRefresh) fetchedUpcomingWithPagination,
     required TResult Function(String query, bool isRefresh) searched,
     required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
-    return fetchedNowPlaying(isRefresh);
+    return fetchedNowPlaying();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isRefresh)? fetchedPopular,
-    TResult? Function(bool isRefresh)? fetchedNowPlaying,
-    TResult? Function(bool isRefresh)? fetchedTopRated,
-    TResult? Function(bool isRefresh)? fetchedUpcoming,
+    TResult? Function()? fetchedPopular,
+    TResult? Function()? fetchedNowPlaying,
+    TResult? Function()? fetchedTopRated,
+    TResult? Function()? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult? Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult? Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult? Function(String query, bool isRefresh)? searched,
     TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
-    return fetchedNowPlaying?.call(isRefresh);
+    return fetchedNowPlaying?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isRefresh)? fetchedPopular,
-    TResult Function(bool isRefresh)? fetchedNowPlaying,
-    TResult Function(bool isRefresh)? fetchedTopRated,
-    TResult Function(bool isRefresh)? fetchedUpcoming,
+    TResult Function()? fetchedPopular,
+    TResult Function()? fetchedNowPlaying,
+    TResult Function()? fetchedTopRated,
+    TResult Function()? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult Function(String query, bool isRefresh)? searched,
     TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedNowPlaying != null) {
-      return fetchedNowPlaying(isRefresh);
+      return fetchedNowPlaying();
     }
     return orElse();
   }
@@ -418,6 +381,12 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
     required TResult Function(_FetchedNowPlaying value) fetchedNowPlaying,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
+    required TResult Function(_FetchedPopularWithPagination value)
+    fetchedPopularWithPagination,
+    required TResult Function(_FetchedTopRatedWithPagination value)
+    fetchedTopRatedWithPagination,
+    required TResult Function(_FetchedUpcomingWithPagination value)
+    fetchedUpcomingWithPagination,
     required TResult Function(_Searched value) searched,
     required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
@@ -431,6 +400,12 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
     TResult? Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult? Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult? Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult? Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult? Function(_Searched value)? searched,
     TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
@@ -444,6 +419,12 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
     TResult Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult Function(_Searched value)? searched,
     TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
@@ -456,30 +437,15 @@ class _$FetchedNowPlayingImpl implements _FetchedNowPlaying {
 }
 
 abstract class _FetchedNowPlaying implements MovieEvent {
-  const factory _FetchedNowPlaying({final bool isRefresh}) =
-      _$FetchedNowPlayingImpl;
-
-  @override
-  bool get isRefresh;
-
-  /// Create a copy of MovieEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchedNowPlayingImplCopyWith<_$FetchedNowPlayingImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _FetchedNowPlaying() = _$FetchedNowPlayingImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchedTopRatedImplCopyWith<$Res>
-    implements $MovieEventCopyWith<$Res> {
+abstract class _$$FetchedTopRatedImplCopyWith<$Res> {
   factory _$$FetchedTopRatedImplCopyWith(
     _$FetchedTopRatedImpl value,
     $Res Function(_$FetchedTopRatedImpl) then,
   ) = __$$FetchedTopRatedImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool isRefresh});
 }
 
 /// @nodoc
@@ -493,96 +459,75 @@ class __$$FetchedTopRatedImplCopyWithImpl<$Res>
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? isRefresh = null}) {
-    return _then(
-      _$FetchedTopRatedImpl(
-        isRefresh: null == isRefresh
-            ? _value.isRefresh
-            : isRefresh // ignore: cast_nullable_to_non_nullable
-                  as bool,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
 class _$FetchedTopRatedImpl implements _FetchedTopRated {
-  const _$FetchedTopRatedImpl({this.isRefresh = false});
-
-  @override
-  @JsonKey()
-  final bool isRefresh;
+  const _$FetchedTopRatedImpl();
 
   @override
   String toString() {
-    return 'MovieEvent.fetchedTopRated(isRefresh: $isRefresh)';
+    return 'MovieEvent.fetchedTopRated()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchedTopRatedImpl &&
-            (identical(other.isRefresh, isRefresh) ||
-                other.isRefresh == isRefresh));
+        (other.runtimeType == runtimeType && other is _$FetchedTopRatedImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isRefresh);
-
-  /// Create a copy of MovieEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchedTopRatedImplCopyWith<_$FetchedTopRatedImpl> get copyWith =>
-      __$$FetchedTopRatedImplCopyWithImpl<_$FetchedTopRatedImpl>(
-        this,
-        _$identity,
-      );
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isRefresh) fetchedPopular,
-    required TResult Function(bool isRefresh) fetchedNowPlaying,
-    required TResult Function(bool isRefresh) fetchedTopRated,
-    required TResult Function(bool isRefresh) fetchedUpcoming,
+    required TResult Function() fetchedPopular,
+    required TResult Function() fetchedNowPlaying,
+    required TResult Function() fetchedTopRated,
+    required TResult Function() fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopularWithPagination,
+    required TResult Function(bool isRefresh) fetchedTopRatedWithPagination,
+    required TResult Function(bool isRefresh) fetchedUpcomingWithPagination,
     required TResult Function(String query, bool isRefresh) searched,
     required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
-    return fetchedTopRated(isRefresh);
+    return fetchedTopRated();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isRefresh)? fetchedPopular,
-    TResult? Function(bool isRefresh)? fetchedNowPlaying,
-    TResult? Function(bool isRefresh)? fetchedTopRated,
-    TResult? Function(bool isRefresh)? fetchedUpcoming,
+    TResult? Function()? fetchedPopular,
+    TResult? Function()? fetchedNowPlaying,
+    TResult? Function()? fetchedTopRated,
+    TResult? Function()? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult? Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult? Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult? Function(String query, bool isRefresh)? searched,
     TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
-    return fetchedTopRated?.call(isRefresh);
+    return fetchedTopRated?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isRefresh)? fetchedPopular,
-    TResult Function(bool isRefresh)? fetchedNowPlaying,
-    TResult Function(bool isRefresh)? fetchedTopRated,
-    TResult Function(bool isRefresh)? fetchedUpcoming,
+    TResult Function()? fetchedPopular,
+    TResult Function()? fetchedNowPlaying,
+    TResult Function()? fetchedTopRated,
+    TResult Function()? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult Function(String query, bool isRefresh)? searched,
     TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedTopRated != null) {
-      return fetchedTopRated(isRefresh);
+      return fetchedTopRated();
     }
     return orElse();
   }
@@ -594,6 +539,12 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
     required TResult Function(_FetchedNowPlaying value) fetchedNowPlaying,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
+    required TResult Function(_FetchedPopularWithPagination value)
+    fetchedPopularWithPagination,
+    required TResult Function(_FetchedTopRatedWithPagination value)
+    fetchedTopRatedWithPagination,
+    required TResult Function(_FetchedUpcomingWithPagination value)
+    fetchedUpcomingWithPagination,
     required TResult Function(_Searched value) searched,
     required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
@@ -607,6 +558,12 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
     TResult? Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult? Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult? Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult? Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult? Function(_Searched value)? searched,
     TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
@@ -620,6 +577,12 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
     TResult Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult Function(_Searched value)? searched,
     TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
@@ -632,30 +595,15 @@ class _$FetchedTopRatedImpl implements _FetchedTopRated {
 }
 
 abstract class _FetchedTopRated implements MovieEvent {
-  const factory _FetchedTopRated({final bool isRefresh}) =
-      _$FetchedTopRatedImpl;
-
-  @override
-  bool get isRefresh;
-
-  /// Create a copy of MovieEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchedTopRatedImplCopyWith<_$FetchedTopRatedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _FetchedTopRated() = _$FetchedTopRatedImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchedUpcomingImplCopyWith<$Res>
-    implements $MovieEventCopyWith<$Res> {
+abstract class _$$FetchedUpcomingImplCopyWith<$Res> {
   factory _$$FetchedUpcomingImplCopyWith(
     _$FetchedUpcomingImpl value,
     $Res Function(_$FetchedUpcomingImpl) then,
   ) = __$$FetchedUpcomingImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool isRefresh});
 }
 
 /// @nodoc
@@ -669,96 +617,75 @@ class __$$FetchedUpcomingImplCopyWithImpl<$Res>
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? isRefresh = null}) {
-    return _then(
-      _$FetchedUpcomingImpl(
-        isRefresh: null == isRefresh
-            ? _value.isRefresh
-            : isRefresh // ignore: cast_nullable_to_non_nullable
-                  as bool,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
 class _$FetchedUpcomingImpl implements _FetchedUpcoming {
-  const _$FetchedUpcomingImpl({this.isRefresh = false});
-
-  @override
-  @JsonKey()
-  final bool isRefresh;
+  const _$FetchedUpcomingImpl();
 
   @override
   String toString() {
-    return 'MovieEvent.fetchedUpcoming(isRefresh: $isRefresh)';
+    return 'MovieEvent.fetchedUpcoming()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchedUpcomingImpl &&
-            (identical(other.isRefresh, isRefresh) ||
-                other.isRefresh == isRefresh));
+        (other.runtimeType == runtimeType && other is _$FetchedUpcomingImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isRefresh);
-
-  /// Create a copy of MovieEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchedUpcomingImplCopyWith<_$FetchedUpcomingImpl> get copyWith =>
-      __$$FetchedUpcomingImplCopyWithImpl<_$FetchedUpcomingImpl>(
-        this,
-        _$identity,
-      );
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isRefresh) fetchedPopular,
-    required TResult Function(bool isRefresh) fetchedNowPlaying,
-    required TResult Function(bool isRefresh) fetchedTopRated,
-    required TResult Function(bool isRefresh) fetchedUpcoming,
+    required TResult Function() fetchedPopular,
+    required TResult Function() fetchedNowPlaying,
+    required TResult Function() fetchedTopRated,
+    required TResult Function() fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopularWithPagination,
+    required TResult Function(bool isRefresh) fetchedTopRatedWithPagination,
+    required TResult Function(bool isRefresh) fetchedUpcomingWithPagination,
     required TResult Function(String query, bool isRefresh) searched,
     required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
-    return fetchedUpcoming(isRefresh);
+    return fetchedUpcoming();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isRefresh)? fetchedPopular,
-    TResult? Function(bool isRefresh)? fetchedNowPlaying,
-    TResult? Function(bool isRefresh)? fetchedTopRated,
-    TResult? Function(bool isRefresh)? fetchedUpcoming,
+    TResult? Function()? fetchedPopular,
+    TResult? Function()? fetchedNowPlaying,
+    TResult? Function()? fetchedTopRated,
+    TResult? Function()? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult? Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult? Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult? Function(String query, bool isRefresh)? searched,
     TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
-    return fetchedUpcoming?.call(isRefresh);
+    return fetchedUpcoming?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isRefresh)? fetchedPopular,
-    TResult Function(bool isRefresh)? fetchedNowPlaying,
-    TResult Function(bool isRefresh)? fetchedTopRated,
-    TResult Function(bool isRefresh)? fetchedUpcoming,
+    TResult Function()? fetchedPopular,
+    TResult Function()? fetchedNowPlaying,
+    TResult Function()? fetchedTopRated,
+    TResult Function()? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult Function(String query, bool isRefresh)? searched,
     TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
   }) {
     if (fetchedUpcoming != null) {
-      return fetchedUpcoming(isRefresh);
+      return fetchedUpcoming();
     }
     return orElse();
   }
@@ -770,6 +697,12 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
     required TResult Function(_FetchedNowPlaying value) fetchedNowPlaying,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
+    required TResult Function(_FetchedPopularWithPagination value)
+    fetchedPopularWithPagination,
+    required TResult Function(_FetchedTopRatedWithPagination value)
+    fetchedTopRatedWithPagination,
+    required TResult Function(_FetchedUpcomingWithPagination value)
+    fetchedUpcomingWithPagination,
     required TResult Function(_Searched value) searched,
     required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
@@ -783,6 +716,12 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
     TResult? Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult? Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult? Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult? Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult? Function(_Searched value)? searched,
     TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
@@ -796,6 +735,12 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
     TResult Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult Function(_Searched value)? searched,
     TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
@@ -808,28 +753,627 @@ class _$FetchedUpcomingImpl implements _FetchedUpcoming {
 }
 
 abstract class _FetchedUpcoming implements MovieEvent {
-  const factory _FetchedUpcoming({final bool isRefresh}) =
-      _$FetchedUpcomingImpl;
+  const factory _FetchedUpcoming() = _$FetchedUpcomingImpl;
+}
+
+/// @nodoc
+abstract class _$$FetchedPopularWithPaginationImplCopyWith<$Res> {
+  factory _$$FetchedPopularWithPaginationImplCopyWith(
+    _$FetchedPopularWithPaginationImpl value,
+    $Res Function(_$FetchedPopularWithPaginationImpl) then,
+  ) = __$$FetchedPopularWithPaginationImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isRefresh});
+}
+
+/// @nodoc
+class __$$FetchedPopularWithPaginationImplCopyWithImpl<$Res>
+    extends _$MovieEventCopyWithImpl<$Res, _$FetchedPopularWithPaginationImpl>
+    implements _$$FetchedPopularWithPaginationImplCopyWith<$Res> {
+  __$$FetchedPopularWithPaginationImplCopyWithImpl(
+    _$FetchedPopularWithPaginationImpl _value,
+    $Res Function(_$FetchedPopularWithPaginationImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? isRefresh = null}) {
+    return _then(
+      _$FetchedPopularWithPaginationImpl(
+        isRefresh: null == isRefresh
+            ? _value.isRefresh
+            : isRefresh // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$FetchedPopularWithPaginationImpl
+    implements _FetchedPopularWithPagination {
+  const _$FetchedPopularWithPaginationImpl({this.isRefresh = false});
 
   @override
+  @JsonKey()
+  final bool isRefresh;
+
+  @override
+  String toString() {
+    return 'MovieEvent.fetchedPopularWithPagination(isRefresh: $isRefresh)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchedPopularWithPaginationImpl &&
+            (identical(other.isRefresh, isRefresh) ||
+                other.isRefresh == isRefresh));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isRefresh);
+
+  /// Create a copy of MovieEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchedPopularWithPaginationImplCopyWith<
+    _$FetchedPopularWithPaginationImpl
+  >
+  get copyWith =>
+      __$$FetchedPopularWithPaginationImplCopyWithImpl<
+        _$FetchedPopularWithPaginationImpl
+      >(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchedPopular,
+    required TResult Function() fetchedNowPlaying,
+    required TResult Function() fetchedTopRated,
+    required TResult Function() fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopularWithPagination,
+    required TResult Function(bool isRefresh) fetchedTopRatedWithPagination,
+    required TResult Function(bool isRefresh) fetchedUpcomingWithPagination,
+    required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
+  }) {
+    return fetchedPopularWithPagination(isRefresh);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchedPopular,
+    TResult? Function()? fetchedNowPlaying,
+    TResult? Function()? fetchedTopRated,
+    TResult? Function()? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult? Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult? Function(bool isRefresh)? fetchedUpcomingWithPagination,
+    TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
+  }) {
+    return fetchedPopularWithPagination?.call(isRefresh);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchedPopular,
+    TResult Function()? fetchedNowPlaying,
+    TResult Function()? fetchedTopRated,
+    TResult Function()? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult Function(bool isRefresh)? fetchedUpcomingWithPagination,
+    TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
+    required TResult orElse(),
+  }) {
+    if (fetchedPopularWithPagination != null) {
+      return fetchedPopularWithPagination(isRefresh);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchedPopular value) fetchedPopular,
+    required TResult Function(_FetchedNowPlaying value) fetchedNowPlaying,
+    required TResult Function(_FetchedTopRated value) fetchedTopRated,
+    required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
+    required TResult Function(_FetchedPopularWithPagination value)
+    fetchedPopularWithPagination,
+    required TResult Function(_FetchedTopRatedWithPagination value)
+    fetchedTopRatedWithPagination,
+    required TResult Function(_FetchedUpcomingWithPagination value)
+    fetchedUpcomingWithPagination,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
+  }) {
+    return fetchedPopularWithPagination(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchedPopular value)? fetchedPopular,
+    TResult? Function(_FetchedNowPlaying value)? fetchedNowPlaying,
+    TResult? Function(_FetchedTopRated value)? fetchedTopRated,
+    TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult? Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult? Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult? Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
+  }) {
+    return fetchedPopularWithPagination?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchedPopular value)? fetchedPopular,
+    TResult Function(_FetchedNowPlaying value)? fetchedNowPlaying,
+    TResult Function(_FetchedTopRated value)? fetchedTopRated,
+    TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
+    required TResult orElse(),
+  }) {
+    if (fetchedPopularWithPagination != null) {
+      return fetchedPopularWithPagination(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchedPopularWithPagination implements MovieEvent {
+  const factory _FetchedPopularWithPagination({final bool isRefresh}) =
+      _$FetchedPopularWithPaginationImpl;
+
   bool get isRefresh;
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchedUpcomingImplCopyWith<_$FetchedUpcomingImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchedPopularWithPaginationImplCopyWith<
+    _$FetchedPopularWithPaginationImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SearchedImplCopyWith<$Res>
-    implements $MovieEventCopyWith<$Res> {
+abstract class _$$FetchedTopRatedWithPaginationImplCopyWith<$Res> {
+  factory _$$FetchedTopRatedWithPaginationImplCopyWith(
+    _$FetchedTopRatedWithPaginationImpl value,
+    $Res Function(_$FetchedTopRatedWithPaginationImpl) then,
+  ) = __$$FetchedTopRatedWithPaginationImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isRefresh});
+}
+
+/// @nodoc
+class __$$FetchedTopRatedWithPaginationImplCopyWithImpl<$Res>
+    extends _$MovieEventCopyWithImpl<$Res, _$FetchedTopRatedWithPaginationImpl>
+    implements _$$FetchedTopRatedWithPaginationImplCopyWith<$Res> {
+  __$$FetchedTopRatedWithPaginationImplCopyWithImpl(
+    _$FetchedTopRatedWithPaginationImpl _value,
+    $Res Function(_$FetchedTopRatedWithPaginationImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? isRefresh = null}) {
+    return _then(
+      _$FetchedTopRatedWithPaginationImpl(
+        isRefresh: null == isRefresh
+            ? _value.isRefresh
+            : isRefresh // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$FetchedTopRatedWithPaginationImpl
+    implements _FetchedTopRatedWithPagination {
+  const _$FetchedTopRatedWithPaginationImpl({this.isRefresh = false});
+
+  @override
+  @JsonKey()
+  final bool isRefresh;
+
+  @override
+  String toString() {
+    return 'MovieEvent.fetchedTopRatedWithPagination(isRefresh: $isRefresh)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchedTopRatedWithPaginationImpl &&
+            (identical(other.isRefresh, isRefresh) ||
+                other.isRefresh == isRefresh));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isRefresh);
+
+  /// Create a copy of MovieEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchedTopRatedWithPaginationImplCopyWith<
+    _$FetchedTopRatedWithPaginationImpl
+  >
+  get copyWith =>
+      __$$FetchedTopRatedWithPaginationImplCopyWithImpl<
+        _$FetchedTopRatedWithPaginationImpl
+      >(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchedPopular,
+    required TResult Function() fetchedNowPlaying,
+    required TResult Function() fetchedTopRated,
+    required TResult Function() fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopularWithPagination,
+    required TResult Function(bool isRefresh) fetchedTopRatedWithPagination,
+    required TResult Function(bool isRefresh) fetchedUpcomingWithPagination,
+    required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
+  }) {
+    return fetchedTopRatedWithPagination(isRefresh);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchedPopular,
+    TResult? Function()? fetchedNowPlaying,
+    TResult? Function()? fetchedTopRated,
+    TResult? Function()? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult? Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult? Function(bool isRefresh)? fetchedUpcomingWithPagination,
+    TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
+  }) {
+    return fetchedTopRatedWithPagination?.call(isRefresh);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchedPopular,
+    TResult Function()? fetchedNowPlaying,
+    TResult Function()? fetchedTopRated,
+    TResult Function()? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult Function(bool isRefresh)? fetchedUpcomingWithPagination,
+    TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
+    required TResult orElse(),
+  }) {
+    if (fetchedTopRatedWithPagination != null) {
+      return fetchedTopRatedWithPagination(isRefresh);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchedPopular value) fetchedPopular,
+    required TResult Function(_FetchedNowPlaying value) fetchedNowPlaying,
+    required TResult Function(_FetchedTopRated value) fetchedTopRated,
+    required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
+    required TResult Function(_FetchedPopularWithPagination value)
+    fetchedPopularWithPagination,
+    required TResult Function(_FetchedTopRatedWithPagination value)
+    fetchedTopRatedWithPagination,
+    required TResult Function(_FetchedUpcomingWithPagination value)
+    fetchedUpcomingWithPagination,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
+  }) {
+    return fetchedTopRatedWithPagination(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchedPopular value)? fetchedPopular,
+    TResult? Function(_FetchedNowPlaying value)? fetchedNowPlaying,
+    TResult? Function(_FetchedTopRated value)? fetchedTopRated,
+    TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult? Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult? Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult? Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
+  }) {
+    return fetchedTopRatedWithPagination?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchedPopular value)? fetchedPopular,
+    TResult Function(_FetchedNowPlaying value)? fetchedNowPlaying,
+    TResult Function(_FetchedTopRated value)? fetchedTopRated,
+    TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
+    required TResult orElse(),
+  }) {
+    if (fetchedTopRatedWithPagination != null) {
+      return fetchedTopRatedWithPagination(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchedTopRatedWithPagination implements MovieEvent {
+  const factory _FetchedTopRatedWithPagination({final bool isRefresh}) =
+      _$FetchedTopRatedWithPaginationImpl;
+
+  bool get isRefresh;
+
+  /// Create a copy of MovieEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FetchedTopRatedWithPaginationImplCopyWith<
+    _$FetchedTopRatedWithPaginationImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchedUpcomingWithPaginationImplCopyWith<$Res> {
+  factory _$$FetchedUpcomingWithPaginationImplCopyWith(
+    _$FetchedUpcomingWithPaginationImpl value,
+    $Res Function(_$FetchedUpcomingWithPaginationImpl) then,
+  ) = __$$FetchedUpcomingWithPaginationImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isRefresh});
+}
+
+/// @nodoc
+class __$$FetchedUpcomingWithPaginationImplCopyWithImpl<$Res>
+    extends _$MovieEventCopyWithImpl<$Res, _$FetchedUpcomingWithPaginationImpl>
+    implements _$$FetchedUpcomingWithPaginationImplCopyWith<$Res> {
+  __$$FetchedUpcomingWithPaginationImplCopyWithImpl(
+    _$FetchedUpcomingWithPaginationImpl _value,
+    $Res Function(_$FetchedUpcomingWithPaginationImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? isRefresh = null}) {
+    return _then(
+      _$FetchedUpcomingWithPaginationImpl(
+        isRefresh: null == isRefresh
+            ? _value.isRefresh
+            : isRefresh // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$FetchedUpcomingWithPaginationImpl
+    implements _FetchedUpcomingWithPagination {
+  const _$FetchedUpcomingWithPaginationImpl({this.isRefresh = false});
+
+  @override
+  @JsonKey()
+  final bool isRefresh;
+
+  @override
+  String toString() {
+    return 'MovieEvent.fetchedUpcomingWithPagination(isRefresh: $isRefresh)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchedUpcomingWithPaginationImpl &&
+            (identical(other.isRefresh, isRefresh) ||
+                other.isRefresh == isRefresh));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isRefresh);
+
+  /// Create a copy of MovieEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchedUpcomingWithPaginationImplCopyWith<
+    _$FetchedUpcomingWithPaginationImpl
+  >
+  get copyWith =>
+      __$$FetchedUpcomingWithPaginationImplCopyWithImpl<
+        _$FetchedUpcomingWithPaginationImpl
+      >(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchedPopular,
+    required TResult Function() fetchedNowPlaying,
+    required TResult Function() fetchedTopRated,
+    required TResult Function() fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopularWithPagination,
+    required TResult Function(bool isRefresh) fetchedTopRatedWithPagination,
+    required TResult Function(bool isRefresh) fetchedUpcomingWithPagination,
+    required TResult Function(String query, bool isRefresh) searched,
+    required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
+  }) {
+    return fetchedUpcomingWithPagination(isRefresh);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchedPopular,
+    TResult? Function()? fetchedNowPlaying,
+    TResult? Function()? fetchedTopRated,
+    TResult? Function()? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult? Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult? Function(bool isRefresh)? fetchedUpcomingWithPagination,
+    TResult? Function(String query, bool isRefresh)? searched,
+    TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
+  }) {
+    return fetchedUpcomingWithPagination?.call(isRefresh);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchedPopular,
+    TResult Function()? fetchedNowPlaying,
+    TResult Function()? fetchedTopRated,
+    TResult Function()? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult Function(bool isRefresh)? fetchedUpcomingWithPagination,
+    TResult Function(String query, bool isRefresh)? searched,
+    TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
+    required TResult orElse(),
+  }) {
+    if (fetchedUpcomingWithPagination != null) {
+      return fetchedUpcomingWithPagination(isRefresh);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchedPopular value) fetchedPopular,
+    required TResult Function(_FetchedNowPlaying value) fetchedNowPlaying,
+    required TResult Function(_FetchedTopRated value) fetchedTopRated,
+    required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
+    required TResult Function(_FetchedPopularWithPagination value)
+    fetchedPopularWithPagination,
+    required TResult Function(_FetchedTopRatedWithPagination value)
+    fetchedTopRatedWithPagination,
+    required TResult Function(_FetchedUpcomingWithPagination value)
+    fetchedUpcomingWithPagination,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FetchedByGenre value) fetchedByGenre,
+  }) {
+    return fetchedUpcomingWithPagination(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchedPopular value)? fetchedPopular,
+    TResult? Function(_FetchedNowPlaying value)? fetchedNowPlaying,
+    TResult? Function(_FetchedTopRated value)? fetchedTopRated,
+    TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult? Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult? Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult? Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FetchedByGenre value)? fetchedByGenre,
+  }) {
+    return fetchedUpcomingWithPagination?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchedPopular value)? fetchedPopular,
+    TResult Function(_FetchedNowPlaying value)? fetchedNowPlaying,
+    TResult Function(_FetchedTopRated value)? fetchedTopRated,
+    TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FetchedByGenre value)? fetchedByGenre,
+    required TResult orElse(),
+  }) {
+    if (fetchedUpcomingWithPagination != null) {
+      return fetchedUpcomingWithPagination(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchedUpcomingWithPagination implements MovieEvent {
+  const factory _FetchedUpcomingWithPagination({final bool isRefresh}) =
+      _$FetchedUpcomingWithPaginationImpl;
+
+  bool get isRefresh;
+
+  /// Create a copy of MovieEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FetchedUpcomingWithPaginationImplCopyWith<
+    _$FetchedUpcomingWithPaginationImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchedImplCopyWith<$Res> {
   factory _$$SearchedImplCopyWith(
     _$SearchedImpl value,
     $Res Function(_$SearchedImpl) then,
   ) = __$$SearchedImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String query, bool isRefresh});
 }
@@ -903,10 +1447,13 @@ class _$SearchedImpl implements _Searched {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isRefresh) fetchedPopular,
-    required TResult Function(bool isRefresh) fetchedNowPlaying,
-    required TResult Function(bool isRefresh) fetchedTopRated,
-    required TResult Function(bool isRefresh) fetchedUpcoming,
+    required TResult Function() fetchedPopular,
+    required TResult Function() fetchedNowPlaying,
+    required TResult Function() fetchedTopRated,
+    required TResult Function() fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopularWithPagination,
+    required TResult Function(bool isRefresh) fetchedTopRatedWithPagination,
+    required TResult Function(bool isRefresh) fetchedUpcomingWithPagination,
     required TResult Function(String query, bool isRefresh) searched,
     required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
@@ -916,10 +1463,13 @@ class _$SearchedImpl implements _Searched {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isRefresh)? fetchedPopular,
-    TResult? Function(bool isRefresh)? fetchedNowPlaying,
-    TResult? Function(bool isRefresh)? fetchedTopRated,
-    TResult? Function(bool isRefresh)? fetchedUpcoming,
+    TResult? Function()? fetchedPopular,
+    TResult? Function()? fetchedNowPlaying,
+    TResult? Function()? fetchedTopRated,
+    TResult? Function()? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult? Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult? Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult? Function(String query, bool isRefresh)? searched,
     TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
@@ -929,10 +1479,13 @@ class _$SearchedImpl implements _Searched {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isRefresh)? fetchedPopular,
-    TResult Function(bool isRefresh)? fetchedNowPlaying,
-    TResult Function(bool isRefresh)? fetchedTopRated,
-    TResult Function(bool isRefresh)? fetchedUpcoming,
+    TResult Function()? fetchedPopular,
+    TResult Function()? fetchedNowPlaying,
+    TResult Function()? fetchedTopRated,
+    TResult Function()? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult Function(String query, bool isRefresh)? searched,
     TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
@@ -950,6 +1503,12 @@ class _$SearchedImpl implements _Searched {
     required TResult Function(_FetchedNowPlaying value) fetchedNowPlaying,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
+    required TResult Function(_FetchedPopularWithPagination value)
+    fetchedPopularWithPagination,
+    required TResult Function(_FetchedTopRatedWithPagination value)
+    fetchedTopRatedWithPagination,
+    required TResult Function(_FetchedUpcomingWithPagination value)
+    fetchedUpcomingWithPagination,
     required TResult Function(_Searched value) searched,
     required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
@@ -963,6 +1522,12 @@ class _$SearchedImpl implements _Searched {
     TResult? Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult? Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult? Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult? Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult? Function(_Searched value)? searched,
     TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
@@ -976,6 +1541,12 @@ class _$SearchedImpl implements _Searched {
     TResult Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult Function(_Searched value)? searched,
     TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
@@ -992,25 +1563,21 @@ abstract class _Searched implements MovieEvent {
       _$SearchedImpl;
 
   String get query;
-  @override
   bool get isRefresh;
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SearchedImplCopyWith<_$SearchedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchedByGenreImplCopyWith<$Res>
-    implements $MovieEventCopyWith<$Res> {
+abstract class _$$FetchedByGenreImplCopyWith<$Res> {
   factory _$$FetchedByGenreImplCopyWith(
     _$FetchedByGenreImpl value,
     $Res Function(_$FetchedByGenreImpl) then,
   ) = __$$FetchedByGenreImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({bool isRefresh, int genreId});
 }
@@ -1087,10 +1654,13 @@ class _$FetchedByGenreImpl implements _FetchedByGenre {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isRefresh) fetchedPopular,
-    required TResult Function(bool isRefresh) fetchedNowPlaying,
-    required TResult Function(bool isRefresh) fetchedTopRated,
-    required TResult Function(bool isRefresh) fetchedUpcoming,
+    required TResult Function() fetchedPopular,
+    required TResult Function() fetchedNowPlaying,
+    required TResult Function() fetchedTopRated,
+    required TResult Function() fetchedUpcoming,
+    required TResult Function(bool isRefresh) fetchedPopularWithPagination,
+    required TResult Function(bool isRefresh) fetchedTopRatedWithPagination,
+    required TResult Function(bool isRefresh) fetchedUpcomingWithPagination,
     required TResult Function(String query, bool isRefresh) searched,
     required TResult Function(bool isRefresh, int genreId) fetchedByGenre,
   }) {
@@ -1100,10 +1670,13 @@ class _$FetchedByGenreImpl implements _FetchedByGenre {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isRefresh)? fetchedPopular,
-    TResult? Function(bool isRefresh)? fetchedNowPlaying,
-    TResult? Function(bool isRefresh)? fetchedTopRated,
-    TResult? Function(bool isRefresh)? fetchedUpcoming,
+    TResult? Function()? fetchedPopular,
+    TResult? Function()? fetchedNowPlaying,
+    TResult? Function()? fetchedTopRated,
+    TResult? Function()? fetchedUpcoming,
+    TResult? Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult? Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult? Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult? Function(String query, bool isRefresh)? searched,
     TResult? Function(bool isRefresh, int genreId)? fetchedByGenre,
   }) {
@@ -1113,10 +1686,13 @@ class _$FetchedByGenreImpl implements _FetchedByGenre {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isRefresh)? fetchedPopular,
-    TResult Function(bool isRefresh)? fetchedNowPlaying,
-    TResult Function(bool isRefresh)? fetchedTopRated,
-    TResult Function(bool isRefresh)? fetchedUpcoming,
+    TResult Function()? fetchedPopular,
+    TResult Function()? fetchedNowPlaying,
+    TResult Function()? fetchedTopRated,
+    TResult Function()? fetchedUpcoming,
+    TResult Function(bool isRefresh)? fetchedPopularWithPagination,
+    TResult Function(bool isRefresh)? fetchedTopRatedWithPagination,
+    TResult Function(bool isRefresh)? fetchedUpcomingWithPagination,
     TResult Function(String query, bool isRefresh)? searched,
     TResult Function(bool isRefresh, int genreId)? fetchedByGenre,
     required TResult orElse(),
@@ -1134,6 +1710,12 @@ class _$FetchedByGenreImpl implements _FetchedByGenre {
     required TResult Function(_FetchedNowPlaying value) fetchedNowPlaying,
     required TResult Function(_FetchedTopRated value) fetchedTopRated,
     required TResult Function(_FetchedUpcoming value) fetchedUpcoming,
+    required TResult Function(_FetchedPopularWithPagination value)
+    fetchedPopularWithPagination,
+    required TResult Function(_FetchedTopRatedWithPagination value)
+    fetchedTopRatedWithPagination,
+    required TResult Function(_FetchedUpcomingWithPagination value)
+    fetchedUpcomingWithPagination,
     required TResult Function(_Searched value) searched,
     required TResult Function(_FetchedByGenre value) fetchedByGenre,
   }) {
@@ -1147,6 +1729,12 @@ class _$FetchedByGenreImpl implements _FetchedByGenre {
     TResult? Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult? Function(_FetchedTopRated value)? fetchedTopRated,
     TResult? Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult? Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult? Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult? Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult? Function(_Searched value)? searched,
     TResult? Function(_FetchedByGenre value)? fetchedByGenre,
   }) {
@@ -1160,6 +1748,12 @@ class _$FetchedByGenreImpl implements _FetchedByGenre {
     TResult Function(_FetchedNowPlaying value)? fetchedNowPlaying,
     TResult Function(_FetchedTopRated value)? fetchedTopRated,
     TResult Function(_FetchedUpcoming value)? fetchedUpcoming,
+    TResult Function(_FetchedPopularWithPagination value)?
+    fetchedPopularWithPagination,
+    TResult Function(_FetchedTopRatedWithPagination value)?
+    fetchedTopRatedWithPagination,
+    TResult Function(_FetchedUpcomingWithPagination value)?
+    fetchedUpcomingWithPagination,
     TResult Function(_Searched value)? searched,
     TResult Function(_FetchedByGenre value)? fetchedByGenre,
     required TResult orElse(),
@@ -1177,13 +1771,11 @@ abstract class _FetchedByGenre implements MovieEvent {
     required final int genreId,
   }) = _$FetchedByGenreImpl;
 
-  @override
   bool get isRefresh;
   int get genreId;
 
   /// Create a copy of MovieEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchedByGenreImplCopyWith<_$FetchedByGenreImpl> get copyWith =>
       throw _privateConstructorUsedError;
