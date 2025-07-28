@@ -23,10 +23,10 @@ class TvSeeAllPage extends StatefulWidget implements AutoRouteWrapper {
     create: (context) => getIt<TvBloc>()
       ..add(
         type == TvCategoryType.popular
-            ? const TvEvent.fetchedPopular(isRefresh: true)
+            ? const TvEvent.fetchedPopularWithPagination(isRefresh: true)
             : type == TvCategoryType.airingToday
-            ? const TvEvent.fetchedAiringToday(isRefresh: true)
-            : const TvEvent.fetchedTopRated(isRefresh: true),
+            ? const TvEvent.fetchedAiringTodayWithPagination(isRefresh: true)
+            : const TvEvent.fetchedTopRatedWithPagination(isRefresh: true),
       ),
     child: this,
   );
@@ -65,10 +65,10 @@ class _TvSeeAllPageState extends State<TvSeeAllPage> {
                           scrollController.position.extentAfter == 0) {
                         context.read<TvBloc>().add(
                           widget.type == TvCategoryType.popular
-                              ? const TvEvent.fetchedPopular()
+                              ? const TvEvent.fetchedPopularWithPagination()
                               : widget.type == TvCategoryType.airingToday
-                              ? const TvEvent.fetchedAiringToday()
-                              : const TvEvent.fetchedTopRated(),
+                              ? const TvEvent.fetchedAiringTodayWithPagination()
+                              : const TvEvent.fetchedTopRatedWithPagination(),
                         );
                         return true;
                       }

@@ -19,25 +19,14 @@ class TvPage extends StatefulWidget implements AutoRouteWrapper {
   State<TvPage> createState() => _TvPageState();
 
   @override
-  Widget wrappedRoute(BuildContext context) {
-    final bloc = getIt<TvBloc>();
-
-    Future(() async {
-      bloc.add(TvEvent.fetchedOnTheAIr());
-      await bloc.stream.firstWhere((s) => !s.isFetchingOnTheAir);
-
-      bloc.add(TvEvent.fetchedAiringToday(isRefresh: true));
-      await bloc.stream.firstWhere((s) => !s.isFetchingAiringToday);
-
-      bloc.add(TvEvent.fetchedPopular(isRefresh: true));
-      await bloc.stream.firstWhere((s) => !s.isFetchingPopular);
-
-      bloc.add(TvEvent.fetchedTopRated(isRefresh: true));
-      await bloc.stream.firstWhere((s) => !s.isFetchingTopRated);
-    });
-
-    return BlocProvider.value(value: bloc, child: this);
-  }
+  Widget wrappedRoute(BuildContext context) => BlocProvider(
+    create: (_) => getIt<TvBloc>()
+      ..add(const TvEvent.fetchedOnTheAir())
+      ..add(const TvEvent.fetchedAiringToday())
+      ..add(const TvEvent.fetchedPopular())
+      ..add(const TvEvent.fetchedTopRated()),
+    child: this,
+  );
 }
 
 class _TvPageState extends State<TvPage> {

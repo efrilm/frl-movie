@@ -21,7 +21,28 @@ class TvBloc extends Bloc<TvEvent, TvState> {
 
   Future<void> _onTvEvent(TvEvent event, Emitter<TvState> emit) {
     return event.map(
-      fetchedOnTheAIr: (e) async {
+      fetchedOnTheAir: (e) async {
+        emit(
+          state.copyWith(
+            isFetchingOnTheAir: true,
+            failureOptionOnTheAir: none(),
+          ),
+        );
+
+        final failureOrTv = await _tvRepository.getOnTheAir(page: 1);
+
+        var data = failureOrTv.fold(
+          (f) => state.copyWith(failureOptionOnTheAir: optionOf(f)),
+          (onTheAir) => state.copyWith(
+            onTheAirs: onTheAir,
+            failureOptionOnTheAir: none(),
+          ),
+        );
+
+        emit(data.copyWith(isFetchingOnTheAir: false));
+      },
+
+      fetchedOnTheAirWithPagination: (e) async {
         emit(
           state.copyWith(
             isFetchingOnTheAir: true,
@@ -42,6 +63,26 @@ class TvBloc extends Bloc<TvEvent, TvState> {
         emit(data.copyWith(isFetchingOnTheAir: false));
       },
       fetchedAiringToday: (e) async {
+        emit(
+          state.copyWith(
+            isFetchingAiringToday: true,
+            failureOptionAiringToday: none(),
+          ),
+        );
+
+        final failureOrTv = await _tvRepository.getAiringToday(page: 1);
+
+        var data = failureOrTv.fold(
+          (f) => state.copyWith(failureOptionAiringToday: optionOf(f)),
+          (airingToday) => state.copyWith(
+            airingTodays: airingToday,
+            failureOptionAiringToday: none(),
+          ),
+        );
+
+        emit(data.copyWith(isFetchingAiringToday: false));
+      },
+      fetchedAiringTodayWithPagination: (e) async {
         var newState = state;
 
         if (e.isRefresh) {
@@ -60,6 +101,21 @@ class TvBloc extends Bloc<TvEvent, TvState> {
         emit(newState);
       },
       fetchedPopular: (e) async {
+        emit(
+          state.copyWith(isFetchingPopular: true, failureOptionPopular: none()),
+        );
+
+        final failureOrTv = await _tvRepository.getPopular(page: 1);
+
+        var data = failureOrTv.fold(
+          (f) => state.copyWith(failureOptionPopular: optionOf(f)),
+          (popular) =>
+              state.copyWith(populars: popular, failureOptionPopular: none()),
+        );
+
+        emit(data.copyWith(isFetchingPopular: false));
+      },
+      fetchedPopularWithPagination: (e) async {
         var newState = state;
 
         if (e.isRefresh) {
@@ -78,6 +134,26 @@ class TvBloc extends Bloc<TvEvent, TvState> {
         emit(newState);
       },
       fetchedTopRated: (e) async {
+        emit(
+          state.copyWith(
+            isFetchingTopRated: true,
+            failureOptionTopRated: none(),
+          ),
+        );
+
+        final failureOrTv = await _tvRepository.getTopRated(page: 1);
+
+        var data = failureOrTv.fold(
+          (f) => state.copyWith(failureOptionTopRated: optionOf(f)),
+          (topRated) => state.copyWith(
+            topRateds: topRated,
+            failureOptionTopRated: none(),
+          ),
+        );
+
+        emit(data.copyWith(isFetchingTopRated: false));
+      },
+      fetchedTopRatedWithPagination: (e) async {
         var newState = state;
 
         if (e.isRefresh) {
