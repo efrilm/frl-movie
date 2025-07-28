@@ -64,10 +64,10 @@ class _MovieSeeAllPageState extends State<MovieSeeAllPage> {
                           scrollController.position.extentAfter == 0) {
                         context.read<MovieBloc>().add(
                           widget.type == "popular"
-                              ? const MovieEvent.fetchedPopular()
+                              ? const MovieEvent.fetchedPopularWithPagination()
                               : widget.type == "upcoming"
-                              ? const MovieEvent.fetchedUpcoming()
-                              : const MovieEvent.fetchedTopRated(),
+                              ? const MovieEvent.fetchedUpcomingWithPagination()
+                              : const MovieEvent.fetchedTopRatedWithPagination(),
                         );
                         return true;
                       }
