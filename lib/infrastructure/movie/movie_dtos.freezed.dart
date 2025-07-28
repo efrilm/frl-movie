@@ -501,6 +501,8 @@ mixin _$MovieDetailDto {
   bool? get adult => throw _privateConstructorUsedError;
   @JsonKey(name: "backdrop_path")
   String? get backdropPath => throw _privateConstructorUsedError;
+  @JsonKey(name: "belongs_to_collection")
+  MovieCollectionDto? get collection => throw _privateConstructorUsedError;
   @JsonKey(name: "budget")
   int? get budget => throw _privateConstructorUsedError;
   @JsonKey(name: "genres")
@@ -560,6 +562,7 @@ abstract class $MovieDetailDtoCopyWith<$Res> {
     @JsonKey(name: 'id') int? id,
     @JsonKey(name: "adult") bool? adult,
     @JsonKey(name: "backdrop_path") String? backdropPath,
+    @JsonKey(name: "belongs_to_collection") MovieCollectionDto? collection,
     @JsonKey(name: "budget") int? budget,
     @JsonKey(name: "genres") List<GenreDto>? genres,
     @JsonKey(name: "homepage") String? homepage,
@@ -580,6 +583,8 @@ abstract class $MovieDetailDtoCopyWith<$Res> {
     @JsonKey(name: "vote_average") double? voteAverage,
     @JsonKey(name: "vote_count") int? voteCount,
   });
+
+  $MovieCollectionDtoCopyWith<$Res>? get collection;
 }
 
 /// @nodoc
@@ -600,6 +605,7 @@ class _$MovieDetailDtoCopyWithImpl<$Res, $Val extends MovieDetailDto>
     Object? id = freezed,
     Object? adult = freezed,
     Object? backdropPath = freezed,
+    Object? collection = freezed,
     Object? budget = freezed,
     Object? genres = freezed,
     Object? homepage = freezed,
@@ -633,6 +639,10 @@ class _$MovieDetailDtoCopyWithImpl<$Res, $Val extends MovieDetailDto>
                 ? _value.backdropPath
                 : backdropPath // ignore: cast_nullable_to_non_nullable
                       as String?,
+            collection: freezed == collection
+                ? _value.collection
+                : collection // ignore: cast_nullable_to_non_nullable
+                      as MovieCollectionDto?,
             budget: freezed == budget
                 ? _value.budget
                 : budget // ignore: cast_nullable_to_non_nullable
@@ -709,6 +719,20 @@ class _$MovieDetailDtoCopyWithImpl<$Res, $Val extends MovieDetailDto>
           as $Val,
     );
   }
+
+  /// Create a copy of MovieDetailDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MovieCollectionDtoCopyWith<$Res>? get collection {
+    if (_value.collection == null) {
+      return null;
+    }
+
+    return $MovieCollectionDtoCopyWith<$Res>(_value.collection!, (value) {
+      return _then(_value.copyWith(collection: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -724,6 +748,7 @@ abstract class _$$MovieDetailDtoImplCopyWith<$Res>
     @JsonKey(name: 'id') int? id,
     @JsonKey(name: "adult") bool? adult,
     @JsonKey(name: "backdrop_path") String? backdropPath,
+    @JsonKey(name: "belongs_to_collection") MovieCollectionDto? collection,
     @JsonKey(name: "budget") int? budget,
     @JsonKey(name: "genres") List<GenreDto>? genres,
     @JsonKey(name: "homepage") String? homepage,
@@ -744,6 +769,9 @@ abstract class _$$MovieDetailDtoImplCopyWith<$Res>
     @JsonKey(name: "vote_average") double? voteAverage,
     @JsonKey(name: "vote_count") int? voteCount,
   });
+
+  @override
+  $MovieCollectionDtoCopyWith<$Res>? get collection;
 }
 
 /// @nodoc
@@ -763,6 +791,7 @@ class __$$MovieDetailDtoImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? adult = freezed,
     Object? backdropPath = freezed,
+    Object? collection = freezed,
     Object? budget = freezed,
     Object? genres = freezed,
     Object? homepage = freezed,
@@ -796,6 +825,10 @@ class __$$MovieDetailDtoImplCopyWithImpl<$Res>
             ? _value.backdropPath
             : backdropPath // ignore: cast_nullable_to_non_nullable
                   as String?,
+        collection: freezed == collection
+            ? _value.collection
+            : collection // ignore: cast_nullable_to_non_nullable
+                  as MovieCollectionDto?,
         budget: freezed == budget
             ? _value.budget
             : budget // ignore: cast_nullable_to_non_nullable
@@ -880,6 +913,7 @@ class _$MovieDetailDtoImpl extends _MovieDetailDto {
     @JsonKey(name: 'id') this.id,
     @JsonKey(name: "adult") this.adult,
     @JsonKey(name: "backdrop_path") this.backdropPath,
+    @JsonKey(name: "belongs_to_collection") this.collection,
     @JsonKey(name: "budget") this.budget,
     @JsonKey(name: "genres") final List<GenreDto>? genres,
     @JsonKey(name: "homepage") this.homepage,
@@ -915,6 +949,9 @@ class _$MovieDetailDtoImpl extends _MovieDetailDto {
   @override
   @JsonKey(name: "backdrop_path")
   final String? backdropPath;
+  @override
+  @JsonKey(name: "belongs_to_collection")
+  final MovieCollectionDto? collection;
   @override
   @JsonKey(name: "budget")
   final int? budget;
@@ -989,7 +1026,7 @@ class _$MovieDetailDtoImpl extends _MovieDetailDto {
 
   @override
   String toString() {
-    return 'MovieDetailDto(id: $id, adult: $adult, backdropPath: $backdropPath, budget: $budget, genres: $genres, homepage: $homepage, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, productionCompanies: $productionCompanies, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, voteAverage: $voteAverage, voteCount: $voteCount)';
+    return 'MovieDetailDto(id: $id, adult: $adult, backdropPath: $backdropPath, collection: $collection, budget: $budget, genres: $genres, homepage: $homepage, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, productionCompanies: $productionCompanies, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, voteAverage: $voteAverage, voteCount: $voteCount)';
   }
 
   @override
@@ -1001,6 +1038,8 @@ class _$MovieDetailDtoImpl extends _MovieDetailDto {
             (identical(other.adult, adult) || other.adult == adult) &&
             (identical(other.backdropPath, backdropPath) ||
                 other.backdropPath == backdropPath) &&
+            (identical(other.collection, collection) ||
+                other.collection == collection) &&
             (identical(other.budget, budget) || other.budget == budget) &&
             const DeepCollectionEquality().equals(other._genres, _genres) &&
             (identical(other.homepage, homepage) ||
@@ -1040,6 +1079,7 @@ class _$MovieDetailDtoImpl extends _MovieDetailDto {
     id,
     adult,
     backdropPath,
+    collection,
     budget,
     const DeepCollectionEquality().hash(_genres),
     homepage,
@@ -1082,6 +1122,8 @@ abstract class _MovieDetailDto extends MovieDetailDto {
     @JsonKey(name: 'id') final int? id,
     @JsonKey(name: "adult") final bool? adult,
     @JsonKey(name: "backdrop_path") final String? backdropPath,
+    @JsonKey(name: "belongs_to_collection")
+    final MovieCollectionDto? collection,
     @JsonKey(name: "budget") final int? budget,
     @JsonKey(name: "genres") final List<GenreDto>? genres,
     @JsonKey(name: "homepage") final String? homepage,
@@ -1116,6 +1158,9 @@ abstract class _MovieDetailDto extends MovieDetailDto {
   @override
   @JsonKey(name: "backdrop_path")
   String? get backdropPath;
+  @override
+  @JsonKey(name: "belongs_to_collection")
+  MovieCollectionDto? get collection;
   @override
   @JsonKey(name: "budget")
   int? get budget;
@@ -1871,4 +1916,246 @@ abstract class _MovieProductionCompanyDto extends MovieProductionCompanyDto {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MovieProductionCompanyDtoImplCopyWith<_$MovieProductionCompanyDtoImpl>
   get copyWith => throw _privateConstructorUsedError;
+}
+
+MovieCollectionDto _$MovieCollectionDtoFromJson(Map<String, dynamic> json) {
+  return _MovieCollectionDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MovieCollectionDto {
+  @JsonKey(name: 'id')
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'poster_path')
+  String? get posterPath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'backdrop_path')
+  String? get backdropPath => throw _privateConstructorUsedError;
+
+  /// Serializes this MovieCollectionDto to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of MovieCollectionDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MovieCollectionDtoCopyWith<MovieCollectionDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MovieCollectionDtoCopyWith<$Res> {
+  factory $MovieCollectionDtoCopyWith(
+    MovieCollectionDto value,
+    $Res Function(MovieCollectionDto) then,
+  ) = _$MovieCollectionDtoCopyWithImpl<$Res, MovieCollectionDto>;
+  @useResult
+  $Res call({
+    @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'poster_path') String? posterPath,
+    @JsonKey(name: 'backdrop_path') String? backdropPath,
+  });
+}
+
+/// @nodoc
+class _$MovieCollectionDtoCopyWithImpl<$Res, $Val extends MovieCollectionDto>
+    implements $MovieCollectionDtoCopyWith<$Res> {
+  _$MovieCollectionDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of MovieCollectionDto
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? posterPath = freezed,
+    Object? backdropPath = freezed,
+  }) {
+    return _then(
+      _value.copyWith(
+            id: freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            posterPath: freezed == posterPath
+                ? _value.posterPath
+                : posterPath // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            backdropPath: freezed == backdropPath
+                ? _value.backdropPath
+                : backdropPath // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$MovieCollectionDtoImplCopyWith<$Res>
+    implements $MovieCollectionDtoCopyWith<$Res> {
+  factory _$$MovieCollectionDtoImplCopyWith(
+    _$MovieCollectionDtoImpl value,
+    $Res Function(_$MovieCollectionDtoImpl) then,
+  ) = __$$MovieCollectionDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'poster_path') String? posterPath,
+    @JsonKey(name: 'backdrop_path') String? backdropPath,
+  });
+}
+
+/// @nodoc
+class __$$MovieCollectionDtoImplCopyWithImpl<$Res>
+    extends _$MovieCollectionDtoCopyWithImpl<$Res, _$MovieCollectionDtoImpl>
+    implements _$$MovieCollectionDtoImplCopyWith<$Res> {
+  __$$MovieCollectionDtoImplCopyWithImpl(
+    _$MovieCollectionDtoImpl _value,
+    $Res Function(_$MovieCollectionDtoImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieCollectionDto
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? posterPath = freezed,
+    Object? backdropPath = freezed,
+  }) {
+    return _then(
+      _$MovieCollectionDtoImpl(
+        id: freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        posterPath: freezed == posterPath
+            ? _value.posterPath
+            : posterPath // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        backdropPath: freezed == backdropPath
+            ? _value.backdropPath
+            : backdropPath // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$MovieCollectionDtoImpl extends _MovieCollectionDto {
+  const _$MovieCollectionDtoImpl({
+    @JsonKey(name: 'id') this.id,
+    @JsonKey(name: 'name') this.name,
+    @JsonKey(name: 'poster_path') this.posterPath,
+    @JsonKey(name: 'backdrop_path') this.backdropPath,
+  }) : super._();
+
+  factory _$MovieCollectionDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MovieCollectionDtoImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'id')
+  final int? id;
+  @override
+  @JsonKey(name: 'name')
+  final String? name;
+  @override
+  @JsonKey(name: 'poster_path')
+  final String? posterPath;
+  @override
+  @JsonKey(name: 'backdrop_path')
+  final String? backdropPath;
+
+  @override
+  String toString() {
+    return 'MovieCollectionDto(id: $id, name: $name, posterPath: $posterPath, backdropPath: $backdropPath)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MovieCollectionDtoImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.posterPath, posterPath) ||
+                other.posterPath == posterPath) &&
+            (identical(other.backdropPath, backdropPath) ||
+                other.backdropPath == backdropPath));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, posterPath, backdropPath);
+
+  /// Create a copy of MovieCollectionDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MovieCollectionDtoImplCopyWith<_$MovieCollectionDtoImpl> get copyWith =>
+      __$$MovieCollectionDtoImplCopyWithImpl<_$MovieCollectionDtoImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$MovieCollectionDtoImplToJson(this);
+  }
+}
+
+abstract class _MovieCollectionDto extends MovieCollectionDto {
+  const factory _MovieCollectionDto({
+    @JsonKey(name: 'id') final int? id,
+    @JsonKey(name: 'name') final String? name,
+    @JsonKey(name: 'poster_path') final String? posterPath,
+    @JsonKey(name: 'backdrop_path') final String? backdropPath,
+  }) = _$MovieCollectionDtoImpl;
+  const _MovieCollectionDto._() : super._();
+
+  factory _MovieCollectionDto.fromJson(Map<String, dynamic> json) =
+      _$MovieCollectionDtoImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'id')
+  int? get id;
+  @override
+  @JsonKey(name: 'name')
+  String? get name;
+  @override
+  @JsonKey(name: 'poster_path')
+  String? get posterPath;
+  @override
+  @JsonKey(name: 'backdrop_path')
+  String? get backdropPath;
+
+  /// Create a copy of MovieCollectionDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MovieCollectionDtoImplCopyWith<_$MovieCollectionDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

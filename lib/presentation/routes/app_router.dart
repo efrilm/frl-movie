@@ -36,5 +36,8 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: TvSearchRoute.page),
     AutoRoute(page: TvSeeAllRoute.page),
     AutoRoute(page: TvByGenreRoute.page),
+
+    // Collection
+    AutoRoute(page: CollectionRoute.page),
   ];
 }

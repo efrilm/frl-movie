@@ -8,6 +8,7 @@ class MovieDetail with _$MovieDetail {
     required int id,
     required bool adult,
     required String backdropPath,
+    required MovieCollection collection,
     required int budget,
     required List<Genre> genres,
     required String homepage,
@@ -29,13 +30,14 @@ class MovieDetail with _$MovieDetail {
     String? certification,
   }) = _MovieDetail;
 
-  factory MovieDetail.empty() => const MovieDetail(
+  factory MovieDetail.empty() => MovieDetail(
     id: 0,
     adult: false,
     backdropPath: "",
+    collection: MovieCollection.empty(),
     budget: 0,
-    genres: [],
-    productionCompanies: [],
+    genres: const [],
+    productionCompanies: const [],
     homepage: "",
     imdbId: "",
     originalLanguage: '',

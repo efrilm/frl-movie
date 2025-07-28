@@ -11,6 +11,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:connectivity_plus/connectivity_plus.dart' as _i895;
 import 'package:dio/dio.dart' as _i361;
+import 'package:frl_movie/application/collection/collection_bloc.dart' as _i820;
 import 'package:frl_movie/application/genre/genre_bloc.dart' as _i158;
 import 'package:frl_movie/application/movie/movie_bloc.dart' as _i966;
 import 'package:frl_movie/application/movie/movie_detail/movie_detail_bloc.dart'
@@ -23,12 +24,17 @@ import 'package:frl_movie/common/di/connectivity_di.dart' as _i238;
 import 'package:frl_movie/common/di/dio_di.dart' as _i737;
 import 'package:frl_movie/common/di/shared_preferences_di.dart' as _i896;
 import 'package:frl_movie/common/network/network_client.dart' as _i41;
+import 'package:frl_movie/domain/collection/collection.dart' as _i584;
 import 'package:frl_movie/domain/genre/genre.dart' as _i501;
 import 'package:frl_movie/domain/movie/movie.dart' as _i1052;
 import 'package:frl_movie/domain/tv/tv.dart' as _i425;
 import 'package:frl_movie/domain/watchlist/repositories/i_watchlist_repository.dart'
     as _i1051;
 import 'package:frl_movie/env.dart' as _i380;
+import 'package:frl_movie/infrastructure/collection/datasources/remote_data_source.dart'
+    as _i559;
+import 'package:frl_movie/infrastructure/collection/repositories/collection_repository.dart'
+    as _i568;
 import 'package:frl_movie/infrastructure/genre/datasources/remote_data_source.dart'
     as _i548;
 import 'package:frl_movie/infrastructure/genre/repositories/genre_repository.dart'
@@ -92,6 +98,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i548.GenreRemoteDataSource>(
       () => _i548.GenreRemoteDataSource(gh<_i836.ApiClient>()),
     );
+    gh.factory<_i559.CollectionRemoteDataSource>(
+      () => _i559.CollectionRemoteDataSource(gh<_i836.ApiClient>()),
+    );
+    gh.factory<_i584.ICollectionRepository>(
+      () => _i568.CollectionRepository(gh<_i559.CollectionRemoteDataSource>()),
+    );
     gh.factory<_i425.ITvRepository>(
       () => _i147.TvRepository(gh<_i4.TvRemoteDataSource>()),
     );
@@ -103,6 +115,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i158.GenreBloc>(
       () => _i158.GenreBloc(gh<_i501.IGenreRepository>()),
+    );
+    gh.factory<_i820.CollectionBloc>(
+      () => _i820.CollectionBloc(gh<_i584.ICollectionRepository>()),
     );
     gh.factory<_i851.TvBloc>(() => _i851.TvBloc(gh<_i425.ITvRepository>()));
     gh.factory<_i966.MovieBloc>(

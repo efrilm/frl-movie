@@ -9,3 +9,4 @@ part 'dto/movie_dto.dart';
 part 'dto/movie_detail_dto.dart';
 part 'dto/movie_credit_dto.dart';
 part 'dto/movie_production_company_dto.dart';
+part 'dto/movie_collection_dto.dart';

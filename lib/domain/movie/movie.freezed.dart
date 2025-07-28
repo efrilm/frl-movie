@@ -454,6 +454,7 @@ mixin _$MovieDetail {
   int get id => throw _privateConstructorUsedError;
   bool get adult => throw _privateConstructorUsedError;
   String get backdropPath => throw _privateConstructorUsedError;
+  MovieCollection get collection => throw _privateConstructorUsedError;
   int get budget => throw _privateConstructorUsedError;
   List<Genre> get genres => throw _privateConstructorUsedError;
   String get homepage => throw _privateConstructorUsedError;
@@ -493,6 +494,7 @@ abstract class $MovieDetailCopyWith<$Res> {
     int id,
     bool adult,
     String backdropPath,
+    MovieCollection collection,
     int budget,
     List<Genre> genres,
     String homepage,
@@ -513,6 +515,8 @@ abstract class $MovieDetailCopyWith<$Res> {
     int voteCount,
     String? certification,
   });
+
+  $MovieCollectionCopyWith<$Res> get collection;
 }
 
 /// @nodoc
@@ -533,6 +537,7 @@ class _$MovieDetailCopyWithImpl<$Res, $Val extends MovieDetail>
     Object? id = null,
     Object? adult = null,
     Object? backdropPath = null,
+    Object? collection = null,
     Object? budget = null,
     Object? genres = null,
     Object? homepage = null,
@@ -567,6 +572,10 @@ class _$MovieDetailCopyWithImpl<$Res, $Val extends MovieDetail>
                 ? _value.backdropPath
                 : backdropPath // ignore: cast_nullable_to_non_nullable
                       as String,
+            collection: null == collection
+                ? _value.collection
+                : collection // ignore: cast_nullable_to_non_nullable
+                      as MovieCollection,
             budget: null == budget
                 ? _value.budget
                 : budget // ignore: cast_nullable_to_non_nullable
@@ -647,6 +656,16 @@ class _$MovieDetailCopyWithImpl<$Res, $Val extends MovieDetail>
           as $Val,
     );
   }
+
+  /// Create a copy of MovieDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MovieCollectionCopyWith<$Res> get collection {
+    return $MovieCollectionCopyWith<$Res>(_value.collection, (value) {
+      return _then(_value.copyWith(collection: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -662,6 +681,7 @@ abstract class _$$MovieDetailImplCopyWith<$Res>
     int id,
     bool adult,
     String backdropPath,
+    MovieCollection collection,
     int budget,
     List<Genre> genres,
     String homepage,
@@ -682,6 +702,9 @@ abstract class _$$MovieDetailImplCopyWith<$Res>
     int voteCount,
     String? certification,
   });
+
+  @override
+  $MovieCollectionCopyWith<$Res> get collection;
 }
 
 /// @nodoc
@@ -701,6 +724,7 @@ class __$$MovieDetailImplCopyWithImpl<$Res>
     Object? id = null,
     Object? adult = null,
     Object? backdropPath = null,
+    Object? collection = null,
     Object? budget = null,
     Object? genres = null,
     Object? homepage = null,
@@ -735,6 +759,10 @@ class __$$MovieDetailImplCopyWithImpl<$Res>
             ? _value.backdropPath
             : backdropPath // ignore: cast_nullable_to_non_nullable
                   as String,
+        collection: null == collection
+            ? _value.collection
+            : collection // ignore: cast_nullable_to_non_nullable
+                  as MovieCollection,
         budget: null == budget
             ? _value.budget
             : budget // ignore: cast_nullable_to_non_nullable
@@ -823,6 +851,7 @@ class _$MovieDetailImpl extends _MovieDetail {
     required this.id,
     required this.adult,
     required this.backdropPath,
+    required this.collection,
     required this.budget,
     required final List<Genre> genres,
     required this.homepage,
@@ -852,6 +881,8 @@ class _$MovieDetailImpl extends _MovieDetail {
   final bool adult;
   @override
   final String backdropPath;
+  @override
+  final MovieCollection collection;
   @override
   final int budget;
   final List<Genre> _genres;
@@ -906,7 +937,7 @@ class _$MovieDetailImpl extends _MovieDetail {
 
   @override
   String toString() {
-    return 'MovieDetail(id: $id, adult: $adult, backdropPath: $backdropPath, budget: $budget, genres: $genres, homepage: $homepage, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, productionCompanies: $productionCompanies, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, voteAverage: $voteAverage, voteCount: $voteCount, certification: $certification)';
+    return 'MovieDetail(id: $id, adult: $adult, backdropPath: $backdropPath, collection: $collection, budget: $budget, genres: $genres, homepage: $homepage, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, productionCompanies: $productionCompanies, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, voteAverage: $voteAverage, voteCount: $voteCount, certification: $certification)';
   }
 
   @override
@@ -918,6 +949,8 @@ class _$MovieDetailImpl extends _MovieDetail {
             (identical(other.adult, adult) || other.adult == adult) &&
             (identical(other.backdropPath, backdropPath) ||
                 other.backdropPath == backdropPath) &&
+            (identical(other.collection, collection) ||
+                other.collection == collection) &&
             (identical(other.budget, budget) || other.budget == budget) &&
             const DeepCollectionEquality().equals(other._genres, _genres) &&
             (identical(other.homepage, homepage) ||
@@ -958,6 +991,7 @@ class _$MovieDetailImpl extends _MovieDetail {
     id,
     adult,
     backdropPath,
+    collection,
     budget,
     const DeepCollectionEquality().hash(_genres),
     homepage,
@@ -993,6 +1027,7 @@ abstract class _MovieDetail extends MovieDetail {
     required final int id,
     required final bool adult,
     required final String backdropPath,
+    required final MovieCollection collection,
     required final int budget,
     required final List<Genre> genres,
     required final String homepage,
@@ -1021,6 +1056,8 @@ abstract class _MovieDetail extends MovieDetail {
   bool get adult;
   @override
   String get backdropPath;
+  @override
+  MovieCollection get collection;
   @override
   int get budget;
   @override
@@ -1657,6 +1694,207 @@ abstract class _MovieProductionCompany extends MovieProductionCompany {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MovieProductionCompanyImplCopyWith<_$MovieProductionCompanyImpl>
   get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$MovieCollection {
+  int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get posterPath => throw _privateConstructorUsedError;
+  String get backdropPath => throw _privateConstructorUsedError;
+
+  /// Create a copy of MovieCollection
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MovieCollectionCopyWith<MovieCollection> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MovieCollectionCopyWith<$Res> {
+  factory $MovieCollectionCopyWith(
+    MovieCollection value,
+    $Res Function(MovieCollection) then,
+  ) = _$MovieCollectionCopyWithImpl<$Res, MovieCollection>;
+  @useResult
+  $Res call({int id, String name, String posterPath, String backdropPath});
+}
+
+/// @nodoc
+class _$MovieCollectionCopyWithImpl<$Res, $Val extends MovieCollection>
+    implements $MovieCollectionCopyWith<$Res> {
+  _$MovieCollectionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of MovieCollection
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? posterPath = null,
+    Object? backdropPath = null,
+  }) {
+    return _then(
+      _value.copyWith(
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            posterPath: null == posterPath
+                ? _value.posterPath
+                : posterPath // ignore: cast_nullable_to_non_nullable
+                      as String,
+            backdropPath: null == backdropPath
+                ? _value.backdropPath
+                : backdropPath // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$MovieCollectionImplCopyWith<$Res>
+    implements $MovieCollectionCopyWith<$Res> {
+  factory _$$MovieCollectionImplCopyWith(
+    _$MovieCollectionImpl value,
+    $Res Function(_$MovieCollectionImpl) then,
+  ) = __$$MovieCollectionImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int id, String name, String posterPath, String backdropPath});
+}
+
+/// @nodoc
+class __$$MovieCollectionImplCopyWithImpl<$Res>
+    extends _$MovieCollectionCopyWithImpl<$Res, _$MovieCollectionImpl>
+    implements _$$MovieCollectionImplCopyWith<$Res> {
+  __$$MovieCollectionImplCopyWithImpl(
+    _$MovieCollectionImpl _value,
+    $Res Function(_$MovieCollectionImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MovieCollection
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? posterPath = null,
+    Object? backdropPath = null,
+  }) {
+    return _then(
+      _$MovieCollectionImpl(
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        posterPath: null == posterPath
+            ? _value.posterPath
+            : posterPath // ignore: cast_nullable_to_non_nullable
+                  as String,
+        backdropPath: null == backdropPath
+            ? _value.backdropPath
+            : backdropPath // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$MovieCollectionImpl extends _MovieCollection {
+  const _$MovieCollectionImpl({
+    required this.id,
+    required this.name,
+    required this.posterPath,
+    required this.backdropPath,
+  }) : super._();
+
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final String posterPath;
+  @override
+  final String backdropPath;
+
+  @override
+  String toString() {
+    return 'MovieCollection(id: $id, name: $name, posterPath: $posterPath, backdropPath: $backdropPath)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MovieCollectionImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.posterPath, posterPath) ||
+                other.posterPath == posterPath) &&
+            (identical(other.backdropPath, backdropPath) ||
+                other.backdropPath == backdropPath));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, posterPath, backdropPath);
+
+  /// Create a copy of MovieCollection
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MovieCollectionImplCopyWith<_$MovieCollectionImpl> get copyWith =>
+      __$$MovieCollectionImplCopyWithImpl<_$MovieCollectionImpl>(
+        this,
+        _$identity,
+      );
+}
+
+abstract class _MovieCollection extends MovieCollection {
+  const factory _MovieCollection({
+    required final int id,
+    required final String name,
+    required final String posterPath,
+    required final String backdropPath,
+  }) = _$MovieCollectionImpl;
+  const _MovieCollection._() : super._();
+
+  @override
+  int get id;
+  @override
+  String get name;
+  @override
+  String get posterPath;
+  @override
+  String get backdropPath;
+
+  /// Create a copy of MovieCollection
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MovieCollectionImplCopyWith<_$MovieCollectionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

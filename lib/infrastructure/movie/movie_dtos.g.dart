@@ -47,6 +47,11 @@ _$MovieDetailDtoImpl _$$MovieDetailDtoImplFromJson(Map<String, dynamic> json) =>
       id: (json['id'] as num?)?.toInt(),
       adult: json['adult'] as bool?,
       backdropPath: json['backdrop_path'] as String?,
+      collection: json['belongs_to_collection'] == null
+          ? null
+          : MovieCollectionDto.fromJson(
+              json['belongs_to_collection'] as Map<String, dynamic>,
+            ),
       budget: (json['budget'] as num?)?.toInt(),
       genres: (json['genres'] as List<dynamic>?)
           ?.map((e) => GenreDto.fromJson(e as Map<String, dynamic>))
@@ -80,6 +85,7 @@ Map<String, dynamic> _$$MovieDetailDtoImplToJson(
   'id': instance.id,
   'adult': instance.adult,
   'backdrop_path': instance.backdropPath,
+  'belongs_to_collection': instance.collection,
   'budget': instance.budget,
   'genres': instance.genres,
   'homepage': instance.homepage,
@@ -149,4 +155,22 @@ Map<String, dynamic> _$$MovieProductionCompanyDtoImplToJson(
   'name': instance.name,
   'logo_path': instance.logoPath,
   'origin_country': instance.originCountry,
+};
+
+_$MovieCollectionDtoImpl _$$MovieCollectionDtoImplFromJson(
+  Map<String, dynamic> json,
+) => _$MovieCollectionDtoImpl(
+  id: (json['id'] as num?)?.toInt(),
+  name: json['name'] as String?,
+  posterPath: json['poster_path'] as String?,
+  backdropPath: json['backdrop_path'] as String?,
+);
+
+Map<String, dynamic> _$$MovieCollectionDtoImplToJson(
+  _$MovieCollectionDtoImpl instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'poster_path': instance.posterPath,
+  'backdrop_path': instance.backdropPath,
 };
