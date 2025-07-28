@@ -25,13 +25,12 @@ class MovieDetailTitle extends StatelessWidget {
             maxLines: 2,
           ),
           SpacerHeight(6),
-          Row(
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
             children: List.generate(
               movie.genres.length,
-              (index) => Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: GenreTile(genre: movie.genres[index]),
-              ),
+              (index) => GenreTile(genre: movie.genres[index]),
             ),
           ),
         ],
